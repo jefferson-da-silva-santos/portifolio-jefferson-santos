@@ -59,6 +59,12 @@ body {
   border-radius: 50%;
 }
 
+.icon-them-1:hover,
+.icon-idioma:hover {
+  transform: scale(120%);
+  filter: drop-shadow(0px 0px 80px rgba(0, 255, 242, 0.603));
+}
+
 .listNav > li > a {
   text-decoration: none;
   padding: 2px;
@@ -322,6 +328,7 @@ body {
   font-size: 2.5em;
   font-family: "Saira", sans-serif;
   font-weight: 500;
+  margin-left: 10px;
 }
 
 .logoNav {
@@ -332,10 +339,11 @@ body {
 }
 
 .groupSobre-primary p {
-  color: rgb(235, 234, 234);
+  color: #9ca3af;
   font-size: 1.28em;
   line-height: 30px;
   width: 32em;
+  font-weight: 200;
 }
 
 .groupSobre-secundary {
@@ -346,6 +354,7 @@ body {
 }
 
 .minha-img {
+  animation: flutuacaoImagem 2s ease-in-out 0s infinite alternate-reverse;
   width: 85%;
   clip-path: polygon(
     35% 14%,
@@ -356,8 +365,9 @@ body {
     0 38%,
     5% 0
   );
-  filter: brightness(80%) contrast(150%) blur(0px);
+  filter: drop-shadow(0px 0px 80px rgba(0, 255, 242, 0.603));
 }
+
 
 .circle {
   position: absolute;
@@ -366,4 +376,90 @@ body {
   border-radius: 50%;
   background-color: rgb(73, 199, 172);
   filter: blur(40px);
+  animation: flutuacaoImagem 2s ease-in-out 0s infinite alternate-reverse;
+}
+
+.dividir-titulo-linha {
+  display: flex;
+  column-gap: 2px;
+}
+
+.linha {
+  width: 4px;
+  height: 100%;
+  background-image: linear-gradient(to top, #0b0b0b 20%, aqua);
+}
+
+/* Estilos do Skills */
+
+
+.groupSkills {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.skills {
+  display: grid;
+  grid-template-columns: 27em 1fr;
+  grid-template-rows: 27em;
+  width: 90%;
+  margin: auto;
+  max-width: 1024px;
+  padding: 1em;
+}
+
+
+.groupSkills-primary {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+.titleSkills {
+  color: white;
+  font-size: 2.5em;
+  font-family: "Saira", sans-serif;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.linha-secundary {
+  width: 4px;
+  height: 100%;
+  background-image: linear-gradient(to top, #0f0f0f 20%, aqua);
+}
+
+.groupSkills-secundary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  row-gap: 1.3em;
+  column-gap: 1.3em;
+}
+
+.skill-element {
+  background-color: #141414;
+  border-radius: 4px;
+  border: 1px solid #242323;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border .5s ease-in-out;
+}
+
+.skill-element:hover {
+  border: 1px solid #00d8ff;
+}
+
+.skill-element img {
+  width: 40%;
+}
+
+.textSkills {
+  color: #9ca3af;
+  font-size: 1.28em;
+  line-height: 30px;
+  width: 18em;
+  font-weight: 200;
 }
