@@ -27,7 +27,7 @@ body {
   text-decoration: none;
 }
 
-.letraJ {
+.letraMonoton {
   font-family: "Monoton", sans-serif;
   color: rgb(0, 255, 242);
 }
@@ -70,6 +70,38 @@ body {
   width: 1.26em;
 }
 
+.itemsMenu-header {
+  position: relative;
+}
+
+.itemsMenu-header:hover {
+  color: aqua;
+}
+
+.itemsMenu-header:hover::before {
+  position: absolute;
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-image: linear-gradient(to left, white, aqua, #0f0f0f);
+  bottom: 0;
+  left: 0;
+  border-radius: 10px;
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  animation: beforeMenu 0.5s ease-in-out 0s 1 normal forwards;
+}
+
+@keyframes beforeMenu {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
 /* Estilos Header */
 
 .header {
@@ -87,7 +119,7 @@ body {
   justify-content: center;
   align-items: baseline;
   padding: 1rem;
-  row-gap: 0.5em;
+  row-gap: 1em;
 }
 
 .groupHeader-texts h1 {
@@ -117,7 +149,7 @@ body {
   animation-fill-mode: forwards;
 }
 
-.title-secundary-header::after{
+.title-secundary-header::after {
   position: absolute;
   content: "";
   height: 65%;
@@ -126,7 +158,7 @@ body {
   border-left: 2px solid rgb(20, 201, 192);
   box-shadow: 0px 0px 10px rgb(0, 255, 234);
   opacity: 1;
-  animation: cursor .6s infinite;
+  animation: cursor 0.6s infinite;
 }
 
 @keyframes cursor {
@@ -201,9 +233,6 @@ body {
   }
 }
 
-
-
-
 .text2Header {
   font-size: 1em;
   font-family: "Saira", sans-serif;
@@ -231,10 +260,15 @@ body {
   border-radius: 5px;
   background-color: #1d1d1d;
   color: white;
+  transition-property: all;
+  transition-duration: .3s;
+  transition-timing-function: ease-in-out;
 }
 
 .geoupHeader-socialMediaButton:hover {
   color: rgb(0, 255, 242);
+  transform: scale(120%);
+  box-shadow: 0px 0px 10px aqua;
 }
 
 .groupHeader-img {
@@ -246,4 +280,90 @@ body {
 .groupHeader-img img {
   width: 75%;
   filter: drop-shadow(0px 0px 80px rgba(0, 255, 242, 0.603));
+  animation: flutuacaoImagem 2s ease-in-out 0s infinite alternate-reverse;
+}
+
+@keyframes flutuacaoImagem {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Estilos Sobre */
+
+.groupSobre {
+  background-color: #0b0b0b;
+  min-height: 20em;
+}
+
+.sobre {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  min-height: 31em;
+  width: 90%;
+  margin: auto;
+  max-width: 1024px;
+  column-gap: 1em;
+}
+
+.groupSobre-primary {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 2em;
+}
+
+.titleSobre {
+  color: white;
+  font-size: 2.5em;
+  font-family: "Saira", sans-serif;
+  font-weight: 500;
+}
+
+.logoNav {
+  font-weight: 500;
+  font-size: 2em;
+  color: white;
+  text-decoration: none;
+}
+
+.groupSobre-primary p {
+  color: rgb(235, 234, 234);
+  font-size: 1.28em;
+  line-height: 30px;
+  width: 32em;
+}
+
+.groupSobre-secundary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.minha-img {
+  width: 85%;
+  clip-path: polygon(
+    35% 14%,
+    100% 11%,
+    80% 100%,
+    19% 77%,
+    14% 53%,
+    0 38%,
+    5% 0
+  );
+  filter: brightness(80%) contrast(150%) blur(0px);
+}
+
+.circle {
+  position: absolute;
+  width: 15em;
+  height: 15em;
+  border-radius: 50%;
+  background-color: rgb(73, 199, 172);
+  filter: blur(40px);
 }
