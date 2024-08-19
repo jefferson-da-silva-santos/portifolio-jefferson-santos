@@ -2,6 +2,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 
+:root {
+  --color-primary: #0f0f0f;
+  --color-secundary: #0b0b0b;
+  --color-terciary: aqua;
+  --color-texts: #9ca3af;
+
+  --font-primary: "Saira", sans-serif;
+  --font-secundary: "Monoton", sans-serif;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -9,8 +20,8 @@
 }
 
 body {
-  font-family: "Saira", sans-serif;
-  background-color: #0f0f0f;
+  font-family: var(--font-primary);
+  background-color: var(--color-primary);
 }
 
 .groupHeader {
@@ -28,7 +39,7 @@ body {
 }
 
 .letraMonoton {
-  font-family: "Monoton", sans-serif;
+  font-family: var(--font-secundary);
   color: rgb(0, 255, 242);
 }
 
@@ -55,7 +66,7 @@ body {
 }
 
 .icon-theme {
-  color: cyan;
+  color: var(--color-terciary);
   border-radius: 50%;
 }
 
@@ -81,7 +92,7 @@ body {
 }
 
 .itemsMenu-header:hover {
-  color: aqua;
+  color: var(--color-terciary);
 }
 
 .itemsMenu-header:hover::before {
@@ -89,7 +100,7 @@ body {
   content: "";
   width: 0%;
   height: 2px;
-  background-image: linear-gradient(to left, white, aqua, #0f0f0f);
+  background-image: linear-gradient(to left, white, var(--color-terciary), var(--color-primary));
   bottom: 0;
   left: 0;
   border-radius: 10px;
@@ -133,7 +144,7 @@ body {
   font-weight: 600;
   line-height: 50px;
   letter-spacing: -3px;
-  font-family: "Saira", sans-serif;
+  font-family: var(--font-primary);
   color: white;
 }
 
@@ -141,8 +152,8 @@ body {
   position: relative;
   font-size: 2em;
   height: 50px;
-  font-family: "Saira", sans-serif;
-  text-shadow: 0px 0px 15px rgb(0, 255, 234);
+  font-family: var(--font-primary);
+  text-shadow: 0px 0px 15px var(--color-terciary);
   font-weight: 400;
 }
 
@@ -162,7 +173,7 @@ body {
   margin-left: 10px;
   margin-top: 9px;
   border-left: 2px solid rgb(20, 201, 192);
-  box-shadow: 0px 0px 10px rgb(0, 255, 234);
+  box-shadow: 0px 0px 10px var(--color-terciary);
   opacity: 1;
   animation: cursor 0.6s infinite;
 }
@@ -241,7 +252,7 @@ body {
 
 .text2Header {
   font-size: 1em;
-  font-family: "Saira", sans-serif;
+  font-family: var(--font-primary);
 }
 
 .btnHeader {
@@ -272,9 +283,9 @@ body {
 }
 
 .geoupHeader-socialMediaButton:hover {
-  color: rgb(0, 255, 242);
+  color: var(--color-terciary);
   transform: scale(120%);
-  box-shadow: 0px 0px 10px aqua;
+  box-shadow: 0px 0px 10px var(--color-terciary);
 }
 
 .groupHeader-img {
@@ -301,14 +312,14 @@ body {
 /* Estilos Sobre */
 
 .groupSobre {
-  background-color: #0b0b0b;
+  background-color: var(--color-secundary);
   min-height: 20em;
 }
 
 .sobre {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  min-height: 31em;
+  min-height: 34em;
   width: 90%;
   margin: auto;
   max-width: 1024px;
@@ -326,7 +337,7 @@ body {
 .titleSobre {
   color: white;
   font-size: 2.5em;
-  font-family: "Saira", sans-serif;
+  font-family: var(--font-primary);
   font-weight: 500;
   margin-left: 10px;
 }
@@ -339,10 +350,10 @@ body {
 }
 
 .groupSobre-primary p {
-  color: #9ca3af;
+  color: var(--color-texts);
   font-size: 1.28em;
   line-height: 30px;
-  width: 32em;
+  width: 30em;
   font-weight: 200;
 }
 
@@ -357,7 +368,7 @@ body {
   animation: flutuacaoImagem 2s ease-in-out 0s infinite alternate-reverse;
   width: 70%;
   filter: drop-shadow(0px 0px 80px rgba(0, 119, 113, 0.603));
-  animation: chicaracRotate 50s ease 0s infinite normal;
+  animation: chicaracRotate 30s ease 0s infinite normal;
 }
 
 @keyframes chicaracRotate {
@@ -388,7 +399,7 @@ body {
 .linha {
   width: 4px;
   height: 100%;
-  background-image: linear-gradient(to top, #0b0b0b 20%, aqua);
+  background-image: linear-gradient(to top, var(--color-secundary) 20%, var(--color-terciary));
 }
 
 /* Estilos do Skills */
@@ -420,7 +431,7 @@ body {
 .titleSkills {
   color: white;
   font-size: 2.5em;
-  font-family: "Saira", sans-serif;
+  font-family: var(--font-primary);
   font-weight: 500;
   margin-left: 10px;
 }
@@ -428,7 +439,7 @@ body {
 .linha-secundary {
   width: 4px;
   height: 100%;
-  background-image: linear-gradient(to top, #0f0f0f 20%, aqua);
+  background-image: linear-gradient(to top, var(--color-primary) 20%, var(--color-terciary));
 }
 
 .groupSkills-secundary {
@@ -450,7 +461,7 @@ body {
 }
 
 .skill-element:hover {
-  border: 1px solid #00d8ff;
+  border: 1px solid var(--color-terciary);
 }
 
 .skill-element img {
@@ -458,7 +469,7 @@ body {
 }
 
 .textSkills {
-  color: #9ca3af;
+  color: var(--color-texts);
   font-size: 1.28em;
   line-height: 30px;
   width: 21em;
@@ -469,3 +480,56 @@ strong {
   color: white;
   font-weight: 500;
 }
+
+
+/* Estilos dos Projetos */
+
+.groupProjetos {
+  background-color: var(--color-secundary);
+  min-height: 100vh;
+}
+
+.projetos {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 9em 28em;
+  width: 90%;
+  margin: auto;
+  max-width: 1024px;
+  padding: 1em;
+}
+
+.groupProjetos-primary {
+  display: flex;
+  align-items: center;
+}
+
+.groupProjetos-primary .titleProjetos {
+  color: white;
+  font-size: 2.5em;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.select-texts {
+  display: flex;
+}
+
+.select-linhas-projeto-title {
+  display: flex;
+  column-gap: 2px;
+}
+
+.linhas {
+  width: 4px;
+  background-image: linear-gradient(to top, var(--color-secundary) 20%, var(--color-terciary));
+  height: 65px;
+}
+
+.groupProjetos-secundary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
