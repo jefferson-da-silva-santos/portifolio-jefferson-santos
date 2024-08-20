@@ -44,8 +44,11 @@ body {
 }
 
 .groupNav {
-  background-color: #080808;
+  position: fixed;
+  width: 100%;
+  background-color: #080808cb;
   box-shadow: 0px 0px 8px rgb(49, 49, 49);
+  z-index: 1;
 }
 
 .nav {
@@ -122,9 +125,10 @@ body {
 /* Estilos Header */
 
 .header {
+  padding-top: 5em;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  min-height: 31em;
+  min-height: 100vh;
   width: 90%;
   margin: auto;
   max-width: 1024px;
@@ -313,7 +317,10 @@ body {
 
 .groupSobre {
   background-color: var(--color-secundary);
-  min-height: 20em;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  
 }
 
 .sobre {
@@ -409,6 +416,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  padding-top: 4em;
 }
 
 .skills {
@@ -487,12 +495,13 @@ strong {
 .groupProjetos {
   background-color: var(--color-secundary);
   min-height: 100vh;
+  padding: 4em 0 4em 0;
 }
 
 .projetos {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 9em 28em;
+  grid-template-rows: 9em 1fr;
   width: 90%;
   margin: auto;
   max-width: 1024px;
@@ -528,8 +537,201 @@ strong {
 }
 
 .groupProjetos-secundary {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  column-gap: 1em;
+  row-gap: 1em;
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 330px;
+  background-color: #1d1d1d;
+  padding: 1em;
+  text-align: center;
+  border: 1px solid #2e2e2e;
+  row-gap: 5px;
+  border-radius: 5px;
+}
+
+.group-image-project {
+  border-radius: 5px;
+  overflow: hidden;
+  height: 14em;
+  height: 200px;
+}
+
+.image-project {
+  width: 100%;
+}
+
+.title-project {
+  color: white;
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.description-project {
+  color: #5b5b5b;
+  font-size: 1.1em;
+  font-weight: 400;
+}
+
+.btn-project {
+  background-color: #1d1d1d;
+  border: 2px solid #2e2e2e;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  margin-top: 25px;
+  font-weight: 600;
+  gap: .5em;
+  border-radius: 5px;
+}
+
+.group-image-project {
+  height: 200px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.groupProjetos-secundary :nth-child(1) .group-image-project  {
+  background-image: url('../img/projeto-jessica-planilhas.png');
+}
+
+.groupProjetos-secundary :nth-child(2) .group-image-project  {
+  background-image: url('../img/projeto-api-filmes.png');
+}
+
+.groupProjetos-secundary :nth-child(3) .group-image-project  {
+  background-image: url('../img/projeto-login-form.png');
+}
+
+.groupProjetos-secundary :nth-child(4) .group-image-project  {
+  background-image: url('../img/projeto-calculadora.png');
+}
+
+.groupProjetos-secundary :nth-child(5) .group-image-project  {
+  background-image: url('../img/projeto-calculadora-de-imc.png');
+}
+
+.groupProjetos-secundary :nth-child(6) .group-image-project  {
+  background-image: url('../img/projeto-previsao-do-tempo.png');
+}
+
+
+/* Estilos do Contato */
+
+.groupContact {
+  background-color: var(--color-primary);
+  min-height: 100vh;
+}
+
+.contato {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 4em 1fr;
+  width: 90%;
+  margin: auto;
+  max-width: 1024px;
+  padding: 5em 0;
+}
+
+.contato .groupContact-primary {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 2px;
+}
+
+.groupContact-secundary {
+  padding-top: 3em;
+}
+
+.titleContact {
+  color: white;
+  font-size: 2.5em;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.form input {
+  border: 1px solid var(--color-terciary);
+  padding: .7em 5px;
+  background-color: #161616;
+  border-radius: 5px;
+  font-family: var(--font-primary);
+  transition: padding-left .2s ease 0s;
+  color: white;
+}
+
+.form input:focus {
+  padding-left: 1em;
+  outline: none;
+  box-shadow: 0px 0px 8px var(--color-terciary);
+}
+
+textarea {
+  height: 10em;
+  border: 1px solid var(--color-terciary);
+  padding: .7em 5px;
+  background-color: #161616;
+  border-radius: 5px;
+  font-family: var(--font-primary);
+  color: white;
+  outline: none;
+}
+
+textarea:focus {
+  box-shadow: 0px 0px 8px var(--color-terciary); 
+}
+
+.groupContact-terciary {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.circle-2 {
+  position: absolute;
+  width: 15em;
+  height: 25em;
+  background-color: rgba(73, 199, 172, 0.764);
+  filter: blur(40px);
+  animation: flutuacaoImagem 2s ease-in-out 0s infinite alternate-reverse;
+}
+
+.groupContact-terciary img {
+  width: 65%;
+  clip-path: polygon(0 0, 80% 0%, 100% 20%, 81% 81%, 100% 100%, 20% 100%, 0% 80%, 18% 23%);
+  filter: drop-shadow(0px 0px 200px rgba(0, 255, 242, 0.603));
+  animation: flutuacaoImagem 2s ease-in-out 0s infinite alternate-reverse;
+  z-index: 0;
+}
+
+/* Estilos Footer */
+
+.footer {
+  padding: 1em;
+  background-color: #080808cb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 8px rgb(49, 49, 49);
+}

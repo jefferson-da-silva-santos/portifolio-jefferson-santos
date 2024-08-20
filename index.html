@@ -22,11 +22,11 @@
             >&#8249; <span class="letraMonoton">J</span>eff &#8260; &#8250;</a
           >
           <ul class="listNav">
-            <li><a class="itemsMenu-header" href="#">home</a></li>
-            <li><a class="itemsMenu-header" href="#">about</a></li>
-            <li><a class="itemsMenu-header" href="#">skills</a></li>
-            <li><a class="itemsMenu-header" href="#">project</a></li>
-            <li><a class="itemsMenu-header" href="#">contact</a></li>
+            <li><a class="itemsMenu-header" href="#home">home</a></li>
+            <li><a class="itemsMenu-header" href="#about">about</a></li>
+            <li><a class="itemsMenu-header" href="#skills">skills</a></li>
+            <li><a class="itemsMenu-header" href="#project">project</a></li>
+            <li><a class="itemsMenu-header" href="#contact">contact</a></li>
             <li>
               <a href="#">
                 <img class="icon-idioma" src="src/img/eua.png" alt="" />
@@ -40,7 +40,7 @@
           </ul>
         </nav>
       </div>
-      <header class="header">
+      <header class="header" id="home">
         <div class="groupHeader-texts">
           <div class="textsHeader">
             <h1>Jefferson Santos</h1>
@@ -68,7 +68,7 @@
     </div>
 
     <main>
-      <div class="groupSobre">
+      <div class="groupSobre" id="about">
         <section class="sobre">
           <article class="groupSobre-primary">
             <div class="dividir-titulo-linha">
@@ -107,7 +107,7 @@ Concluí um curso técnico em Desenvolvimento de Sistemas (DS) com foco em desen
           </article>
         </section>
       </div>
-      <div class="groupSkills">
+      <div class="groupSkills" id="skills">
         <section class="skills">
           <div class="groupSkills-primary">
             <div class="dividir-titulo-linha">
@@ -162,7 +162,7 @@ Concluí um curso técnico em Desenvolvimento de Sistemas (DS) com foco em desen
           </div>
         </section>
       </div>
-      <div class="groupProjetos">
+      <div class="groupProjetos" id="project">
         <section class="projetos">
           <article class="groupProjetos-primary">
             <div class="select-linhas-projeto-title">
@@ -171,15 +171,104 @@ Concluí um curso técnico em Desenvolvimento de Sistemas (DS) com foco em desen
               <div class="linhas"></div>
             </div>
             <h2 class="titleProjetos">
-              &#8249; <span class="letraMonoton">P</span>rojects &#8260;
-              &#8250;
+              &#8249; <span class="letraMonoton">P</span>rojects &#8260; &#8250;
             </h2>
           </article>
           <article class="groupProjetos-secundary">
-            
+            <div class="card-item">
+              <div class="group-image-project"></div>
+              <h2 class="title-project">Jessica Spreadsheets</h2>
+              <p class="description-project">
+                Stack: HTML5 | CSS | Bootstrap | JavaScript | SEO
+              </p>
+              <a class="btn-project"
+                >Ver projeto <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
+
+            <div class="card-item">
+              <div class="group-image-project"></div>
+              <h2 class="title-project">API Movies</h2>
+              <p class="description-project">
+                Stack: HTML5 | CSS | Bootstrap | JavaScript | SEO
+              </p>
+              <a class="btn-project"
+                >Ver projeto <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
+
+            <div class="card-item">
+              <div class="group-image-project"></div>
+              <h2 class="title-project">Login Form</h2>
+              <p class="description-project">
+                Stack: HTML5 | CSS | Bootstrap | JavaScript | SEO
+              </p>
+              <a class="btn-project"
+                >Ver projeto <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
+
+            <div class="card-item">
+              <div class="group-image-project"></div>
+              <h2 class="title-project">Login Form</h2>
+              <p class="description-project">
+                Stack: HTML5 | CSS | Bootstrap | JavaScript | SEO
+              </p>
+              <a class="btn-project"
+                >Ver projeto <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
+
+            <div class="card-item">
+              <div class="group-image-project"></div>
+              <h2 class="title-project">Login Form</h2>
+              <p class="description-project">
+                Stack: HTML5 | CSS | Bootstrap | JavaScript | SEO
+              </p>
+              <a class="btn-project"
+                >Ver projeto <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
+
+            <div class="card-item">
+              <div class="group-image-project"></div>
+              <h2 class="title-project">Login Form</h2>
+              <p class="description-project">
+                Stack: HTML5 | CSS | Bootstrap | JavaScript | SEO
+              </p>
+              <a class="btn-project"
+                >Ver projeto <i class="bi bi-box-arrow-up-right"></i
+              ></a>
+            </div>
           </article>
         </section>
       </div>
+      <div class="groupContact">
+        <section class="contato" id="contact">
+          <div class="groupContact-primary">
+            <div class="linha-secundary"></div>
+              <div class="linha-secundary"></div>
+              <div class="linha-secundary"></div>
+            <h2 class="titleContact"> &#8249; <span class="letraMonoton">C</span>ontact &#8260; &#8250;</h2>
+          </div>
+          <div class="groupContact-secundary">
+            <form class="form" action="">
+              <input type="text" name="nome" id="nome" placeholder="Insira seu nome e sobrenome">
+              <input type="email" name="email" id="email" placeholder="Insira seu email">
+              <input type="text" name="assunto" id="assunto" placeholder="Assunto da mensagem">
+              <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem..."></textarea>
+              <input type="submit" value="Enviar" id="enviar">
+            </form>
+          </div>
+          <div class="groupContact-terciary">
+            <div class="circle-2"></div>
+            <img src="src/img/jefferson2.jpg" alt="">
+          </div>
+        </section>
+      </div>
     </main>
+    <footer class="footer">
+      <p>@ 2024 | Jefferson Santos </p>
+    </footer>
   </body>
 </html>
