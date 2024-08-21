@@ -26,6 +26,7 @@
             <li><a class="itemsMenu-header" href="#about">about</a></li>
             <li><a class="itemsMenu-header" href="#skills">skills</a></li>
             <li><a class="itemsMenu-header" href="#project">project</a></li>
+            <li><a class="itemsMenu-header" href="#service">service</a></li>
             <li><a class="itemsMenu-header" href="#contact">contact</a></li>
             <li>
               <a href="#">
@@ -103,7 +104,7 @@ Concluí um curso técnico em Desenvolvimento de Sistemas (DS) com foco em desen
           </article>
           <article class="groupSobre-secundary">
             <div class="circle"></div>
-            <img class="minha-img" src="src/img/cafe.png" alt="" />
+            <img class="minha-img" src="src/img/cafe_semfundo.png" alt="" />
           </article>
         </section>
       </div>
@@ -243,6 +244,58 @@ Concluí um curso técnico em Desenvolvimento de Sistemas (DS) com foco em desen
           </article>
         </section>
       </div>
+    
+      
+      <div class="groupService" id="service">
+        <section class="service">
+          <div class="groupService-primary">
+            <div class="linha-secundary"></div>
+              <div class="linha-secundary"></div>
+              <div class="linha-secundary"></div>
+            <h2 class="titleService">
+              &#8249; <span class="letraMonoton">S</span>ervices &#8260; &#8250;
+            </h2>
+          </div>
+          <div class="groupService-secundary">
+
+            <div class="card-service">
+              <div class="circle-externo-servico">
+                <div class="circle-interno-servico">
+                  <img src="src/img/code-icom.svg" alt="">
+                </div>
+              </div>
+
+              <h3 class="title-card-service">Website Creation</h3>
+              <p class="description-card-service">Creation of personalized websites, whether personal or for various business sectors</p>
+            </div>
+
+            <div class="card-service">
+              <div class="circle-externo-servico">
+                <div class="circle-interno-servico">
+                  <img src="src/img/mobile-icon.svg" alt="">
+                </div>
+              </div>
+
+              <h3 class="title-card-service">Responsive websites</h3>
+              <p class="description-card-service">All websites are responsive, to further improve the user experience on any device.</p>
+            </div>
+
+            <div class="card-service">
+              <div class="circle-externo-servico">
+                <div class="circle-interno-servico">
+                  <img src="src/img/api-icon.svg" alt="">
+                </div>
+              </div>
+
+              <h3 class="title-card-service">Creating APIs</h3>
+              <p class="description-card-service">Creation of secure Rest APIs, and integration with external databases experience.</p>
+            </div>
+
+          </div>
+        </section>
+      </div>
+
+
       <div class="groupContact">
         <section class="contato" id="contact">
           <div class="groupContact-primary">
@@ -253,10 +306,10 @@ Concluí um curso técnico em Desenvolvimento de Sistemas (DS) com foco em desen
           </div>
           <div class="groupContact-secundary">
             <form class="form" action="">
-              <input type="text" name="nome" id="nome" placeholder="Insira seu nome e sobrenome">
-              <input type="email" name="email" id="email" placeholder="Insira seu email">
-              <input type="text" name="assunto" id="assunto" placeholder="Assunto da mensagem">
-              <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem..."></textarea>
+              <input type="text" name="nome" id="nome" placeholder="Insira seu nome e sobrenome" required min="3" max="50">
+              <input type="email" name="email" id="email" placeholder="Insira seu email" required>
+              <input type="text" name="assunto" id="assunto" placeholder="Assunto da mensagem" required>
+              <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem..." required></textarea>
               <input type="submit" value="Enviar" id="enviar">
             </form>
           </div>

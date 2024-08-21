@@ -5,7 +5,7 @@
 :root {
   --color-primary: #0f0f0f;
   --color-secundary: #0b0b0b;
-  --color-terciary: aqua;
+  --color-terciary: #00ffff;
   --color-texts: #9ca3af;
 
   --font-primary: "Saira", sans-serif;
@@ -373,7 +373,7 @@ body {
 
 .minha-img {
   animation: flutuacaoImagem 2s ease-in-out 0s infinite alternate-reverse;
-  width: 70%;
+  width: 90%;
   filter: drop-shadow(0px 0px 80px rgba(0, 119, 113, 0.603));
   animation: chicaracRotate 30s ease 0s infinite normal;
 }
@@ -496,6 +496,7 @@ strong {
   background-color: var(--color-secundary);
   min-height: 100vh;
   padding: 4em 0 4em 0;
+  display: flex;
 }
 
 .projetos {
@@ -565,8 +566,9 @@ strong {
 }
 
 .image-project {
-  width: 100%;
+  width: 90%;
 }
+
 
 .title-project {
   color: white;
@@ -594,6 +596,13 @@ strong {
   font-weight: 600;
   gap: .5em;
   border-radius: 5px;
+  transition: .5s ease;
+  cursor: pointer;
+}
+
+.btn-project:hover {
+  background-color: #2e2e2e;
+  font-weight: 800;
 }
 
 .group-image-project {
@@ -629,12 +638,111 @@ strong {
 }
 
 
+/* Estilos do Serviço */
+
+.groupService {
+  background-color: var(--color-primary);
+  min-height: 100vh;
+  padding-top: 5em;
+  display: flex;
+}
+
+.service {
+  width: 90%;
+  margin: auto;
+  max-width: 1024px;
+  padding: 1em;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 4em 1fr;
+}
+
+.groupService-primary {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.groupService-secundary {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 2em;
+  padding: 2.5em 0;
+}
+
+.card-service {
+  text-align: center;
+  height: 24em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  background-color: #141414;
+  border-radius: 5px;
+  border: 1px solid #1e1d1d;
+  padding: 2em;
+  transition: border 1s ease;
+}
+
+.card-service:hover {
+  border: 1px solid var(--color-terciary);
+}
+
+.circle-externo-servico {
+  width: 11em;
+  height: 11em;
+  border-radius: 50%;
+  background-image: linear-gradient(to bottom right, #00ffff, #155558, #00ffff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-interno-servico {
+  width: 10em;
+  height: 10em;
+  background-color: #0f0f0f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-interno-servico img{
+  width: 50%;
+}
+
+.titleService {
+  font-size: 2.5em;
+  font-family: var(--font-primary);
+  font-weight: 500;
+  margin-left: 10px;
+  color: white;
+}
+
+.title-card-service {
+  color: white;
+  font-size: 1.3em;
+  font-weight: 500;
+}
+
+.description-card-service {
+  color: var(--color-texts);
+}
+ 
+.description-card-service {
+  font-size: 0.9em;
+}
+
 /* Estilos do Contato */
 
 .groupContact {
-  background-color: var(--color-primary);
+  background-color: var(--color-secundary);
   min-height: 100vh;
+  display: flex;
 }
+
 
 .contato {
   display: grid;
