@@ -1,0 +1,339 @@
+:root {
+  --color-primary: #0f0f0f;
+  --color-secundary: #0b0b0b;
+  --color-terciary: #00ffff;
+  --color-texts: #9ca3af;
+
+  --font-primary: "Saira", sans-serif;
+  --font-secundary: "Monoton", sans-serif;
+}
+
+@media screen and (max-width: 896px) {
+  /* Estilos do Nav */
+  .listNav {
+    display: none;
+    position: absolute;
+    flex-direction: column-reverse;
+    background-color: var(--color-secundary);
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    z-index: -1;
+  }
+
+  .select-menu-humburguer {
+    display: flex;
+  }
+
+  .listNav > li {
+    padding: 1em;
+    width: 100%;
+    text-align: center;
+  }
+
+  .listNav > li:hover {
+    background-color: var(--color-primary);
+  }
+
+  .listNav > li > a {
+    font-size: 1.5em;
+  }
+
+  /* Estilos do Header */
+
+  .header {
+    grid-template-columns: 1fr;
+  }
+
+  .groupHeader-texts {
+    text-align: center;
+    align-items: center;
+  }
+
+  .groupHeader-img {
+    display: none;
+  }
+
+  .groupHeader-img img {
+    display: none;
+  }
+
+  /* Estilos do Sobre */
+
+  .sobre {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .groupSobre-primary {
+    align-items: center;
+  }
+
+  .dividir-titulo-linha {
+    justify-content: center;
+  }
+  .groupSobre-secundary {
+    display: none;
+  }
+
+  .groupSobre-primary p {
+    width: 80%;
+  }
+
+  /* Estilos Skills */
+
+  .skills {
+    grid-template-columns: 1fr;
+    grid-template-rows: 8em 2fr;
+  }
+
+  .textSkills {
+    display: none;
+  }
+
+  .skill-element {
+    height: 10em;
+    padding: 1em;
+  }
+
+  /* Estilos dos Projetos */
+
+  .groupProjetos-primary {
+    justify-content: center;
+  }
+
+  .groupProjetos-secundary {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  /* Estilos do Serviço */
+
+  .groupService-primary {
+    justify-content: center;
+  }
+
+  .groupService-secundary {
+    margin: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 2em;
+    width: 80%;
+  }
+
+  .description-card-service {
+    width: 25em;
+  }
+
+  /* Estilos do Contato */
+
+  .contato {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4em 1fr;
+  }
+
+  .contato .groupContact-primary {
+    justify-content: center;
+  }
+
+  .groupContact-terciary {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  /* Estilos das Skills */
+
+  .groupSkills-secundary {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    padding-bottom: 1em;
+  }
+
+  /* Estilos do Projetos */
+
+  .groupProjetos-secundary {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    row-gap: 2em;
+  }
+
+  .card-item {
+    margin: auto;
+    width: 25em;
+  }
+}
+
+@media screen and (max-width: 545px) {
+  /* Estilos do Header */
+  .groupHeader-texts h1 {
+    font-size: 3em;
+    width: 100%;
+  }
+
+  .title-secundary-header {
+    font-size: 1.5em;
+  }
+
+  /* Estilos do Sobre */
+
+  .titleSobre {
+    font-size: 2em;
+  }
+
+  .groupSobre-primary p {
+    font-size: 1.15em;
+  }
+
+  /* Estilos do Skills */
+
+  .titleSkills {
+    font-size: 2em;
+  }
+
+  .groupSkills-secundary {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    padding-bottom: 1em;
+  }
+
+  .skill-element img {
+    width: 4em;
+  }
+
+  /* Estilos do Projetos */
+
+  .groupProjetos-primary .titleProjetos {
+    font-size: 2em;
+  }
+
+  .linhas {
+    height: 53px;
+  }
+
+  /* Estilos Serviço */
+
+  .titleService {
+    font-size: 2em;
+  }
+
+  .title-card-service {
+    font-size: 1.2em;
+  }
+
+  .card-item {
+    row-gap: 13px;
+  }
+
+  .linha-secundary {
+    height: 80%;
+  }
+
+  .card-service {
+    width: 100%;
+  }
+
+  .groupService-secundary {
+    width: 100%;
+  }
+
+  .description-card-service {
+    width: 90%;
+  }
+
+  /* Estilos Contato */
+
+  .titleContact {
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Estilos Header */
+
+  .groupHeader-texts h1 {
+    font-size: 2.5em;
+  }
+
+  .title-secundary-header {
+    font-size: 1.25em;
+  }
+
+  /* Estilo projetos */
+  .card-item {
+    margin: auto;
+    width: 100%;
+  }
+
+  /* Estilo do Sobre */
+
+  .groupSobre-primary p {
+    font-size: 1em;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  /* Estilos Header */
+
+  .groupHeader-texts h1 {
+    font-size: 2.3em;
+  }
+
+  .title-secundary-header {
+    font-size: 1.15em;
+  }
+
+  /* Estilos do Sobre */
+
+  .groupSobre {
+    padding-top: 2em;
+  }
+
+  .titleSobre {
+    font-size: 1.6em;
+  }
+
+  .groupSobre-primary p {
+    font-size: 1.05em;
+  }
+
+  /* Estilos do Skills */
+
+  .titleSkills {
+    font-size: 1.6em;
+  }
+
+  .skill-element img {
+    width: 3.2em;
+  }
+
+  /* Estilos do Projetos */
+
+  .groupProjetos-primary .titleProjetos {
+    font-size: 1.6em;
+  }
+
+  .linhas {
+    height: 53px;
+  }
+
+  /* Estilos Serviço */
+
+  .titleService {
+    font-size: 1.6em;
+  }
+
+  .card-service {
+    height: 25em;
+  }
+
+  /* Estilos Contato */
+
+  .titleContact {
+    font-size: 1.6em;
+  }
+}
