@@ -129,6 +129,7 @@ body {
   display: none;
   flex-direction: column;
   gap: 5px;
+  cursor: pointer;
 }
 
 .linha-menu-humburguer {
@@ -628,13 +629,11 @@ strong {
   width: 100%;
   transition: all 1s ease;
   background-repeat: no-repeat;
-  background-size: 110%;
+  background-size: 115%;
   background-position: center center;
 }
 
-.group-image-project:hover {
-  background-size: 130%;
-}
+
 
 .groupProjetos-secundary :nth-child(1) .group-image-project  {
   background-image: url('../img/projeto-jessica-planilhas.png');

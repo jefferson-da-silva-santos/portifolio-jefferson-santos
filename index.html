@@ -12,7 +12,7 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="src/css/styles.css" />
-    <link rel="stylesheet" href="src/css/media-styles.css">
+    <link rel="stylesheet" href="src/css/media-styles.css" />
     <title>Jefferson Santos</title>
   </head>
   <body>
@@ -22,7 +22,7 @@
           <a class="logoNav" href=""
             >&#8249; <span class="letraMonoton">J</span>eff &#8260; &#8250;</a
           >
-          <ul class="listNav">
+          <ul class="listNav" id="lista-menus">
             <li><a class="itemsMenu-header" href="#home">home</a></li>
             <li><a class="itemsMenu-header" href="#about">about</a></li>
             <li><a class="itemsMenu-header" href="#skills">skills</a></li>
@@ -40,7 +40,7 @@
               </a>
             </li>
           </ul>
-          <div class="select-menu-humburguer">
+          <div class="select-menu-humburguer" id="menu">
             <div class="linha-menu-humburguer"></div>
             <div class="linha-menu-humburguer"></div>
             <div class="linha-menu-humburguer"></div>
@@ -125,45 +125,46 @@ Concluí um curso técnico em Desenvolvimento de Sistemas (DS) com foco em desen
                 &#8249; <span class="letraMonoton">S</span>kills &#8260; &#8250;
               </h2>
             </div>
-            <p class="textSkills">
+            <p class="textSkills" id="description-skills">
               *Hover your mouse over the skills to check their descriptions*
             </p>
+
           </div>
-          <div class="groupSkills-secundary">
+          <div class="groupSkills-secundary html">
             <article class="skill-element">
               <img src="src/img/html-5.png" alt="" />
             </article>
-            <article class="skill-element">
+            <article class="skill-element css">
               <img src="src/img/css-3.png" alt="" />
             </article>
-            <article class="skill-element">
+            <article class="skill-element javascript">
               <img src="src/img/logotipo-do-java-script.png" alt="" />
             </article>
-            <article class="skill-element">
+            <article class="skill-element nodejs">
               <img src="src/img/nodejs.png" alt="" />
             </article>
-            <article class="skill-element">
+            <article class="skill-element react">
               <img src="src/img/biblioteca.png" alt="" />
             </article>
-            <article class="skill-element">
+            <article class="skill-element bootstrap">
               <img src="src/img/bootstrap.png" alt="" />
             </article>
-            <article class="skill-element">
+            <article class="skill-element taiwind">
               <img src="src/img/tailwind-css-svgrepo-com.svg" alt="" />
             </article>
-            <article class="skill-element">
+            <article class="skill-element sql">
               <img src="src/img/servidor-sql.png" alt="" />
             </article>
-            <article class="skill-element">
+            <article class="skill-element mysql">
               <img src="src/img/mysql.png" alt="" />
             </article>
-            <article class="skill-element">
+            <article class="skill-element postgre">
               <img src="src/img/postgre.png" alt="" />
             </article>
-            <article class="skill-element">
+            <article class="skill-element java">
               <img src="src/img/java.png" alt="" />
             </article>
-            <article class="skill-element">
+            <article class="skill-element git">
               <img src="src/img/confirmar-git.png" alt="" />
             </article>
           </div>
@@ -250,84 +251,117 @@ Concluí um curso técnico em Desenvolvimento de Sistemas (DS) com foco em desen
           </article>
         </section>
       </div>
-    
-      
+
       <div class="groupService" id="service">
         <section class="service">
           <div class="groupService-primary">
             <div class="linha-secundary"></div>
-              <div class="linha-secundary"></div>
-              <div class="linha-secundary"></div>
+            <div class="linha-secundary"></div>
+            <div class="linha-secundary"></div>
             <h2 class="titleService">
               &#8249; <span class="letraMonoton">S</span>ervices &#8260; &#8250;
             </h2>
           </div>
           <div class="groupService-secundary">
-
             <div class="card-service">
               <div class="circle-externo-servico">
                 <div class="circle-interno-servico">
-                  <img src="src/img/code-icom.svg" alt="">
+                  <img src="src/img/code-icom.svg" alt="" />
                 </div>
               </div>
 
               <h3 class="title-card-service">Website Creation</h3>
-              <p class="description-card-service">Creation of personalized websites, whether personal or for various business sectors</p>
+              <p class="description-card-service">
+                Creation of personalized websites, whether personal or for
+                various business sectors
+              </p>
             </div>
 
             <div class="card-service">
               <div class="circle-externo-servico">
                 <div class="circle-interno-servico">
-                  <img src="src/img/mobile-icon.svg" alt="">
+                  <img src="src/img/mobile-icon.svg" alt="" />
                 </div>
               </div>
 
               <h3 class="title-card-service">Responsive websites</h3>
-              <p class="description-card-service">All websites are responsive, to further improve the user experience on any device.</p>
+              <p class="description-card-service">
+                All websites are responsive, to further improve the user
+                experience on any device.
+              </p>
             </div>
 
             <div class="card-service">
               <div class="circle-externo-servico">
                 <div class="circle-interno-servico">
-                  <img src="src/img/api-icon.svg" alt="">
+                  <img src="src/img/api-icon.svg" alt="" />
                 </div>
               </div>
 
               <h3 class="title-card-service">Creating APIs</h3>
-              <p class="description-card-service">Creation of secure Rest APIs, and integration with external databases experience.</p>
+              <p class="description-card-service">
+                Creation of secure Rest APIs, and integration with external
+                databases experience.
+              </p>
             </div>
-
           </div>
         </section>
       </div>
-
 
       <div class="groupContact">
         <section class="contato" id="contact">
           <div class="groupContact-primary">
             <div class="linha-secundary"></div>
-              <div class="linha-secundary"></div>
-              <div class="linha-secundary"></div>
-            <h2 class="titleContact"> &#8249; <span class="letraMonoton">C</span>ontact &#8260; &#8250;</h2>
+            <div class="linha-secundary"></div>
+            <div class="linha-secundary"></div>
+            <h2 class="titleContact">
+              &#8249; <span class="letraMonoton">C</span>ontact &#8260; &#8250;
+            </h2>
           </div>
           <div class="groupContact-secundary">
             <form class="form" action="">
-              <input type="text" name="nome" id="nome" placeholder="Insira seu nome e sobrenome" required min="3" max="50">
-              <input type="email" name="email" id="email" placeholder="Insira seu email" required>
-              <input type="text" name="assunto" id="assunto" placeholder="Assunto da mensagem" required>
-              <textarea name="mensagem" id="mensagem" placeholder="Sua mensagem..." required></textarea>
-              <input type="submit" value="Enviar" id="enviar">
+              <input
+                type="text"
+                name="nome"
+                id="nome"
+                placeholder="Insira seu nome e sobrenome"
+                required
+                min="3"
+                max="50"
+              />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Insira seu email"
+                required
+              />
+              <input
+                type="text"
+                name="assunto"
+                id="assunto"
+                placeholder="Assunto da mensagem"
+                required
+              />
+              <textarea
+                name="mensagem"
+                id="mensagem"
+                placeholder="Sua mensagem..."
+                required
+              ></textarea>
+              <input type="submit" value="Enviar" id="enviar" />
             </form>
           </div>
           <div class="groupContact-terciary">
             <div class="circle-2"></div>
-            <img src="src/img/jefferson2.jpg" alt="">
+            <img src="src/img/jefferson2.jpg" alt="" />
           </div>
         </section>
       </div>
     </main>
     <footer class="footer">
-      <p>@ 2024 | Jefferson Santos </p>
+      <p>@ 2024 | Jefferson Santos</p>
     </footer>
+    <script src="src/js/script.js"></script>
   </body>
 </html>

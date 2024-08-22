@@ -11,9 +11,10 @@
 @media screen and (max-width: 896px) {
   /* Estilos do Nav */
   .listNav {
-    display: none;
+    visibility: hidden;
+    cursor: pointer;
     position: absolute;
-    flex-direction: column-reverse;
+    flex-direction: column;
     background-color: var(--color-secundary);
     left: 0;
     top: 0;
@@ -28,7 +29,7 @@
   }
 
   .listNav > li {
-    padding: 1em;
+    padding: .6em;
     width: 100%;
     text-align: center;
   }
@@ -38,7 +39,7 @@
   }
 
   .listNav > li > a {
-    font-size: 1.5em;
+    font-size: 1.1em;
   }
 
   /* Estilos do Header */
@@ -252,6 +253,13 @@
 }
 
 @media screen and (max-width: 480px) {
+  /* Estilo do Nav */
+
+  .listNav > li {
+    padding: .5em;
+  }
+
+
   /* Estilos Header */
 
   .groupHeader-texts h1 {
@@ -277,6 +285,17 @@
 }
 
 @media screen and (max-width: 340px) {
+
+  /* Nav */
+
+  .listNav > li {
+    padding: .2em;
+  }
+
+  .listNav > li > a{
+    font-size: 1.2em;
+  }
+
   /* Estilos Header */
 
   .groupHeader-texts h1 {
