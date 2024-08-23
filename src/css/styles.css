@@ -480,12 +480,7 @@ body {
   font-weight: 200;
 }
 
-.textSobre strong.strong-light-theme {
-  color: rgb(59, 59, 59);
-  font-weight: 500;
-}
-
-.textSobre strong {
+strong {
   color: rgb(212, 212, 212);
   font-weight: 500;
 }
@@ -848,3 +843,4 @@ textarea:focus {
   justify-content: center;
   box-shadow: 0px 0px 8px rgb(49, 49, 49);
 }
+

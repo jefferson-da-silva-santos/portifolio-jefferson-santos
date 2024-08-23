@@ -6,12 +6,7 @@
     content: "";
     width: 0%;
     height: 2px;
-    background-image: linear-gradient(
-      to left,
-      white,
-      var(--color-terciary),
-      var(--color-primary)
-    );
+    background-image: linear-gradient( to left, white, #00ffff, #0f0f0f);
     bottom: 0;
     left: 0;
     border-radius: 10px;

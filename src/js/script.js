@@ -37,7 +37,7 @@ const descriptionSkills = {
   },
   postgre: {
     en: `I use <strong>PostgreSQL</strong> to work with <strong>relational databases</strong>, taking advantage of its robustness and extensibility. I value creating complex data structures and using advanced SQL queries to perform sophisticated operations and gain detailed <strong>insights</strong>. I leverage PostgreSQL features such as custom data types, advanced indexes, and <strong>ACID</strong> transaction support to ensure data integrity and performance.`,
-    pt: `tilizo <strong>PostgreSQL</strong> para trabalhar com <strong>bancos de dados relacionais</strong>, aproveitando sua robustez e extensibilidade. Valorizo a criação de estruturas de dados complexas e o uso de consultas SQL avançadas para realizar operações sofisticadas e obter <strong>insights</strong> detalhados. Aproveito as funcionalidades do PostgreSQL, como tipos de dados personalizados, índices avançados e suporte a transações ACID, para garantir a integridade e a performance dos dados.`
+    pt: `Utilizo <strong>PostgreSQL</strong> para trabalhar com <strong>bancos de dados relacionais</strong>, aproveitando sua robustez e extensibilidade. Valorizo a criação de estruturas de dados complexas e o uso de consultas SQL avançadas para realizar operações sofisticadas e obter <strong>insights</strong> detalhados. Aproveito as funcionalidades do PostgreSQL, como tipos de dados personalizados, índices avançados e suporte a transações ACID, para garantir a integridade e a performance dos dados.`
   },
   java: {
     en: `Currently, I'm learning how to use <strong>Java</strong> with the <strong>Spring Framework</strong> to develop the <strong>backend</strong> of my applications. My focus is on creating efficient and scalable <strong>RESTful APIs</strong>, using <strong>Spring Boot</strong> to structure the server in an organized and modular way. I seek to apply good coding practices to ensure code <strong>maintainability</strong> and <strong>security</strong>. I am dedicating myself to implementing robust functionalities, such as <strong>authentication</strong>, data <strong>validation</strong> and <strong>route</strong> <strong>manipulation</strong>, etc.`,
@@ -66,13 +66,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const userLanguage = localStorage.getItem('language') || navigator.language;
 
-  btnTheme.addEventListener('click', () => {
+  btnTheme.addEventListener('click', (event) => {
+    event.preventDefault();
     if (themaEscuro) {
       themeLight();
       themaEscuro = !themaEscuro;
+      if (window.innerWidth <= 896) {
+        closedMenu(listaMenus);
+        menuVisible = !menuVisible;
+      }
     } else {
       themeDark();
       themaEscuro = !themaEscuro;
+      if (window.innerWidth <= 896) {
+        closedMenu(listaMenus);
+        menuVisible = !menuVisible;
+      }
     }
   })
 
@@ -104,9 +113,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lenguageEnglis) {
       portugues();
       lenguageEnglis = !lenguageEnglis;
+      if (window.innerWidth <= 896) {
+        closedMenu(listaMenus);
+        menuVisible = !menuVisible;
+      }
     } else {
       englis();
       lenguageEnglis = !lenguageEnglis;
+      if (window.innerWidth <= 896) {
+        closedMenu(listaMenus);
+        menuVisible = !menuVisible;
+      }
     }
   })
 
@@ -209,7 +226,7 @@ function portugues() {
   document.querySelector('.titleSobre').innerHTML = '&#8249; <span class="letraMonoton">S</span>obre &#8260; &#8250';
 
 
-  const textsSobreArray = ['Meu nome é <strong>Jefferson Santos</strong>, e sou um entusiasta de tecnologia que decidiu seguir a carreira de programação. Nos últimos <strong>quatro anos</strong>, tenho me dedicado a compreender as principais tecnologias do mercado e a aplicar <strong>metodologias ágeis de desenvolvimento</strong>.', 'Concluí um curso técnico em <strong>Desenvolvimento de Sistemas (DS)</strong> com foco em <strong>desenvolvimento Full Stack</strong>. Desde então, trabalhei em projetos como freelancer e contribuí para projetos de código aberto, aprimorando continuamente minhas habilidades e experiência na área.'];
+  const textsSobreArray = ['Meu nome é <strong>Jefferson Santos</strong>, e sou um entusiasta de tecnologia que decidiu seguir a carreira de programação. Nos últimos <strong>quatro anos</strong>, tenho me dedicado a compreender as principais tecnologias do mercado e a aplicar <strong>metodologias ágeis de desenvolvimento</strong>.', 'Concluí um curso técnico em <strong>Desenvolvimento de Sistemas (DS)</strong> com foco em <strong>desenvolvimento Full Stack</strong>. Desde então, trabalhei em projetos como freelancer e contribuí para projetos de código aberto, aprimorando continuamente minhas habilidades e experiência na área. (Eu amo café)'];
 
   const arrayTextSobre = document.querySelectorAll('.textSobre');
   arrayTextSobre.forEach((element, index) => {
@@ -335,54 +352,65 @@ function englis() {
 }
 
 function themeLight() {
-  document.querySelector('.icon-theme').setAttribute('src', 'src/img/modo-claro.png')
-  // Body
-  document.body.style.backgroundColor = '#f7f7f7';
+  document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-claro.png');
 
-  // Navegação
+  document.querySelector('.listNav').style.backgroundColor = 'white';
+
+  document.body.style.backgroundColor = '#f7f7f7';
   document.querySelector('.logoNav').style.color = 'rgb(49, 49, 49)';
   document.querySelector('.groupNav').style.backgroundColor = '#ffffffed';
-  document.querySelectorAll('.listNav > li > a').forEach(element => {
+  document.querySelectorAll('.itemsMenu-header').forEach(element => {
     element.style.color = 'rgb(49, 49, 49)';
+    element.addEventListener('mouseover', () => {
+      element.style.color = '#00ffff';
+    }); 
+    element.addEventListener('mouseout', () => {
+      element.style.color = 'rgb(49, 49, 49)';
+    });    
   });
   document.querySelectorAll('.linha-menu-humburguer').forEach(element => {
     element.style.backgroundColor = 'rgb(49, 49, 49)';
   });
-
-  // Header
   document.querySelector('.groupHeader-texts h1').style.color = 'rgb(49, 49, 49)';
-
   document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
-    element.style.backgroundColor = 'rgb(255, 255, 255)';
-  })
-
-  document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
+    element.style.backgroundColor = 'white';
     element.style.boxShadow = '0px 0px 10px rgba(128, 128, 128, 0.575)';
-  })
-
-  document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
     element.style.color = 'rgb(49, 49, 49)';
-  })
 
-  // Seção Sobre
+    element.addEventListener('mouseover', () => {
+      element.style.color = '#00ffff';
+      element.style.boxShadow = '0px 0px 10px #00ffff';
+    });
+    element.addEventListener('mouseout', () => {
+      element.style.color = 'rgb(49, 49, 49)';
+      element.style.boxShadow = '0px 0px 10px rgba(128, 128, 128, 0.575)';
+    });
+  });
   document.querySelector('.titleSobre').style.color = 'rgb(49, 49, 49)';
+  document.querySelector('.logoNav').style.color = 'rgb(49, 49, 49)';
+  document.querySelector('.groupSobre').style.backgroundColor = '#ffffff';
+  document.querySelector('.groupSobre-primary').style.color = '#1d1d1d';
   document.querySelectorAll('.textSobre').forEach(element => {
     element.style.color = '#1d1d1d';
-  });
-
-  document.querySelector('.groupSobre').style.backgroundColor = '#ffffff';
-
-  // Seção Skills
+  })
   document.querySelector('.titleSkills').style.color = 'rgb(49, 49, 49)';
   document.querySelectorAll('.skill-element').forEach(element => {
-    element.style.backgroundColor = '#ffffff';
+    element.style.backgroundColor = 'white';
     element.style.border = '1px solid #e4e4e4';
+
+    element.addEventListener('mouseover', () => {
+      element.style.border = '1px solid #00ffff';
+    });
+    element.addEventListener('mouseout', () => {
+      element.style.border = '1px solid #e4e4e4';
+    })
   });
   document.querySelector('.textSkills').style.color = '#1d1d1d';
-
-  // Seção Projetos
-  document.querySelector('.groupProjetos').style.backgroundColor = '#ffffff';
-  document.querySelector('.groupProjetos-primary .titleProjetos').style.color = 'rgb(49, 49, 49)';
+  document.querySelectorAll('strong').forEach(element => {
+    element.style.color = 'rgb(59, 59, 59)';
+  });
+  document.querySelector('.groupProjetos').style.backgroundColor = 'white';
+  document.querySelector('.titleProjetos').style.color = 'rgb(49, 49, 49)';
   document.querySelectorAll('.card-item').forEach(element => {
     element.style.backgroundColor = '#f3f3f3';
     element.style.border = '1px solid #e2e2e2';
@@ -394,123 +422,131 @@ function themeLight() {
     element.style.color = '#5b5b5b';
   });
   document.querySelectorAll('.btn-project').forEach(element => {
-    element.style.backgroundColor = '#ffffff';
+    element.style.backgroundColor = 'white';
     element.style.border = '2px solid #e9e9e9';
     element.style.color = 'rgb(49, 49, 49)';
+
     element.addEventListener('mouseover', () => {
       element.style.backgroundColor = '#747474';
       element.style.color = 'white';
     });
+
     element.addEventListener('mouseout', () => {
-      element.style.backgroundColor = '#ffffff';
+      element.style.backgroundColor = 'white';
       element.style.color = 'rgb(49, 49, 49)';
     });
   });
-
-  // Seção Serviços
   document.querySelector('.groupService').style.backgroundColor = '#f7f7f7';
   document.querySelectorAll('.card-service').forEach(element => {
-    element.style.backgroundColor = '#ffffff';
+    element.style.backgroundColor = 'white';
     element.style.border = '1px solid #e2e2e2';
     element.style.transition = 'border 1s ease';
+
+    element.addEventListener('mouseover', () => {
+      element.style.border = '1px solid #00ffff';
+    });
+
+    element.addEventListener('mouseout', () => {
+      element.style.border = '1px solid #e2e2e2';
+    });
   });
   document.querySelectorAll('.circle-interno-servico').forEach(element => {
-    element.style.backgroundColor = '#ffffff';
-  })
-
-
+    element.style.backgroundColor = 'white';
+  });
   document.querySelector('.titleService').style.color = 'rgb(49, 49, 49)';
   document.querySelectorAll('.title-card-service').forEach(element => {
     element.style.color = 'rgb(49, 49, 49)';
-  })
-
+  });
   document.querySelectorAll('.description-card-service').forEach(element => {
     element.style.color = '#1d1d1d';
-  })
-
-  // Seção Contato
-  document.querySelector('.groupContact').style.backgroundColor = '#ffffff';
+  });
+  document.querySelector('.groupContact').style.backgroundColor = 'white';
   document.querySelector('.titleContact').style.color = 'rgb(49, 49, 49)';
-  document.querySelectorAll('.form input').forEach(element => {
+  document.querySelectorAll('input').forEach(element => {
     element.style.border = '1px solid rgb(219, 219, 219)';
     element.style.backgroundColor = '#eeeeee';
     element.style.color = 'rgb(49, 49, 49)';
   });
-  document.querySelectorAll('textarea').forEach(element => {
-    element.style.border = '1px solid rgb(219, 219, 219)';
-    element.style.backgroundColor = '#eeeeee';
-    element.style.color = 'rgb(49, 49, 49)';
+  document.querySelector('textarea').style.border = '1px solid rgb(219, 219, 219)';
+  document.querySelector('textarea').style.backgroundColor = '#eeeeee';
+  document.querySelector('textarea').style.color = 'rgb(49, 49, 49)';
+  document.querySelector('textarea').addEventListener('focus', () => {
+    document.querySelector('textarea').style.boxShadow = '0px 0px 8px #00ffff';
   });
-
-  // Linhas
   document.querySelectorAll('.linhas').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #ffffff 20%, var(--color-terciary))';
+    element.style.backgroundImage = 'linear-gradient(to top, #ffffff 20%, #00ffff)';
   });
   document.querySelectorAll('.linha-secundary').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #f7f7f7 20%, var(--color-terciary))';
+    element.style.backgroundImage = 'linear-gradient(to top, #f7f7f7 20%, #00ffff)';
   });
   document.querySelectorAll('.linha').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #ffffff 20%, var(--color-terciary))';
+    element.style.backgroundImage = 'linear-gradient(to top, #ffffff 20%, #00ffff)';
   });
   document.querySelectorAll('.groupContact .linha-secundary').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #ffffff 20%, var(--color-terciary))';
+    element.style.backgroundImage = 'linear-gradient(to top, #ffffff 20%, #00ffff)';
   });
-
-
 }
 
+
+
 function themeDark() {
-  document.querySelector('.icon-theme').setAttribute('src', 'src/img/modo-escuro.png')
-  // Body
+  document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-escuro.png');
+  document.querySelector('.listNav').style.backgroundColor = '#0b0b0b';
+
   document.body.style.backgroundColor = '#0f0f0f';
-
-  // Navegação
   document.querySelector('.logoNav').style.color = 'white';
-
   document.querySelector('.groupNav').style.backgroundColor = '#080808ed';
-
-  document.querySelectorAll('.listNav > li > a').forEach(element => {
+  document.querySelectorAll('.itemsMenu-header').forEach(element => {
     element.style.color = 'white';
+    element.addEventListener('mouseover', () => {
+      element.style.color = '#00ffff';
+    }); 
+    element.addEventListener('mouseout', () => {
+      element.style.color = 'white';
+    });  
   });
   document.querySelectorAll('.linha-menu-humburguer').forEach(element => {
     element.style.backgroundColor = 'white';
   });
-
-  // Header
   document.querySelector('.groupHeader-texts h1').style.color = 'white';
-
   document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
     element.style.backgroundColor = '#1d1d1d';
-  })
-
-  document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
-    element.style.boxShadow = '0px 0px 10px #00ffff';
-  })
-
-  document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
     element.style.color = 'white';
-  })
+    element.style.boxShadow = 'none';
 
-  // Seção Sobre
-  document.querySelector('.titleSobre').style.color = 'titleSobre';
-  document.querySelectorAll('.textSobre').forEach(element => {
-    element.style.color = 'rgb(59, 59, 59)';
+    element.addEventListener('mouseover', () => {
+      element.style.color = '#00ffff';
+      element.style.boxShadow = '0px 0px 10px #00ffff';
+    });
+    element.addEventListener('mouseout', () => {
+      element.style.color = 'white';
+      element.style.boxShadow = 'none';
+    });
   });
-
+  document.querySelector('.titleSobre').style.color = 'white';
+  document.querySelector('.logoNav').style.color = 'white';
   document.querySelector('.groupSobre').style.backgroundColor = '#0b0b0b';
-
-  // Seção Skills
-  document.querySelector('.titleSkills').style.color = 'titleSkills';
+  document.querySelectorAll('.textSobre').forEach(element => {
+    element.style.color = '#9ca3af';
+  })
+  document.querySelector('.titleSkills').style.color = 'white';
   document.querySelectorAll('.skill-element').forEach(element => {
     element.style.backgroundColor = '#141414';
     element.style.border = '1px solid #242323';
+
+    element.addEventListener('mouseover', () => {
+      element.style.border = '1px solid #00ffff';
+    });
+    element.addEventListener('mouseout', () => {
+      element.style.border = '1px solid #242323';
+    })
   });
   document.querySelector('.textSkills').style.color = '#9ca3af';
-
-  // Seção Projetos
+  document.querySelectorAll('strong').forEach(element => {
+    element.style.color = 'rgb(212, 212, 212)';
+  });
   document.querySelector('.groupProjetos').style.backgroundColor = '#0b0b0b';
-  document.querySelector('.groupProjetos-primary .titleProjetos').style.color = 'white';
-
+  document.querySelector('.titleProjetos').style.color = 'white';
   document.querySelectorAll('.card-item').forEach(element => {
     element.style.backgroundColor = '#1d1d1d';
     element.style.border = '1px solid #2e2e2e';
@@ -525,64 +561,63 @@ function themeDark() {
     element.style.backgroundColor = '#1d1d1d';
     element.style.border = '2px solid #2e2e2e';
     element.style.color = 'white';
+
     element.addEventListener('mouseover', () => {
       element.style.backgroundColor = '#2e2e2e';
-      element.style.color = 'white';
     });
+
     element.addEventListener('mouseout', () => {
       element.style.backgroundColor = '#1d1d1d';
       element.style.color = 'white';
     });
   });
-
-  // Seção Serviços
   document.querySelector('.groupService').style.backgroundColor = '#0f0f0f';
   document.querySelectorAll('.card-service').forEach(element => {
     element.style.backgroundColor = '#141414';
     element.style.border = '1px solid #1e1d1d';
     element.style.transition = 'border 1s ease';
+
+    element.addEventListener('mouseover', () => {
+      element.style.border = '1px solid #00ffff';
+    });
+
+    element.addEventListener('mouseout', () => {
+      element.style.border = '1px solid #1e1d1d';
+    });
   });
   document.querySelectorAll('.circle-interno-servico').forEach(element => {
     element.style.backgroundColor = '#0f0f0f';
-  })
-
-
+  });
   document.querySelector('.titleService').style.color = 'white';
   document.querySelectorAll('.title-card-service').forEach(element => {
     element.style.color = 'white';
-  })
-
+  });
   document.querySelectorAll('.description-card-service').forEach(element => {
     element.style.color = '#9ca3af';
-  })
-
-  // Seção Contato
+  });
   document.querySelector('.groupContact').style.backgroundColor = '#0b0b0b';
   document.querySelector('.titleContact').style.color = 'white';
-  document.querySelectorAll('.form input').forEach(element => {
-    element.style.border = '1px solid #00ffff';
-    element.style.backgroundColor = '#161616';
-    element.style.color = 'while';
-  });
-  document.querySelectorAll('textarea').forEach(element => {
+  document.querySelectorAll('input').forEach(element => {
     element.style.border = '1px solid #00ffff';
     element.style.backgroundColor = '#161616';
     element.style.color = 'white';
   });
-
-  // Linhas
+  document.querySelector('textarea').style.border = '1px solid #00ffff';
+  document.querySelector('textarea').style.backgroundColor = '#161616';
+  document.querySelector('textarea').style.color = 'white';
+  document.querySelector('textarea').addEventListener('focus', () => {
+    document.querySelector('textarea').style.boxShadow = '0px 0px 8px #00ffff';
+  });
   document.querySelectorAll('.linhas').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #0b0b0b 20%, var(--color-terciary))';
+    element.style.backgroundImage = 'linear-gradient(to top, #0b0b0b 20%, #00ffff)';
   });
   document.querySelectorAll('.linha-secundary').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #0f0f0f 20%, var(--color-terciary))';
+    element.style.backgroundImage = 'linear-gradient(to top, #0f0f0f 20%, #00ffff)';
   });
   document.querySelectorAll('.linha').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #ffffff 20%, var(--color-terciary))';
+    element.style.backgroundImage = 'linear-gradient(to top, #0b0b0b 20%, #00ffff)';
   });
   document.querySelectorAll('.groupContact .linha-secundary').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #0b0b0b 20%, var(--color-terciary))';
+    element.style.backgroundImage = 'linear-gradient(to top, #0f0f0f 20%, #00ffff)';
   });
-
-
 }
