@@ -1,11 +1,29 @@
-:root {
-  --color-primary: #0f0f0f;
-  --color-secundary: #0b0b0b;
-  --color-terciary: #00ffff;
-  --color-texts: #9ca3af;
 
-  --font-primary: "Saira", sans-serif;
-  --font-secundary: "Monoton", sans-serif;
+
+@media screen and (min-width: 896px) {
+  .itemsMenu-header:hover::before {
+    position: absolute;
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-image: linear-gradient( to left, white, #00ffff, #0f0f0f);
+    bottom: 0;
+    left: 0;
+    border-radius: 10px;
+    transition-property: width;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-in-out;
+    animation: beforeMenu 0.5s ease-in-out 0s 1 normal forwards;
+  }
+
+  @keyframes beforeMenu {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
 }
 
 @media screen and (max-width: 896px) {
@@ -29,7 +47,7 @@
   }
 
   .listNav > li {
-    padding: .6em;
+    padding: 0.6em;
     width: 100%;
     text-align: center;
   }
@@ -39,7 +57,7 @@
   }
 
   .listNav > li > a {
-    font-size: 1.1em;
+    font-size: 23px;
   }
 
   /* Estilos do Header */
@@ -256,9 +274,8 @@
   /* Estilo do Nav */
 
   .listNav > li {
-    padding: .5em;
+    padding: 0.5em;
   }
-
 
   /* Estilos Header */
 
@@ -285,14 +302,13 @@
 }
 
 @media screen and (max-width: 340px) {
-
   /* Nav */
 
   .listNav > li {
-    padding: .2em;
+    padding: 0.2em;
   }
 
-  .listNav > li > a{
+  .listNav > li > a {
     font-size: 1.2em;
   }
 
