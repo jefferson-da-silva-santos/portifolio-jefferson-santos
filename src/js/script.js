@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let menuVisible = false;
   let lenguageEnglis = true;
   let themaEscuro = true;
-
   const arraySkills = document.querySelectorAll('.skill-element');
   const paragrafo = document.querySelector('.textSkills');
   const btnIdioma = document.getElementById('btn-idioma');
@@ -97,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     element.addEventListener('click', () => {
       if (window.innerWidth <= 986) {
         closedMenu(listaMenus);
+        menuVisible = !menuVisible;
       }
     })
   })
@@ -183,9 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   menu.addEventListener('click', () => {
-    menuVisible ? closedMenu(listaMenus) : openMenu(listaMenus);
+    menuVisible ? closedMenu(listaMenus) : openMenu(listaMenus, themaEscuro);
     menuVisible = !menuVisible;
   });
+
 
   window.addEventListener('resize', () => {
     if (window.innerWidth > 896) {
@@ -202,11 +203,17 @@ document.addEventListener('DOMContentLoaded', () => {
 function closedMenu(menu) {
   menu.style.visibility = 'hidden';
   document.body.style.overflow = 'auto';
+  menu.style.backgroundColor = 'transparent';
 }
 
-function openMenu(menu) {
+function openMenu(menu, themaEscuro) {
   menu.style.visibility = 'visible';
   document.body.style.overflow = 'hidden';
+  if (themaEscuro) {
+    menu.style.backgroundColor = '#080808ed';
+  } else {
+    menu.style.backgroundColor = 'white';
+  }
 }
 
 
@@ -316,7 +323,6 @@ function englis() {
 
   const arrayCards = document.querySelectorAll('.card-item');
   const titlesProjetctsArray = ['Jessica Spreadsheets', 'API - Movies', 'Login Form', 'Calculator - Light Dark', 'BMI Calculator', 'API - Weather Forecast'];
-  const stackProjectsArray = ['']
 
   arrayCards.forEach((element, index) => {
     element.querySelector('.title-project').innerHTML = titlesProjetctsArray[index];
@@ -351,66 +357,54 @@ function englis() {
   document.getElementById('enviar').setAttribute('value', 'Send')
 }
 
+
+
 function themeLight() {
+  // Seletores querySelector
   document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-claro.png');
-
-  document.querySelector('.listNav').style.backgroundColor = 'white';
-
+  document.querySelector('.listNav').style.backgroundColor = 'transparent';
   document.body.style.backgroundColor = '#f7f7f7';
   document.querySelector('.logoNav').style.color = 'rgb(49, 49, 49)';
   document.querySelector('.groupNav').style.backgroundColor = '#ffffffed';
+  document.querySelector('.groupNav').style.boxShadow = '0px 0px 8px rgba(49, 49, 49, 0.438)';
+  document.querySelector('.groupHeader-texts h1').style.color = 'rgb(49, 49, 49)';
+  document.querySelector('.titleSobre').style.color = 'rgb(49, 49, 49)';
+  document.querySelector('.groupSobre').style.backgroundColor = '#ffffff';
+  document.querySelector('.groupSobre-primary').style.color = '#1d1d1d';
+  document.querySelector('.titleSkills').style.color = 'rgb(49, 49, 49)';
+  document.querySelector('.textSkills').style.color = '#1d1d1d';
+  document.querySelector('.groupProjetos').style.backgroundColor = 'white';
+  document.querySelector('.titleProjetos').style.color = 'rgb(49, 49, 49)';
+  document.querySelector('.groupService').style.backgroundColor = '#f7f7f7';
+  document.querySelector('.titleService').style.color = 'rgb(49, 49, 49)';
+  document.querySelector('.groupContact').style.backgroundColor = 'white';
+  document.querySelector('.titleContact').style.color = 'rgb(49, 49, 49)';
+  document.querySelector('textarea').style.border = '1px solid rgb(219, 219, 219)';
+  document.querySelector('textarea').style.backgroundColor = '#eeeeee';
+  document.querySelector('textarea').style.color = 'rgb(49, 49, 49)';
+  
+  // Seletores querySelectorAll
   document.querySelectorAll('.itemsMenu-header').forEach(element => {
     element.style.color = 'rgb(49, 49, 49)';
-    element.addEventListener('mouseover', () => {
-      element.style.color = '#00ffff';
-    }); 
-    element.addEventListener('mouseout', () => {
-      element.style.color = 'rgb(49, 49, 49)';
-    });    
   });
   document.querySelectorAll('.linha-menu-humburguer').forEach(element => {
     element.style.backgroundColor = 'rgb(49, 49, 49)';
   });
-  document.querySelector('.groupHeader-texts h1').style.color = 'rgb(49, 49, 49)';
   document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
     element.style.backgroundColor = 'white';
     element.style.boxShadow = '0px 0px 10px rgba(128, 128, 128, 0.575)';
     element.style.color = 'rgb(49, 49, 49)';
-
-    element.addEventListener('mouseover', () => {
-      element.style.color = '#00ffff';
-      element.style.boxShadow = '0px 0px 10px #00ffff';
-    });
-    element.addEventListener('mouseout', () => {
-      element.style.color = 'rgb(49, 49, 49)';
-      element.style.boxShadow = '0px 0px 10px rgba(128, 128, 128, 0.575)';
-    });
   });
-  document.querySelector('.titleSobre').style.color = 'rgb(49, 49, 49)';
-  document.querySelector('.logoNav').style.color = 'rgb(49, 49, 49)';
-  document.querySelector('.groupSobre').style.backgroundColor = '#ffffff';
-  document.querySelector('.groupSobre-primary').style.color = '#1d1d1d';
   document.querySelectorAll('.textSobre').forEach(element => {
     element.style.color = '#1d1d1d';
-  })
-  document.querySelector('.titleSkills').style.color = 'rgb(49, 49, 49)';
+  });
   document.querySelectorAll('.skill-element').forEach(element => {
     element.style.backgroundColor = 'white';
     element.style.border = '1px solid #e4e4e4';
-
-    element.addEventListener('mouseover', () => {
-      element.style.border = '1px solid #00ffff';
-    });
-    element.addEventListener('mouseout', () => {
-      element.style.border = '1px solid #e4e4e4';
-    })
   });
-  document.querySelector('.textSkills').style.color = '#1d1d1d';
   document.querySelectorAll('strong').forEach(element => {
     element.style.color = 'rgb(59, 59, 59)';
   });
-  document.querySelector('.groupProjetos').style.backgroundColor = 'white';
-  document.querySelector('.titleProjetos').style.color = 'rgb(49, 49, 49)';
   document.querySelectorAll('.card-item').forEach(element => {
     element.style.backgroundColor = '#f3f3f3';
     element.style.border = '1px solid #e2e2e2';
@@ -425,53 +419,25 @@ function themeLight() {
     element.style.backgroundColor = 'white';
     element.style.border = '2px solid #e9e9e9';
     element.style.color = 'rgb(49, 49, 49)';
-
-    element.addEventListener('mouseover', () => {
-      element.style.backgroundColor = '#747474';
-      element.style.color = 'white';
-    });
-
-    element.addEventListener('mouseout', () => {
-      element.style.backgroundColor = 'white';
-      element.style.color = 'rgb(49, 49, 49)';
-    });
   });
-  document.querySelector('.groupService').style.backgroundColor = '#f7f7f7';
   document.querySelectorAll('.card-service').forEach(element => {
     element.style.backgroundColor = 'white';
     element.style.border = '1px solid #e2e2e2';
     element.style.transition = 'border 1s ease';
-
-    element.addEventListener('mouseover', () => {
-      element.style.border = '1px solid #00ffff';
-    });
-
-    element.addEventListener('mouseout', () => {
-      element.style.border = '1px solid #e2e2e2';
-    });
   });
   document.querySelectorAll('.circle-interno-servico').forEach(element => {
     element.style.backgroundColor = 'white';
   });
-  document.querySelector('.titleService').style.color = 'rgb(49, 49, 49)';
   document.querySelectorAll('.title-card-service').forEach(element => {
     element.style.color = 'rgb(49, 49, 49)';
   });
   document.querySelectorAll('.description-card-service').forEach(element => {
     element.style.color = '#1d1d1d';
   });
-  document.querySelector('.groupContact').style.backgroundColor = 'white';
-  document.querySelector('.titleContact').style.color = 'rgb(49, 49, 49)';
   document.querySelectorAll('input').forEach(element => {
     element.style.border = '1px solid rgb(219, 219, 219)';
     element.style.backgroundColor = '#eeeeee';
     element.style.color = 'rgb(49, 49, 49)';
-  });
-  document.querySelector('textarea').style.border = '1px solid rgb(219, 219, 219)';
-  document.querySelector('textarea').style.backgroundColor = '#eeeeee';
-  document.querySelector('textarea').style.color = 'rgb(49, 49, 49)';
-  document.querySelector('textarea').addEventListener('focus', () => {
-    document.querySelector('textarea').style.boxShadow = '0px 0px 8px #00ffff';
   });
   document.querySelectorAll('.linhas').forEach(element => {
     element.style.backgroundImage = 'linear-gradient(to top, #ffffff 20%, #00ffff)';
@@ -485,139 +451,225 @@ function themeLight() {
   document.querySelectorAll('.groupContact .linha-secundary').forEach(element => {
     element.style.backgroundImage = 'linear-gradient(to top, #ffffff 20%, #00ffff)';
   });
+  document.querySelectorAll('.listNav > li').forEach(element => {
+    element.style.backgroundColor = 'transparent';
+  });
+
+  // Elementos com eventos
+  document.querySelectorAll('.itemsMenu-header').forEach(element => {
+    element.addEventListener('mouseover', () => {
+      element.style.color = 'black';
+    });
+    element.addEventListener('mouseout', () => {
+      element.style.color = 'rgb(49, 49, 49)';
+    });
+  });
+  document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
+    element.addEventListener('mouseover', () => {
+      element.style.color = '#00ffff';
+      element.style.boxShadow = '0px 0px 10px #00ffff';
+    });
+    element.addEventListener('mouseout', () => {
+      element.style.color = 'rgb(49, 49, 49)';
+      element.style.boxShadow = '0px 0px 10px rgba(128, 128, 128, 0.575)';
+    });
+  });
+  document.querySelectorAll('.skill-element').forEach(element => {
+    element.addEventListener('mouseover', () => {
+      element.style.border = '1px solid #00ffff';
+    });
+    element.addEventListener('mouseout', () => {
+      element.style.border = '1px solid #e4e4e4';
+    });
+  });
+  document.querySelectorAll('.btn-project').forEach(element => {
+    element.addEventListener('mouseover', () => {
+      element.style.backgroundColor = '#747474';
+      element.style.color = 'white';
+    });
+    element.addEventListener('mouseout', () => {
+      element.style.backgroundColor = 'white';
+      element.style.color = 'rgb(49, 49, 49)';
+    });
+  });
+  document.querySelectorAll('.card-service').forEach(element => {
+    element.addEventListener('mouseover', () => {
+      element.style.border = '1px solid #00ffff';
+    });
+    element.addEventListener('mouseout', () => {
+      element.style.border = '1px solid #e2e2e2';
+    });
+  });
+  document.querySelector('textarea').addEventListener('focus', () => {
+    document.querySelector('textarea').style.boxShadow = '0px 0px 8px #00ffff';
+  });
+  document.querySelectorAll('.listNav > li').forEach(element => {
+    if (window.innerWidth < 896) {
+      element.addEventListener('mouseover', () => {
+        element.style.backgroundColor = 'rgb(229, 229, 229)';
+      });
+      element.addEventListener('mouseout', () => {
+        element.style.backgroundColor = 'transparent';
+      });
+    }
+  });
 }
 
 
 
 function themeDark() {
+  // Seletores querySelector
   document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-escuro.png');
-  document.querySelector('.listNav').style.backgroundColor = '#0b0b0b';
-
+  document.querySelector('.listNav').style.backgroundColor = 'transparent';
   document.body.style.backgroundColor = '#0f0f0f';
   document.querySelector('.logoNav').style.color = 'white';
   document.querySelector('.groupNav').style.backgroundColor = '#080808ed';
+  document.querySelector('.groupNav').style.boxShadow = '0px 0px 8px rgb(49, 49, 49)';
+  document.querySelector('.groupHeader-texts h1').style.color = 'white';
+  document.querySelector('.titleSobre').style.color = 'white';
+  document.querySelector('.groupSobre').style.backgroundColor = '#0b0b0b';
+  document.querySelector('.groupSobre-primary').style.color = '#f7f7f7';
+  document.querySelector('.titleSkills').style.color = 'white';
+  document.querySelector('.textSkills').style.color = '#f7f7f7';
+  document.querySelector('.groupProjetos').style.backgroundColor = '#1a1a1a';
+  document.querySelector('.titleProjetos').style.color = 'white';
+  document.querySelector('.groupService').style.backgroundColor = '#0f0f0f';
+  document.querySelector('.titleService').style.color = 'white';
+  document.querySelector('.groupContact').style.backgroundColor = '#1a1a1a';
+  document.querySelector('.titleContact').style.color = 'white';
+  document.querySelector('textarea').style.border = '1px solid rgb(33, 33, 33)';
+  document.querySelector('textarea').style.backgroundColor = '#2e2e2e';
+  document.querySelector('textarea').style.color = 'white';
+
+  // Seletores querySelectorAll
   document.querySelectorAll('.itemsMenu-header').forEach(element => {
     element.style.color = 'white';
-    element.addEventListener('mouseover', () => {
-      element.style.color = '#00ffff';
-    }); 
-    element.addEventListener('mouseout', () => {
-      element.style.color = 'white';
-    });  
   });
   document.querySelectorAll('.linha-menu-humburguer').forEach(element => {
     element.style.backgroundColor = 'white';
   });
-  document.querySelector('.groupHeader-texts h1').style.color = 'white';
   document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
-    element.style.backgroundColor = '#1d1d1d';
+    element.style.backgroundColor = 'black';
+    element.style.boxShadow = '0px 0px 10px rgba(255, 255, 255, 0.575)';
     element.style.color = 'white';
-    element.style.boxShadow = 'none';
+  });
+  document.querySelectorAll('.textSobre').forEach(element => {
+    element.style.color = '#f7f7f7';
+  });
+  document.querySelectorAll('.skill-element').forEach(element => {
+    element.style.backgroundColor = '#0b0b0b';
+    element.style.border = '1px solid #131313';
+  });
+  document.querySelectorAll('strong').forEach(element => {
+    element.style.color = 'white';
+  });
+  document.querySelectorAll('.card-item').forEach(element => {
+    element.style.backgroundColor = '#0f0f0f';
+    element.style.border = '1px solid #1a1a1a';
+  });
+  document.querySelectorAll('.title-project').forEach(element => {
+    element.style.color = 'white';
+  });
+  document.querySelectorAll('.description-project').forEach(element => {
+    element.style.color = '#b4b4b4';
+  });
+  document.querySelectorAll('.btn-project').forEach(element => {
+    element.style.backgroundColor = 'black';
+    element.style.border = '2px solid #2c2c2c';
+    element.style.color = 'white';
+  });
+  document.querySelectorAll('.card-service').forEach(element => {
+    element.style.backgroundColor = '#0f0f0f';
+    element.style.border = '1px solid #1a1a1a';
+    element.style.transition = 'border 1s ease';
+  });
+  document.querySelectorAll('.circle-interno-servico').forEach(element => {
+    element.style.backgroundColor = '#0f0f0f';
+  });
+  document.querySelectorAll('.title-card-service').forEach(element => {
+    element.style.color = 'white';
+  });
+  document.querySelectorAll('.description-card-service').forEach(element => {
+    element.style.color = '#f7f7f7';
+  });
+  document.querySelectorAll('input').forEach(element => {
+    element.style.border = '1px solid rgb(33, 33, 33)';
+    element.style.backgroundColor = '#2e2e2e';
+    element.style.color = 'white';
+  });
+  document.querySelectorAll('.linhas').forEach(element => {
+    element.style.backgroundImage = 'linear-gradient(to top, #0f0f0f 20%, #00ffff)';
+  });
+  document.querySelectorAll('.linha-secundary').forEach(element => {
+    element.style.backgroundImage = 'linear-gradient(to top, #0f0f0f 20%, #00ffff)';
+  });
+  document.querySelectorAll('.linha').forEach(element => {
+    element.style.backgroundImage = 'linear-gradient(to top, #0f0f0f 20%, #00ffff)';
+  });
+  document.querySelectorAll('.groupContact .linha-secundary').forEach(element => {
+    element.style.backgroundImage = 'linear-gradient(to top, #0f0f0f 20%, #00ffff)';
+  });
+  document.querySelectorAll('.listNav > li').forEach(element => {
+    element.style.backgroundColor = 'transparent';
+  });
 
+  // Elementos com eventos
+  document.querySelectorAll('.itemsMenu-header').forEach(element => {
+    element.addEventListener('mouseover', () => {
+      element.style.color = 'white';
+    });
+    element.addEventListener('mouseout', () => {
+      element.style.color = 'white';
+    });
+  });
+  document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
     element.addEventListener('mouseover', () => {
       element.style.color = '#00ffff';
       element.style.boxShadow = '0px 0px 10px #00ffff';
     });
     element.addEventListener('mouseout', () => {
       element.style.color = 'white';
-      element.style.boxShadow = 'none';
+      element.style.boxShadow = '0px 0px 10px rgba(255, 255, 255, 0.575)';
     });
   });
-  document.querySelector('.titleSobre').style.color = 'white';
-  document.querySelector('.logoNav').style.color = 'white';
-  document.querySelector('.groupSobre').style.backgroundColor = '#0b0b0b';
-  document.querySelectorAll('.textSobre').forEach(element => {
-    element.style.color = '#9ca3af';
-  })
-  document.querySelector('.titleSkills').style.color = 'white';
   document.querySelectorAll('.skill-element').forEach(element => {
-    element.style.backgroundColor = '#141414';
-    element.style.border = '1px solid #242323';
-
     element.addEventListener('mouseover', () => {
       element.style.border = '1px solid #00ffff';
     });
     element.addEventListener('mouseout', () => {
-      element.style.border = '1px solid #242323';
-    })
-  });
-  document.querySelector('.textSkills').style.color = '#9ca3af';
-  document.querySelectorAll('strong').forEach(element => {
-    element.style.color = 'rgb(212, 212, 212)';
-  });
-  document.querySelector('.groupProjetos').style.backgroundColor = '#0b0b0b';
-  document.querySelector('.titleProjetos').style.color = 'white';
-  document.querySelectorAll('.card-item').forEach(element => {
-    element.style.backgroundColor = '#1d1d1d';
-    element.style.border = '1px solid #2e2e2e';
-  });
-  document.querySelectorAll('.title-project').forEach(element => {
-    element.style.color = 'white';
-  });
-  document.querySelectorAll('.description-project').forEach(element => {
-    element.style.color = '#5b5b5b';
+      element.style.border = '1px solid #131313';
+    });
   });
   document.querySelectorAll('.btn-project').forEach(element => {
-    element.style.backgroundColor = '#1d1d1d';
-    element.style.border = '2px solid #2e2e2e';
-    element.style.color = 'white';
-
     element.addEventListener('mouseover', () => {
-      element.style.backgroundColor = '#2e2e2e';
+      element.style.backgroundColor = '#474747';
+      element.style.color = 'white';
     });
-
     element.addEventListener('mouseout', () => {
-      element.style.backgroundColor = '#1d1d1d';
+      element.style.backgroundColor = 'black';
       element.style.color = 'white';
     });
   });
-  document.querySelector('.groupService').style.backgroundColor = '#0f0f0f';
   document.querySelectorAll('.card-service').forEach(element => {
-    element.style.backgroundColor = '#141414';
-    element.style.border = '1px solid #1e1d1d';
-    element.style.transition = 'border 1s ease';
-
     element.addEventListener('mouseover', () => {
       element.style.border = '1px solid #00ffff';
     });
-
     element.addEventListener('mouseout', () => {
-      element.style.border = '1px solid #1e1d1d';
+      element.style.border = '1px solid #1a1a1a';
     });
   });
-  document.querySelectorAll('.circle-interno-servico').forEach(element => {
-    element.style.backgroundColor = '#0f0f0f';
-  });
-  document.querySelector('.titleService').style.color = 'white';
-  document.querySelectorAll('.title-card-service').forEach(element => {
-    element.style.color = 'white';
-  });
-  document.querySelectorAll('.description-card-service').forEach(element => {
-    element.style.color = '#9ca3af';
-  });
-  document.querySelector('.groupContact').style.backgroundColor = '#0b0b0b';
-  document.querySelector('.titleContact').style.color = 'white';
-  document.querySelectorAll('input').forEach(element => {
-    element.style.border = '1px solid #00ffff';
-    element.style.backgroundColor = '#161616';
-    element.style.color = 'white';
-  });
-  document.querySelector('textarea').style.border = '1px solid #00ffff';
-  document.querySelector('textarea').style.backgroundColor = '#161616';
-  document.querySelector('textarea').style.color = 'white';
   document.querySelector('textarea').addEventListener('focus', () => {
     document.querySelector('textarea').style.boxShadow = '0px 0px 8px #00ffff';
   });
-  document.querySelectorAll('.linhas').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #0b0b0b 20%, #00ffff)';
-  });
-  document.querySelectorAll('.linha-secundary').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #0f0f0f 20%, #00ffff)';
-  });
-  document.querySelectorAll('.linha').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #0b0b0b 20%, #00ffff)';
-  });
-  document.querySelectorAll('.groupContact .linha-secundary').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #0f0f0f 20%, #00ffff)';
+  document.querySelectorAll('.listNav > li').forEach(element => {
+    if (window.innerWidth < 896) {
+      element.addEventListener('mouseover', () => {
+        element.style.backgroundColor = 'rgb(45, 45, 45)';
+      });
+      element.addEventListener('mouseout', () => {
+        element.style.backgroundColor = 'transparent';
+      });
+    }
   });
 }
+

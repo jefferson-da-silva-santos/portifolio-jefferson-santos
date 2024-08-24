@@ -2,6 +2,7 @@ body {
   background-color: #f7f7f7;
   /* Dark */
   background-color: #0f0f0f;
+  background-color: #1e1e1e;
 }
 
 .logoNav {
@@ -43,6 +44,14 @@ background-color: rgb(255, 255, 255);
   background-color: #1d1d1d;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.575);
   color: white;
+}
+
+.groupNav {
+  position: fixed;
+  width: 100%;
+  background-color: #080808ed;
+  box-shadow: 0px 0px 8px rgba(49, 49, 49, 0.438);
+  z-index: 1;
 }
 
 .geoupHeader-socialMediaButton:hover {
