@@ -128,15 +128,39 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   if (window.innerWidth > 896) {
-    arraySkills.forEach((element, index) => {
+    arraySkills.forEach((element) => {
       element.addEventListener('mouseover', () => {
         const classesSkills = element.className.split(' ');
 
         if (classesSkills[1] in descriptionSkills) {
           if (lenguageEnglis) {
-            paragrafo.innerHTML = descriptionSkills[classesSkills[1]].en;
+            if (themaEscuro) {
+              paragrafo.innerHTML = descriptionSkills[classesSkills[1]].en;
+              paragrafo.querySelectorAll('strong').forEach(element => {
+                element.style.color = 'rgb(212, 212, 212)';
+                element.style.fontWeight = 'bolder';
+              })
+            } else {
+              paragrafo.innerHTML = descriptionSkills[classesSkills[1]].en;
+              paragrafo.querySelectorAll('strong').forEach(element => {
+                element.style.color = 'rgb(59, 59, 59)';
+                element.style.fontWeight = 'bolder';
+              })
+            }
+            
           } else {
-            paragrafo.innerHTML = descriptionSkills[classesSkills[1]].pt;
+            if (themaEscuro) {
+              paragrafo.innerHTML = descriptionSkills[classesSkills[1]].pt;
+              paragrafo.querySelectorAll('strong').forEach(element => {
+                element.style.color = 'rgb(212, 212, 212)';
+                element.style.fontWeight = 'bolder';
+              });
+            } else {
+              paragrafo.innerHTML = descriptionSkills[classesSkills[1]].pt;
+              paragrafo.querySelectorAll('strong').forEach(element => {
+                element.style.color = 'rgb(59, 59, 59)';
+              })
+            }
           }
 
         }
@@ -192,6 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth > 896) {
       document.body.style.overflow = 'auto';
       listaMenus.style.visibility = 'visible';
+      listaMenus.style.backgroundColor = 'transparent'
     } else {
       menuVisible = false;
       closedMenu(listaMenus);
@@ -210,7 +235,7 @@ function openMenu(menu, themaEscuro) {
   menu.style.visibility = 'visible';
   document.body.style.overflow = 'hidden';
   if (themaEscuro) {
-    menu.style.backgroundColor = '#080808ed';
+    menu.style.backgroundColor = 'black';
   } else {
     menu.style.backgroundColor = 'white';
   }
@@ -530,15 +555,15 @@ function themeDark() {
   document.querySelector('.groupSobre').style.backgroundColor = '#0b0b0b';
   document.querySelector('.groupSobre-primary').style.color = '#f7f7f7';
   document.querySelector('.titleSkills').style.color = 'white';
-  document.querySelector('.textSkills').style.color = '#f7f7f7';
-  document.querySelector('.groupProjetos').style.backgroundColor = '#1a1a1a';
+  document.querySelector('.textSkills').style.color = '#9ca3af';
+  document.querySelector('.groupProjetos').style.backgroundColor = '#0b0b0b';
   document.querySelector('.titleProjetos').style.color = 'white';
   document.querySelector('.groupService').style.backgroundColor = '#0f0f0f';
   document.querySelector('.titleService').style.color = 'white';
-  document.querySelector('.groupContact').style.backgroundColor = '#1a1a1a';
+  document.querySelector('.groupContact').style.backgroundColor = '#0b0b0b';
   document.querySelector('.titleContact').style.color = 'white';
-  document.querySelector('textarea').style.border = '1px solid rgb(33, 33, 33)';
-  document.querySelector('textarea').style.backgroundColor = '#2e2e2e';
+  document.querySelector('textarea').style.border = '1px solid #00ffff';
+  document.querySelector('textarea').style.backgroundColor = '#161616';
   document.querySelector('textarea').style.color = 'white';
 
   // Seletores querySelectorAll
@@ -549,38 +574,38 @@ function themeDark() {
     element.style.backgroundColor = 'white';
   });
   document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
-    element.style.backgroundColor = 'black';
-    element.style.boxShadow = '0px 0px 10px rgba(255, 255, 255, 0.575)';
+    element.style.backgroundColor = '#1d1d1d';
+    element.style.boxShadow = 'none';
     element.style.color = 'white';
   });
   document.querySelectorAll('.textSobre').forEach(element => {
-    element.style.color = '#f7f7f7';
+    element.style.color = '#9ca3af';
   });
   document.querySelectorAll('.skill-element').forEach(element => {
-    element.style.backgroundColor = '#0b0b0b';
-    element.style.border = '1px solid #131313';
+    element.style.backgroundColor = '#141414';
+    element.style.border = '1px solid #242323';
   });
   document.querySelectorAll('strong').forEach(element => {
-    element.style.color = 'white';
+    element.style.color = 'rgb(212, 212, 212)';
   });
   document.querySelectorAll('.card-item').forEach(element => {
-    element.style.backgroundColor = '#0f0f0f';
+    element.style.backgroundColor = '#1d1d1d';
     element.style.border = '1px solid #1a1a1a';
   });
   document.querySelectorAll('.title-project').forEach(element => {
     element.style.color = 'white';
   });
   document.querySelectorAll('.description-project').forEach(element => {
-    element.style.color = '#b4b4b4';
+    element.style.color = '#5b5b5b';
   });
   document.querySelectorAll('.btn-project').forEach(element => {
-    element.style.backgroundColor = 'black';
+    element.style.backgroundColor = '#1d1d1d';
     element.style.border = '2px solid #2c2c2c';
     element.style.color = 'white';
   });
   document.querySelectorAll('.card-service').forEach(element => {
-    element.style.backgroundColor = '#0f0f0f';
-    element.style.border = '1px solid #1a1a1a';
+    element.style.backgroundColor = '#141414';
+    element.style.border = '1px solid #1e1d1d';
     element.style.transition = 'border 1s ease';
   });
   document.querySelectorAll('.circle-interno-servico').forEach(element => {
@@ -590,11 +615,11 @@ function themeDark() {
     element.style.color = 'white';
   });
   document.querySelectorAll('.description-card-service').forEach(element => {
-    element.style.color = '#f7f7f7';
+    element.style.color = '#9ca3af';
   });
   document.querySelectorAll('input').forEach(element => {
-    element.style.border = '1px solid rgb(33, 33, 33)';
-    element.style.backgroundColor = '#2e2e2e';
+    element.style.border = '1px solid #00ffff';
+    element.style.backgroundColor = '#161616';
     element.style.color = 'white';
   });
   document.querySelectorAll('.linhas').forEach(element => {
@@ -616,7 +641,7 @@ function themeDark() {
   // Elementos com eventos
   document.querySelectorAll('.itemsMenu-header').forEach(element => {
     element.addEventListener('mouseover', () => {
-      element.style.color = 'white';
+      element.style.color = '#00ffff';
     });
     element.addEventListener('mouseout', () => {
       element.style.color = 'white';
@@ -629,7 +654,8 @@ function themeDark() {
     });
     element.addEventListener('mouseout', () => {
       element.style.color = 'white';
-      element.style.boxShadow = '0px 0px 10px rgba(255, 255, 255, 0.575)';
+      element.style.boxShadow = 'none';
+      element.backgroundColor = '#1d1d1d';
     });
   });
   document.querySelectorAll('.skill-element').forEach(element => {
@@ -642,11 +668,11 @@ function themeDark() {
   });
   document.querySelectorAll('.btn-project').forEach(element => {
     element.addEventListener('mouseover', () => {
-      element.style.backgroundColor = '#474747';
+      element.style.backgroundColor = '#2e2e2e';
       element.style.color = 'white';
     });
     element.addEventListener('mouseout', () => {
-      element.style.backgroundColor = 'black';
+      element.style.backgroundColor = '#1d1d1d';
       element.style.color = 'white';
     });
   });

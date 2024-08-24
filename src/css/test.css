@@ -9,6 +9,7 @@ body {
   color: rgb(49, 49, 49);
   /* Dark */
   color: white;
+  box-shadow: none;
 }
 
 .groupNav {
