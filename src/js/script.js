@@ -49,6 +49,46 @@ const descriptionSkills = {
   }
 }
 
+const descriptionsProjects = {
+  planilhas: {
+    pt: 'Jessica-planilhas é uma aplicação web responsiva de vendas projetada para gerenciar e visualizar planilhas de forma eficiente e interativa. Este projeto utiliza tecnologias modernas para garantir uma experiência de usuário fluida e otimizada.',
+    en: 'Jessica-spreadsheets is a responsive sales web application designed to manage and visualize spreadsheets efficiently and interactively. This project uses modern technologies to ensure a fluid and optimized user experience.',
+    urlGit: 'https://github.com/jefferson-da-silva-santos/project-jessica-planilhas',
+    urlDeploy: 'https://jessica-planilhas.netlify.app/'
+  },
+  movies: {
+    pt: 'descrição do projeto em português para fins de teste da aplicação.',
+    en: 'descrição do projeto em inglês para fins de teste da aplicação',
+    urlGit: '',
+    urlDeploy: ''
+  },
+  login: {
+    pt: 'descrição do projeto em português para fins de teste da aplicação.',
+    en: 'descrição do projeto em inglês para fins de teste da aplicação',
+    urlGit: '',
+    urlDeploy: ''
+  },
+  calculator: {
+    pt: 'descrição do projeto em português para fins de teste da aplicação.',
+    en: 'descrição do projeto em inglês para fins de teste da aplicação',
+    urlGit: 'https://github.com/jefferson-da-silva-santos/calculadora',
+    urlDeploy: ''
+  },
+  calculatorIMC: {
+    pt: 'descrição do projeto em português para fins de teste da aplicação.',
+    en: 'descrição do projeto em inglês para fins de teste da aplicação',
+    urlGit: 'https://github.com/jefferson-da-silva-santos/calculadora-de-imc',
+    urlDeploy: ''
+  },
+  previsaoTempo: {
+    pt: 'descrição do projeto em português para fins de teste da aplicação.',
+    en: 'descrição do projeto em inglês para fins de teste da aplicação',
+    urlGit: '',
+    urlDeploy: ''
+  }
+};
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const menu = document.getElementById('menu');
   const listaMenus = document.getElementById('lista-menus');
@@ -64,6 +104,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const arrayMenus = document.querySelectorAll('.itemsMenu-header');
 
   const userLanguage = localStorage.getItem('language') || navigator.language;
+
+  document.querySelectorAll('.btn-project').forEach(element => {
+    element.addEventListener('click', () => {
+      const title = element.parentNode.querySelector('.title-project').textContent;
+      const tecnologies = element.parentNode.querySelector('.description-project').textContent.replace('Stack:', '').split('|').map(tec => tec.trim());
+      const classes = element.className.split(' ');
+      let description = '';
+      let textsOption = '';
+      if (lenguageEnglis) {
+        description = descriptionsProjects[classes[1]].en;
+        textsOption = ['Technologies:', 'See in:'];
+      } else {
+        description = descriptionsProjects[classes[1]].pt;
+        textsOption = ['Técnologias:', 'Ver em:']
+      }
+      const urlGit = descriptionsProjects[classes[1]].urlGit;
+      const urlDeploy = descriptionsProjects[classes[1]].urlDeploy;
+
+      dialogProject(title, description, tecnologies, urlGit, urlDeploy, textsOption);
+    });
+  });
+
+  document.querySelector('.close-options').addEventListener('click', (event) => {
+    event.preventDefault();
+    document.body.style.overflow = 'auto';
+    document.querySelector('.group-project-options-box').style.display = 'none';
+  });
 
   btnTheme.addEventListener('click', (event) => {
     event.preventDefault();
@@ -147,7 +214,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 element.style.fontWeight = 'bolder';
               })
             }
-            
+
           } else {
             if (themaEscuro) {
               paragrafo.innerHTML = descriptionSkills[classesSkills[1]].pt;
@@ -241,8 +308,28 @@ function openMenu(menu, themaEscuro) {
   }
 }
 
+function dialogProject(title, description, technologies, urlGit, urlDeploy, texts) {
+  document.body.style.overflow = 'hidden';
+  document.querySelector('.description-option-project').textContent = description;
+  document.querySelector('.group-project-options-box').style.display = 'flex';
+  document.querySelector('.name-project-option').textContent = title;
+  document.querySelector('.btn-options-git').setAttribute('href', urlGit)
+  document.querySelector('.btn-options-deploy').setAttribute('href', urlDeploy)
+  document.querySelector('.description-option-project').textContent = description;
+  const listTec = document.querySelector('.list-options-box-tec');
+  listTec.innerHTML = '';
+  technologies.forEach(element => {
+    const newLi = document.createElement('li');
+    newLi.textContent = element;
+    listTec.appendChild(newLi);
+  });
+  document.querySelector('.text-tecnologias-options').textContent = texts[0];
+  document.querySelector('.text-see-in-options').textContent = texts[1];
+}
+
 
 function portugues() {
+  document.querySelector('.btn-options-deploy').innerHTML = '<i class="bi bi-box-arrow-up-right"></i> Visitar';
   //icone idioma
   document.querySelector('.icon-idioma').setAttribute('src', 'src/img/brasil.png')
   // navegação
@@ -280,6 +367,10 @@ function portugues() {
 
   arrayCards.forEach((element, index) => {
     element.querySelector('.title-project').innerHTML = titlesProjetctsArray[index];
+  });
+
+  document.querySelectorAll('.btn-project').forEach(element => {
+    element.textContent = 'Ver projeto';
   })
 
   // serviço
@@ -288,7 +379,7 @@ function portugues() {
 
   const titlesCards = ['Criação de Sites', 'Sites Responsivos', 'Criação de APIs'];
 
-  const descriptionsCards = ['Criação de sites personalizados, sejam pessoais ou para diversos setores de negócio', ' Todos os sites são responsivos, para melhorar ainda mais o usuário experiência em qualquer dispositivo.', 'Criação de APIs Rest seguras e experiência de integração com bancos de dados externos.'];
+  const descriptionsCards = ['Criação de sites personalizados, sejam pessoais ou para diversos setores de negócio', ' Todos os sites são responsivos, para melhorar ainda mais a experiência do usuário em qualquer dispositivo.', 'Criação de APIs Rest seguras e experiência de integração com bancos de dados externos.'];
 
   const cardsService = document.querySelectorAll('.card-service');
   cardsService.forEach((element, index) => {
@@ -314,7 +405,7 @@ function portugues() {
 }
 
 function englis() {
-
+  document.querySelector('.btn-options-deploy').innerHTML = '<i class="bi bi-box-arrow-up-right"></i> Visit';
   //icone idioma
   document.querySelector('.icon-idioma').setAttribute('src', 'src/img/eua.png')
   // navegação
@@ -351,11 +442,15 @@ function englis() {
 
   arrayCards.forEach((element, index) => {
     element.querySelector('.title-project').innerHTML = titlesProjetctsArray[index];
-  })
+  });
+
+  document.querySelectorAll('.btn-project').forEach(element => {
+    element.textContent = 'View project';
+  });
 
   // serviço
 
-  document.querySelector('.titleService').innerHTML = '&#8249; <span class="letraMonoton">S</span>ervices &#8260; &#8250;'
+  document.querySelector('.titleService').innerHTML = '&#8249; <span class="letraMonoton">S</span>ervices &#8260; &#8250;';
 
   const titlesCards = ['Website Creation', 'Responsive Websites', 'Creating APIs'];
 
@@ -382,10 +477,15 @@ function englis() {
   document.getElementById('enviar').setAttribute('value', 'Send')
 }
 
-
-
 function themeLight() {
-  // Seletores querySelector
+  //Caixa options
+  document.querySelector('.group-project-options-box').style.backgroundColor = 'rgb(255 255 255 / 55%)';
+  document.querySelector('.project-options-box').style.backgroundColor = '#ffffff';
+  document.querySelector('.project-options-box').style.boxShadow = '0px 0px 10px gray';
+  document.querySelector('.project-options-box').style.color = 'black';
+  document.querySelector('.name-project-option').style.color = '#000000';
+  document.querySelector('.name-project-option').style.textShadow = '0px 0px 5px #0000009a';
+  document.querySelector('.close-options').style.color = 'black';
   document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-claro.png');
   document.querySelector('.listNav').style.backgroundColor = 'transparent';
   document.body.style.backgroundColor = '#f7f7f7';
@@ -407,7 +507,7 @@ function themeLight() {
   document.querySelector('textarea').style.border = '1px solid rgb(219, 219, 219)';
   document.querySelector('textarea').style.backgroundColor = '#eeeeee';
   document.querySelector('textarea').style.color = 'rgb(49, 49, 49)';
-  
+
   // Seletores querySelectorAll
   document.querySelectorAll('.itemsMenu-header').forEach(element => {
     element.style.color = 'rgb(49, 49, 49)';
@@ -509,7 +609,7 @@ function themeLight() {
   });
   document.querySelectorAll('.btn-project').forEach(element => {
     element.addEventListener('mouseover', () => {
-      element.style.backgroundColor = '#747474';
+      element.style.backgroundColor = 'gray';
       element.style.color = 'white';
     });
     element.addEventListener('mouseout', () => {
@@ -540,10 +640,14 @@ function themeLight() {
   });
 }
 
-
-
 function themeDark() {
-  // Seletores querySelector
+  document.querySelector('.group-project-options-box').style.backgroundColor = 'rgba(0, 0, 0, 0.86)';
+  document.querySelector('.project-options-box').style.backgroundColor = '#0b0b0b';
+  document.querySelector('.project-options-box').style.boxShadow = 'none';
+  document.querySelector('.project-options-box').style.color = 'white';
+  document.querySelector('.name-project-option').style.color = '#00ffff';
+  document.querySelector('.name-project-option').style.textShadow = '0px 0px 5px #00ffff9a';
+  document.querySelector('.close-options').style.color = 'white';
   document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-escuro.png');
   document.querySelector('.listNav').style.backgroundColor = 'transparent';
   document.body.style.backgroundColor = '#0f0f0f';
