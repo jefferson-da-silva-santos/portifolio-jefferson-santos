@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="src/css/styles.css" />
     <link rel="stylesheet" href="src/css/media-styles.css" />
+    <link rel="stylesheet" href="src/css/scroll-effect.css">
     <title>Jefferson Santos</title>
   </head>
   <body>
@@ -65,7 +66,7 @@
         </nav>
       </div>
       <header class="header" id="home">
-        <div class="groupHeader-texts">
+        <div class="groupHeader-texts hidden-scroll-left">
           <div class="textsHeader">
             <h1>Jefferson Santos</h1>
             <p class="title-secundary-header"></p>
@@ -82,7 +83,7 @@
             ></a>
           </div>
         </div>
-        <div class="groupHeader-img">
+        <div class="groupHeader-img hidden-scroll-left">
           <img
             src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png"
             alt="simbolo do react"
@@ -94,7 +95,7 @@
     <main>
       <div class="groupSobre" id="about">
         <section class="sobre">
-          <article class="groupSobre-primary">
+          <article class="groupSobre-primary hidden-scroll-right">
             <div class="dividir-titulo-linha">
               <div class="linha"></div>
               <div class="linha"></div>
@@ -110,7 +111,7 @@
               I completed a technical course in <strong>Systems Development (DS)</strong> with a focus on <strong>Full Stack development</strong>. Since then, I have worked on projects as a freelancer and contributed to open source projects, continually improving my skills and experience in the field.
             </p>
           </article>
-          <article class="groupSobre-secundary">
+          <article class="groupSobre-secundary hidden-scroll-right">
             <div class="circle"></div>
             <img class="minha-img" src="src/img/cafe_semfundo.png" alt="" />
           </article>
@@ -118,7 +119,7 @@
       </div>
       <div class="groupSkills" id="skills">
         <section class="skills">
-          <div class="groupSkills-primary">
+          <div class="groupSkills-primary hidden-scroll-left">
             <div class="dividir-titulo-linha">
               <div class="linha-secundary"></div>
               <div class="linha-secundary"></div>
@@ -131,7 +132,7 @@
             </p>
 
           </div>
-          <div class="groupSkills-secundary">
+          <div class="groupSkills-secundary hidden-scroll-left">
             <article class="skill-element html">
               <img src="src/img/html-5.png" alt="" />
             </article>
@@ -173,7 +174,7 @@
       </div>
       <div class="groupProjetos" id="project">
         <section class="projetos">
-          <article class="groupProjetos-primary">
+          <article class="groupProjetos-primary hidden-scroll-bottom">
             <div class="select-linhas-projeto-title">
               <div class="linhas"></div>
               <div class="linhas"></div>
@@ -184,7 +185,7 @@
             </h2>
           </article>
           <article class="groupProjetos-secundary">
-            <div class="card-item">
+            <div class="card-item hidden-scroll-p1">
               <div class="group-image-project"></div>
               <h2 class="title-project">Jessica Spreadsheets</h2>
               <p class="description-project">
@@ -195,7 +196,7 @@
               ></a>
             </div>
 
-            <div class="card-item">
+            <div class="card-item hidden-scroll-p2">
               <div class="group-image-project"></div>
               <h2 class="title-project">API - Movies</h2>
               <p class="description-project">
@@ -206,7 +207,7 @@
               ></a>
             </div>
 
-            <div class="card-item">
+            <div class="card-item hidden-scroll-p3">
               <div class="group-image-project"></div>
               <h2 class="title-project">Login Form</h2>
               <p class="description-project">
@@ -217,7 +218,7 @@
               ></a>
             </div>
 
-            <div class="card-item">
+            <div class="card-item hidden-scroll-p4">
               <div class="group-image-project"></div>
               <h2 class="title-project">Calculator - Light Dark</h2>
               <p class="description-project">
@@ -228,7 +229,7 @@
               ></a>
             </div>
 
-            <div class="card-item">
+            <div class="card-item hidden-scroll-p5">
               <div class="group-image-project"></div>
               <h2 class="title-project">BMI Calculator</h2>
               <p class="description-project">
@@ -239,7 +240,7 @@
               ></a>
             </div>
 
-            <div class="card-item">
+            <div class="card-item hidden-scroll-p6">
               <div class="group-image-project"></div>
               <h2 class="title-project">API Weather Forecast</h2>
               <p class="description-project previsaoTempo">
@@ -255,7 +256,7 @@
 
       <div class="groupService" id="service">
         <section class="service">
-          <div class="groupService-primary">
+          <div class="groupService-primary hidden-scroll-bottom">
             <div class="linha-secundary"></div>
             <div class="linha-secundary"></div>
             <div class="linha-secundary"></div>
@@ -263,7 +264,7 @@
               &#8249; <span class="letraMonoton">S</span>ervices &#8260; &#8250;
             </h2>
           </div>
-          <div class="groupService-secundary">
+          <div class="groupService-secundary hidden-scroll-bottom">
             <div class="card-service">
               <div class="circle-externo-servico">
                 <div class="circle-interno-servico">
@@ -308,7 +309,7 @@
 
       <div class="groupContact">
         <section class="contato" id="contact">
-          <div class="groupContact-primary">
+          <div class="groupContact-primary hidden-scroll-bottom">
             <div class="linha-secundary"></div>
             <div class="linha-secundary"></div>
             <div class="linha-secundary"></div>
@@ -316,7 +317,7 @@
               &#8249; <span class="letraMonoton">C</span>ontact &#8260; &#8250;
             </h2>
           </div>
-          <div class="groupContact-secundary">
+          <div class="groupContact-secundary hidden-scroll-bottom">
             <form class="form" action="">
               <input class="inputsFormContato"
                 type="text"
@@ -352,7 +353,7 @@
           </div>
           <div class="groupContact-terciary">
             <div class="circle-2"></div>
-            <img src="src/img/jefferson2.jpg" alt="" />
+            <img class="hidden-scroll-bottom-image" src="src/img/jefferson2.jpg" alt="" />
           </div>
         </section>
       </div>
@@ -361,6 +362,5 @@
       <p>@ 2024 | Jefferson Santos</p>
     </footer>
     <script src="src/js/script.js"></script>
-    <script src="src/js/dialog.js"></script>
   </body>
 </html>

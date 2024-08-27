@@ -599,6 +599,7 @@ strong {
   padding: 2em 0 2em 0;
   display: flex;
   transition: all .5s ease;
+  overflow: hidden;
 }
 
 .projetos {

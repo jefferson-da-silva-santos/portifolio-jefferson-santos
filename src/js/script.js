@@ -102,8 +102,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnIdioma = document.getElementById('btn-idioma');
   const btnTheme = document.getElementById('btn-tema');
   const arrayMenus = document.querySelectorAll('.itemsMenu-header');
-
   const userLanguage = localStorage.getItem('language') || navigator.language;
+
+  const observacoes = ['left', 'right', 'bottom', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6'];
+  observacoes.forEach(obs => {
+    criarObservacao(`.hidden-scroll-${obs}`, `show-scroll-${obs}`);
+  });
 
   document.querySelectorAll('.btn-project').forEach(element => {
     element.addEventListener('click', () => {
@@ -126,11 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.querySelector('.close-options').addEventListener('click', (event) => {
-    event.preventDefault();
-    document.body.style.overflow = 'auto';
-    document.querySelector('.group-project-options-box').style.display = 'none';
-  });
+  closeOptionBox();
 
   btnTheme.addEventListener('click', (event) => {
     event.preventDefault();
@@ -168,11 +168,12 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   })
 
-  if (lenguageEnglis) {
-    document.querySelector('.textSkills').innerHTML = '*Hover your mouse over the skills to check their descriptions*';
-  } else {
-    document.querySelector('.textSkills').innerHTML = '*Passe o mouse sobre as habilidades para verificar suas descrições*';
-  }
+  controlTextByLanguage(
+    lenguageEnglis,
+    '.textSkills',
+    '*Hover your mouse over the skills to check their descriptions*',
+    '*Passe o mouse sobre as habilidades para verificar suas descrições*'
+  );
 
   btnIdioma.addEventListener('click', (event) => {
     event.preventDefault();
@@ -194,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
 
+
   if (window.innerWidth > 896) {
     arraySkills.forEach((element) => {
       element.addEventListener('mouseover', () => {
@@ -201,77 +203,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (classesSkills[1] in descriptionSkills) {
           if (lenguageEnglis) {
-            if (themaEscuro) {
-              paragrafo.innerHTML = descriptionSkills[classesSkills[1]].en;
-              paragrafo.querySelectorAll('strong').forEach(element => {
-                element.style.color = 'rgb(212, 212, 212)';
-                element.style.fontWeight = 'bolder';
-              })
-            } else {
-              paragrafo.innerHTML = descriptionSkills[classesSkills[1]].en;
-              paragrafo.querySelectorAll('strong').forEach(element => {
-                element.style.color = 'rgb(59, 59, 59)';
-                element.style.fontWeight = 'bolder';
-              })
-            }
-
+            handleTextSillsHover(themaEscuro, paragrafo, classesSkills, 'en', 'rgb(212, 212, 212)', 'rgb(59, 59, 59)');
           } else {
-            if (themaEscuro) {
-              paragrafo.innerHTML = descriptionSkills[classesSkills[1]].pt;
-              paragrafo.querySelectorAll('strong').forEach(element => {
-                element.style.color = 'rgb(212, 212, 212)';
-                element.style.fontWeight = 'bolder';
-              });
-            } else {
-              paragrafo.innerHTML = descriptionSkills[classesSkills[1]].pt;
-              paragrafo.querySelectorAll('strong').forEach(element => {
-                element.style.color = 'rgb(59, 59, 59)';
-              })
-            }
+            handleTextSillsHover(themaEscuro, paragrafo, classesSkills, 'pt', 'rgb(212, 212, 212)', 'rgb(59, 59, 59)');
           }
-
         }
-
       });
 
       element.addEventListener('mouseout', () => {
-        if (lenguageEnglis) {
-          paragrafo.innerHTML = '*Hover your mouse over the skills to check their descriptions*';
-        } else {
-          paragrafo.innerHTML = '*Passe o mouse sobre as habilidades para verificar suas descrições*';
-        }
+        controlTextByLanguage(
+          lenguageEnglis,
+          '.textSkills',
+          '*Hover your mouse over the skills to check their descriptions*',
+          '*Passe o mouse sobre as habilidades para verificar suas descrições*'
+        )
       })
     })
   }
 
-
-  imageCardsProjects.forEach(element => {
-    element.addEventListener('mouseover', () => {
-      element.style.backgroundSize = '130%';
-    });
-  })
-
-  imageCardsProjects.forEach(element => {
-    element.addEventListener('mouseout', () => {
-      element.style.backgroundSize = '115%';
-    });
-  })
-
-  btnCardProjetcts.forEach(element => {
-    element.addEventListener('mouseover', () => {
-      const cardItem = element.parentElement;
-      const imagemCardItem = cardItem.firstElementChild;
-      imagemCardItem.style.backgroundSize = '130%';
-    })
-  })
-
-  btnCardProjetcts.forEach(element => {
-    element.addEventListener('mouseout', () => {
-      const cardItem = element.parentElement;
-      const imagemCardItem = cardItem.firstElementChild;
-      imagemCardItem.style.backgroundSize = '115%';
-    })
-  })
+  handleHoverCardsProject(false, imageCardsProjects, 'mouseover', '130%');
+  handleHoverCardsProject(false, imageCardsProjects, 'mouseout', '115%');
+  handleHoverCardsProject(true, btnCardProjetcts, 'mouseover', '130%');
+  handleHoverCardsProject(true, btnCardProjetcts, 'mouseout', '115%');
 
   menu.addEventListener('click', () => {
     menuVisible ? closedMenu(listaMenus) : openMenu(listaMenus, themaEscuro);
@@ -292,6 +245,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+function handleTextSillsHover(isTheme, element, array, lenguage, color1, color2) {
+  if (isTheme) {
+    element.innerHTML = descriptionSkills[array[1]][lenguage];
+    element.querySelectorAll('strong').forEach(element => {
+      element.style.color = color1;
+      element.style.fontWeight = 'bolder';
+    })
+  } else {
+    element.innerHTML = descriptionSkills[array[1]].lenguage;
+    element.querySelectorAll('strong').forEach(element => {
+      element.style.color = color2;
+      element.style.fontWeight = 'bolder';
+    })
+  }
+}
+
+function handleHoverCardsProject(isBtn, item, event, value) {
+  if (isBtn) {
+    item.forEach(element => {
+      element.addEventListener(event, () => {
+        const cardItem = element.parentElement;
+        const imagemCardItem = cardItem.firstElementChild;
+        imagemCardItem.style.backgroundSize = value;
+      })
+    })
+  } else {
+    item.forEach(element => {
+      element.addEventListener(event, () => {
+        element.style.backgroundSize = value;
+      });
+    })
+  }
+}
+
 function closedMenu(menu) {
   menu.style.visibility = 'hidden';
   document.body.style.overflow = 'auto';
@@ -301,11 +288,7 @@ function closedMenu(menu) {
 function openMenu(menu, themaEscuro) {
   menu.style.visibility = 'visible';
   document.body.style.overflow = 'hidden';
-  if (themaEscuro) {
-    menu.style.backgroundColor = 'black';
-  } else {
-    menu.style.backgroundColor = 'white';
-  }
+  menu.style.backgroundColor = (themaEscuro) ? 'black' : 'white';
 }
 
 function dialogProject(title, description, technologies, urlGit, urlDeploy, texts) {
@@ -326,7 +309,6 @@ function dialogProject(title, description, technologies, urlGit, urlDeploy, text
   document.querySelector('.text-tecnologias-options').textContent = texts[0];
   document.querySelector('.text-see-in-options').textContent = texts[1];
 }
-
 
 function portugues() {
   document.querySelector('.btn-options-deploy').innerHTML = '<i class="bi bi-box-arrow-up-right"></i> Visitar';
@@ -803,3 +785,29 @@ function themeDark() {
   });
 }
 
+function criarObservacao(classeOculta, classeMostrar) {
+  const observacao = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add(classeMostrar);
+      } else {
+        return;
+      }
+    });
+  });
+
+  const elementosOcultos = document.querySelectorAll(classeOculta);
+  elementosOcultos.forEach((element) => observacao.observe(element));
+}
+
+function closeOptionBox() {
+  document.querySelector('.close-options').addEventListener('click', (event) => {
+    event.preventDefault();
+    document.body.style.overflow = 'auto';
+    document.querySelector('.group-project-options-box').style.display = 'none';
+  });
+}
+
+function controlTextByLanguage(lenguageEnglis, element, textEn, textPt) {
+  document.querySelector(element).innerHTML = (lenguageEnglis) ? textEn : textPt;
+}
