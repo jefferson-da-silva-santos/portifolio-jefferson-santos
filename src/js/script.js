@@ -13,7 +13,7 @@ const descriptionSkills = {
   },
   nodejs: {
     en: `I use <strong>Node.js</strong> to develop the <strong>backend</strong> of my applications, with an emphasis on creating efficient and scalable <strong>RESTful APIs</strong>. With <strong>Express</strong>, I structure the server in an organized and modular way, applying good coding practices to guarantee the <strong>maintainability</strong> and <strong>security</strong> of the code. I value the implementation of robust functionalities, such as <strong>authentication</strong>, data <strong>validation</strong> and <strong>route manipulation</strong>, always seeking to optimize the performance and scalability of APIs.`,
-    pt: `Utilizo <strong>Node.js</strong> para desenvolver o <strong>backend</strong> das minhas aplicações,com ênfase na criação de <strong>APIs RESTful</strong> eficientes e escaláveis. Com <strong>Express</strong>, estruturo o servidor de forma organizada e modular, aplicando boas práticas de codificação para garantir a <strong>manutenibilidade</strong> e <strong>segurança</strong> do código. Val implementação de funcionalidades robustas, como <strong>autenticação</strong>, <strong>val strong> de dados e <strong>manipulação de rotas</strong>, sempre buscando otimizar o desempenho e a escalabilidade das APIs.`
+    pt: `Utilizo <strong>Node.js</strong> para desenvolver o <strong>backend</strong> das minhas aplicações, com ênfase na criação de <strong>APIs RESTful</strong> eficientes e escaláveis. Com o <strong>Express</strong>, estruturo o servidor de forma organizada e modular, aplicando boas práticas de codificação para garantir a <strong>manutenibilidade</strong> e a <strong>segurança</strong> do código. Prezo pela implementação de funcionalidades robustas, como <strong>autenticação</strong>, <strong>validação</strong> de dados e <strong>manipulação de rotas</strong>, buscando sempre otimizar a performance e a escalabilidade das APIs.`
   },
   react: {
     en: `I'm studying <strong>React</strong> to improve my skills in developing dynamic and reactive <strong>user interfaces</strong>. During learning, I'm focusing on understanding fundamental concepts such as <strong>components</strong>, <strong>state</strong>, and <strong>props</strong>, as well as applying good code organization and reuse practices. Although I'm still deepening my knowledge, I already value the flexibility and power of React to create modern, interactive web applications.`,
@@ -88,25 +88,38 @@ const descriptionsProjects = {
   }
 };
 
+let isMenuVisible = false;
+let isLanguageEnglish = true;
+let isThemaDark = true;
+
+function toggleMenu() {
+  isMenuVisible = !isMenuVisible;
+}
+
+function toggleLanguage() {
+  isLanguageEnglish = !isLanguageEnglish;
+}
+
+function toggleThema() {
+  isThemaDark = !isThemaDark;
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const menu = document.getElementById('menu');
   const listaMenus = document.getElementById('lista-menus');
   const btnCardProjetcts = document.querySelectorAll('.btn-project');
   const imageCardsProjects = document.querySelectorAll('.group-image-project');
-  let menuVisible = false;
-  let lenguageEnglis = true;
-  let themaEscuro = true;
   const arraySkills = document.querySelectorAll('.skill-element');
-  const paragrafo = document.querySelector('.textSkills');
-  const btnIdioma = document.getElementById('btn-idioma');
+  const textSkills = document.querySelector('.textSkills');
+  const btnLanguage = document.getElementById('btn-idioma');
   const btnTheme = document.getElementById('btn-tema');
   const arrayMenus = document.querySelectorAll('.itemsMenu-header');
   const userLanguage = localStorage.getItem('language') || navigator.language;
 
-  const observacoes = ['left', 'right', 'bottom', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6'];
-  observacoes.forEach(obs => {
-    criarObservacao(`.hidden-scroll-${obs}`, `show-scroll-${obs}`);
+  const observations = ['left', 'right', 'bottom', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6'];
+  observations.forEach(obs => {
+    createObservation(`.hidden-scroll-${obs}`, `show-scroll-${obs}`);
   });
 
   document.querySelectorAll('.btn-project').forEach(element => {
@@ -116,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const classes = element.className.split(' ');
       let description = '';
       let textsOption = '';
-      if (lenguageEnglis) {
+      if (isLanguageEnglish) {
         description = descriptionsProjects[classes[1]].en;
         textsOption = ['Technologies:', 'See in:'];
       } else {
@@ -134,66 +147,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
   btnTheme.addEventListener('click', (event) => {
     event.preventDefault();
-    if (themaEscuro) {
-      themeLight();
-      themaEscuro = !themaEscuro;
-      if (window.innerWidth <= 896) {
-        closedMenu(listaMenus);
-        menuVisible = !menuVisible;
-      }
-    } else {
-      themeDark();
-      themaEscuro = !themaEscuro;
-      if (window.innerWidth <= 896) {
-        closedMenu(listaMenus);
-        menuVisible = !menuVisible;
-      }
-    }
+    toogleThemeLenguage(
+      isThemaDark, themeLight,
+      toggleThema, toggleMenu,
+      themeDark, listaMenus
+    );
   })
 
   if (userLanguage.startsWith('pt')) {
-    portugues();
-    lenguageEnglis = !lenguageEnglis;
+    portuguese();
+    toggleLanguage();
   } else {
-    englis();
-    lenguageEnglis = !lenguageEnglis;
+    english();
+    toggleLanguage();
   }
 
   arrayMenus.forEach((element) => {
     element.addEventListener('click', () => {
       if (window.innerWidth <= 986) {
         closedMenu(listaMenus);
-        menuVisible = !menuVisible;
+        toggleMenu()
       }
-    })
-  })
+    });
+  });
 
   controlTextByLanguage(
-    lenguageEnglis,
+    isLanguageEnglish,
     '.textSkills',
     '*Hover your mouse over the skills to check their descriptions*',
     '*Passe o mouse sobre as habilidades para verificar suas descrições*'
   );
 
-  btnIdioma.addEventListener('click', (event) => {
+  btnLanguage.addEventListener('click', (event) => {
     event.preventDefault();
-
-    if (lenguageEnglis) {
-      portugues();
-      lenguageEnglis = !lenguageEnglis;
-      if (window.innerWidth <= 896) {
-        closedMenu(listaMenus);
-        menuVisible = !menuVisible;
-      }
-    } else {
-      englis();
-      lenguageEnglis = !lenguageEnglis;
-      if (window.innerWidth <= 896) {
-        closedMenu(listaMenus);
-        menuVisible = !menuVisible;
-      }
-    }
-  })
+    toogleThemeLenguage(
+      isLanguageEnglish, portuguese,
+      toggleLanguage, toggleMenu,
+      english, listaMenus
+    );
+  });
 
 
   if (window.innerWidth > 896) {
@@ -202,23 +194,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const classesSkills = element.className.split(' ');
 
         if (classesSkills[1] in descriptionSkills) {
-          if (lenguageEnglis) {
-            handleTextSillsHover(themaEscuro, paragrafo, classesSkills, 'en', 'rgb(212, 212, 212)', 'rgb(59, 59, 59)');
+          if (isLanguageEnglish) {
+            handleTextSillsHover(isThemaDark, textSkills, classesSkills, 'en', 'rgb(212, 212, 212)', 'rgb(59, 59, 59)');
           } else {
-            handleTextSillsHover(themaEscuro, paragrafo, classesSkills, 'pt', 'rgb(212, 212, 212)', 'rgb(59, 59, 59)');
+            handleTextSillsHover(isThemaDark, textSkills, classesSkills, 'pt', 'rgb(212, 212, 212)', 'rgb(59, 59, 59)');
           }
         }
       });
 
       element.addEventListener('mouseout', () => {
         controlTextByLanguage(
-          lenguageEnglis,
+          isLanguageEnglish,
           '.textSkills',
           '*Hover your mouse over the skills to check their descriptions*',
           '*Passe o mouse sobre as habilidades para verificar suas descrições*'
         )
-      })
-    })
+      });
+    });
   }
 
   handleHoverCardsProject(false, imageCardsProjects, 'mouseover', '130%');
@@ -227,8 +219,8 @@ document.addEventListener('DOMContentLoaded', () => {
   handleHoverCardsProject(true, btnCardProjetcts, 'mouseout', '115%');
 
   menu.addEventListener('click', () => {
-    menuVisible ? closedMenu(listaMenus) : openMenu(listaMenus, themaEscuro);
-    menuVisible = !menuVisible;
+    isMenuVisible ? closedMenu(listaMenus) : openMenu(listaMenus, isThemaDark);
+    toggleMenu();
   });
 
 
@@ -238,12 +230,12 @@ document.addEventListener('DOMContentLoaded', () => {
       listaMenus.style.visibility = 'visible';
       listaMenus.style.backgroundColor = 'transparent'
     } else {
-      menuVisible = false;
+      isMenuVisible = false;
       closedMenu(listaMenus);
     }
-  })
-
+  });
 });
+
 
 function handleTextSillsHover(isTheme, element, array, lenguage, color1, color2) {
   if (isTheme) {
@@ -251,13 +243,13 @@ function handleTextSillsHover(isTheme, element, array, lenguage, color1, color2)
     element.querySelectorAll('strong').forEach(element => {
       element.style.color = color1;
       element.style.fontWeight = 'bolder';
-    })
+    });
   } else {
-    element.innerHTML = descriptionSkills[array[1]].lenguage;
+    element.innerHTML = descriptionSkills[array[1]][lenguage];
     element.querySelectorAll('strong').forEach(element => {
       element.style.color = color2;
       element.style.fontWeight = 'bolder';
-    })
+    });
   }
 }
 
@@ -268,14 +260,14 @@ function handleHoverCardsProject(isBtn, item, event, value) {
         const cardItem = element.parentElement;
         const imagemCardItem = cardItem.firstElementChild;
         imagemCardItem.style.backgroundSize = value;
-      })
-    })
+      });
+    });
   } else {
     item.forEach(element => {
       element.addEventListener(event, () => {
         element.style.backgroundSize = value;
       });
-    })
+    });
   }
 }
 
@@ -285,10 +277,10 @@ function closedMenu(menu) {
   menu.style.backgroundColor = 'transparent';
 }
 
-function openMenu(menu, themaEscuro) {
+function openMenu(menu, themeDark) {
   menu.style.visibility = 'visible';
   document.body.style.overflow = 'hidden';
-  menu.style.backgroundColor = (themaEscuro) ? 'black' : 'white';
+  menu.style.backgroundColor = (themeDark) ? 'black' : 'white';
 }
 
 function dialogProject(title, description, technologies, urlGit, urlDeploy, texts) {
@@ -310,153 +302,102 @@ function dialogProject(title, description, technologies, urlGit, urlDeploy, text
   document.querySelector('.text-see-in-options').textContent = texts[1];
 }
 
-function portugues() {
+function portuguese() {
   document.querySelector('.btn-options-deploy').innerHTML = '<i class="bi bi-box-arrow-up-right"></i> Visitar';
   //icone idioma
   document.querySelector('.icon-idioma').setAttribute('src', 'src/img/brasil.png')
   // navegação
   const arrayMenusPortugues = ['inicio', 'sobre', 'habilidades', 'projetos', 'serviços', 'contato'];
   const arrayItensMenu = document.querySelectorAll('.itemsMenu-header');
-
   arrayItensMenu.forEach((element, index) => {
     element.textContent = arrayMenusPortugues[index];
   });
-
   // sobre
-
   document.querySelector('.titleSobre').innerHTML = '&#8249; <span class="letraMonoton">S</span>obre &#8260; &#8250';
-
-
   const textsSobreArray = ['Meu nome é <strong>Jefferson Santos</strong>, e sou um entusiasta de tecnologia que decidiu seguir a carreira de programação. Nos últimos <strong>quatro anos</strong>, tenho me dedicado a compreender as principais tecnologias do mercado e a aplicar <strong>metodologias ágeis de desenvolvimento</strong>.', 'Concluí um curso técnico em <strong>Desenvolvimento de Sistemas (DS)</strong> com foco em <strong>desenvolvimento Full Stack</strong>. Desde então, trabalhei em projetos como freelancer e contribuí para projetos de código aberto, aprimorando continuamente minhas habilidades e experiência na área. (Eu amo café)'];
-
   const arrayTextSobre = document.querySelectorAll('.textSobre');
   arrayTextSobre.forEach((element, index) => {
     element.innerHTML = textsSobreArray[index];
   })
-
-
   // skills
   document.querySelector('.titleSkills').innerHTML = '&#8249; <span class="letraMonoton">H</span>abilidades &#8260; &#8250;'
   document.querySelector('.textSkills').innerHTML = '*Passe o mouse sobre as habilidades para verificar suas descrições*';
-
   // projetos
-
   document.querySelector('.titleProjetos').innerHTML = '&#8249; <span class="letraMonoton">P</span>rojetos &#8260; &#8250;';
-
   const arrayCards = document.querySelectorAll('.card-item');
   const titlesProjetctsArray = ['Jéssica Planilhas', 'API - Filmes', 'Formuláio de Login', 'Calculadora - Light Dark', 'Calculadora de IMC', 'API - Previsão do Tempo'];
-  const stackProjectsArray = ['']
-
   arrayCards.forEach((element, index) => {
     element.querySelector('.title-project').innerHTML = titlesProjetctsArray[index];
   });
-
   document.querySelectorAll('.btn-project').forEach(element => {
     element.textContent = 'Ver projeto';
   })
-
   // serviço
-
-  document.querySelector('.titleService').innerHTML = '&#8249; <span class="letraMonoton">S</span>erviços &#8260; &#8250;'
-
+  document.querySelector('.titleService').innerHTML = '&#8249; <span class="letraMonoton">S</span>erviços &#8260; &#8250;';
   const titlesCards = ['Criação de Sites', 'Sites Responsivos', 'Criação de APIs'];
-
   const descriptionsCards = ['Criação de sites personalizados, sejam pessoais ou para diversos setores de negócio', ' Todos os sites são responsivos, para melhorar ainda mais a experiência do usuário em qualquer dispositivo.', 'Criação de APIs Rest seguras e experiência de integração com bancos de dados externos.'];
-
   const cardsService = document.querySelectorAll('.card-service');
   cardsService.forEach((element, index) => {
     element.querySelector('.title-card-service').innerHTML = titlesCards[index];
     element.querySelector('.description-card-service').innerHTML = descriptionsCards[index];
   });
-
   // contato
-
   document.querySelector('.titleContact').innerHTML = '&#8249; <span class="letraMonoton">C</span>ontato &#8260; &#8250;';
-
   const inputsPlaceholdsArray = ['Insira seu nome e sobrenome', 'Insira seu email', 'Assunto da mensagem', 'Sua mensagem...'];
-
   const inputsArray = document.querySelectorAll('.inputsFormContato');
-
   inputsArray.forEach((element, index) => {
-    element.setAttribute('placeholder', inputsPlaceholdsArray[index])
+    element.setAttribute('placeholder', inputsPlaceholdsArray[index]);
   });
-
-  document.getElementById('enviar').setAttribute('value', 'Enviar')
-
-
+  document.getElementById('enviar').setAttribute('value', 'Enviar');
 }
 
-function englis() {
+function english() {
   document.querySelector('.btn-options-deploy').innerHTML = '<i class="bi bi-box-arrow-up-right"></i> Visit';
   //icone idioma
-  document.querySelector('.icon-idioma').setAttribute('src', 'src/img/eua.png')
+  document.querySelector('.icon-idioma').setAttribute('src', 'src/img/eua.png');
   // navegação
   const arrayMenusPortugues = ['home', 'about', 'skills', 'projects', 'services', 'contact'];
   const arrayItensMenu = document.querySelectorAll('.itemsMenu-header');
-
   arrayItensMenu.forEach((element, index) => {
     element.textContent = arrayMenusPortugues[index];
   });
-
   // sobre
-
   document.querySelector('.titleSobre').innerHTML = '&#8249; <span class="letraMonoton">A</span>bout &#8260; &#8250';
-
-
   const textsSobreArray = ['My name is <strong>Jefferson Santos</strong> and I am a technology enthusiast who decided to pursue a career in programming. Over the last <strong>four years</strong>, I have dedicated myself to understanding the main  technologies on the market and applying <strong>agile development methodologies</strong> (I&#8217;m a coffee lover).', 'I completed a technical course in <strong>Systems Development (DS)</strong> with a focus on <strong>Full Stack development</strong>. Since then, I have worked on projects as a freelancer and contributed to open source projects, continually improving my skills and experience in the field.'];
-
   const arrayTextSobre = document.querySelectorAll('.textSobre');
   arrayTextSobre.forEach((element, index) => {
     element.innerHTML = textsSobreArray[index];
-  })
-
-
+  });
   // skills
   document.querySelector('.titleSkills').innerHTML = '&#8249; <span class="letraMonoton">S</span>kills &#8260; &#8250;';
   document.querySelector('.textSkills').innerHTML = '*Hover your mouse over the skills to check their descriptions*';
-
   // projetos
-
   document.querySelector('.titleProjetos').innerHTML = '&#8249; <span class="letraMonoton">P</span>rojects &#8260; &#8250;';
-
   const arrayCards = document.querySelectorAll('.card-item');
   const titlesProjetctsArray = ['Jessica Spreadsheets', 'API - Movies', 'Login Form', 'Calculator - Light Dark', 'BMI Calculator', 'API - Weather Forecast'];
-
   arrayCards.forEach((element, index) => {
     element.querySelector('.title-project').innerHTML = titlesProjetctsArray[index];
   });
-
   document.querySelectorAll('.btn-project').forEach(element => {
     element.textContent = 'View project';
   });
-
   // serviço
-
   document.querySelector('.titleService').innerHTML = '&#8249; <span class="letraMonoton">S</span>ervices &#8260; &#8250;';
-
   const titlesCards = ['Website Creation', 'Responsive Websites', 'Creating APIs'];
-
   const descriptionsCards = ['Creation of personalized websites, whether personal or for various business sectors', 'All websites are responsive, to further improve the user experience on any device.', 'Creation of secure Rest APIs, and integration with external databases experience.'];
-
   const cardsService = document.querySelectorAll('.card-service');
   cardsService.forEach((element, index) => {
     element.querySelector('.title-card-service').innerHTML = titlesCards[index];
     element.querySelector('.description-card-service').innerHTML = descriptionsCards[index];
   });
-
   // contato
-
   document.querySelector('.titleContact').innerHTML = '&#8249; <span class="letraMonoton">C</span>ontact &#8260; &#8250;';
-
   const inputsPlaceholdsArray = ['Enter your first and last name', 'Enter your email', 'Message subject', 'Your message...'];
-
   const inputsArray = document.querySelectorAll('.inputsFormContato');
-
   inputsArray.forEach((element, index) => {
-    element.setAttribute('placeholder', inputsPlaceholdsArray[index])
+    element.setAttribute('placeholder', inputsPlaceholdsArray[index]);
   });
-
-  document.getElementById('enviar').setAttribute('value', 'Send')
+  document.getElementById('enviar').setAttribute('value', 'Send');
 }
 
 function themeLight() {
@@ -785,19 +726,19 @@ function themeDark() {
   });
 }
 
-function criarObservacao(classeOculta, classeMostrar) {
-  const observacao = new IntersectionObserver((entries) => {
+function createObservation(hiddenClass, visibleClass) {
+  const observation = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add(classeMostrar);
+        entry.target.classList.add(visibleClass);
       } else {
         return;
       }
     });
   });
 
-  const elementosOcultos = document.querySelectorAll(classeOculta);
-  elementosOcultos.forEach((element) => observacao.observe(element));
+  const elementosOcultos = document.querySelectorAll(hiddenClass);
+  elementosOcultos.forEach((element) => observation.observe(element));
 }
 
 function closeOptionBox() {
@@ -810,4 +751,25 @@ function closeOptionBox() {
 
 function controlTextByLanguage(lenguageEnglis, element, textEn, textPt) {
   document.querySelector(element).innerHTML = (lenguageEnglis) ? textEn : textPt;
+}
+
+function toogleThemeLenguage(
+  condition, function1,
+  toogleFunction1, toogleFunction2,
+  function2, list) {
+  if (condition) {
+    function1();
+    toogleFunction1();
+    if (window.innerWidth <= 896) {
+      closedMenu(list);
+      toogleFunction2();
+    }
+  } else {
+    function2();
+    toogleFunction1();
+    if (window.innerWidth <= 896) {
+      closedMenu(list);
+      toogleFunction2();
+    }
+  }
 }

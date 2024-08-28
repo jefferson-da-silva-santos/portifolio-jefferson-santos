@@ -36,11 +36,11 @@
 .hidden-scroll-bottom {
   transform: translateY(30%);
   filter: blur(10px);
-  transition: all 1s ease;
+  transition: all 1s ease-in;
 }
 
 .show-scroll-bottom {
-  animation: scrollBottom 1s ease 0s 1 normal forwards;
+  animation: scrollBottom 1s ease-in 0s 1 normal forwards;
 }
 
 
@@ -57,13 +57,28 @@
 
 /* Efeitos para cada projeto */
 
-.hidden-scroll-p1,
-.hidden-scroll-p2,
-.hidden-scroll-p3,
-.hidden-scroll-p4,
-.hidden-scroll-p5,
+.hidden-scroll-p1 {
+  transform: translateY(60%);
+  filter: blur(5px);
+}
+.hidden-scroll-p2 {
+  transform: translateY(70%);
+  filter: blur(5px);
+}
+.hidden-scroll-p3 {
+  transform: translateY(80%);
+  filter: blur(5px);
+} 
+.hidden-scroll-p4 {
+  transform: translateY(60%);
+  filter: blur(5px);
+}
+.hidden-scroll-p5 {
+  transform: translateY(70%);
+  filter: blur(5px);
+}
 .hidden-scroll-p6 {
-  transform: translateY(30%);
+  transform: translateY(80%);
   filter: blur(5px);
 }
 
