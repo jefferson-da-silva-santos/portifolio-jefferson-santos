@@ -119,6 +119,7 @@ body {
 
 .groupHeader {
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .logoNav {
@@ -413,6 +414,7 @@ body {
   display: flex;
   align-items: center;
   transition: all .5s ease;
+  overflow: hidden;
 }
 
 .sobre {
@@ -498,12 +500,6 @@ body {
   column-gap: 2px;
 }
 
-.linha {
-  width: 4px;
-  height: 100%;
-  background-image: linear-gradient(to top, var(--color-secundary) 20%, var(--color-terciary));
-  transition: all .5s ease;
-}
 
 /* Estilos do Skills */
 
@@ -513,6 +509,7 @@ body {
   display: flex;
   align-items: center;
   padding-top: 4em;
+  overflow: hidden;
 }
 
 .skills {
@@ -542,13 +539,6 @@ body {
   transition: all .5s ease;
 }
 
-.linha-secundary {
-  width: 4px;
-  height: 100%;
-  background-image: linear-gradient(to top, var(--color-primary) 20%, var(--color-terciary));
-  transition: all .5s ease;
-}
-
 .groupSkills-secundary {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -573,6 +563,15 @@ body {
 
 .skill-element img {
   width: 40%;
+}
+
+.react img,
+.taiwind img,
+.sql img,
+.java img,
+.nodejs img,
+.mysql img {
+  width: 50%;
 }
 
 .textSkills {
@@ -637,7 +636,7 @@ strong {
 
 .linhas {
   width: 4px;
-  background-image: linear-gradient(to top, var(--color-secundary) 20%, var(--color-terciary));
+  background-image: linear-gradient(to top, transparent 20%, var(--color-terciary));
   height: 65px;
   transition: all .5s ease;
 }
@@ -727,27 +726,27 @@ strong {
 
 
 .groupProjetos-secundary :nth-child(1) .group-image-project  {
-  background-image: url('../img/projeto-jessica-planilhas.png');
+  background-image: url('../img/projeto-jessica-planilhas.webp');
 }
 
 .groupProjetos-secundary :nth-child(2) .group-image-project  {
-  background-image: url('../img/projeto-api-filmes.png');
+  background-image: url('../img/projeto-api-filmes.webp');
 }
 
 .groupProjetos-secundary :nth-child(3) .group-image-project  {
-  background-image: url('../img/projeto-login-form.png');
+  background-image: url('../img/projeto-login-form.webp');
 }
 
 .groupProjetos-secundary :nth-child(4) .group-image-project  {
-  background-image: url('../img/projeto-calculadora.png');
+  background-image: url('../img/projeto-calculadora.webp');
 }
 
 .groupProjetos-secundary :nth-child(5) .group-image-project  {
-  background-image: url('../img/projeto-calculadora-de-imc.png');
+  background-image: url('../img/projeto-calculadora-de-imc.webp');
 }
 
 .groupProjetos-secundary :nth-child(6) .group-image-project  {
-  background-image: url('../img/projeto-previsao-do-tempo.png');
+  background-image: url('../img/projeto-previsao-do-tempo.webp');
 }
 
 
@@ -759,6 +758,7 @@ strong {
   padding-top: 5em;
   display: flex;
   transition: all .5s ease;
+  overflow: hidden;
 }
 
 .service {
@@ -786,7 +786,7 @@ strong {
 
 .card-service {
   text-align: center;
-  height: 24em;
+  height: 26em;
   display: flex;
   flex-direction: column;
   gap: 1em;
@@ -859,6 +859,7 @@ strong {
   min-height: 100vh;
   display: flex;
   transition: all .5s ease;
+  overflow: hidden;
 }
 
 

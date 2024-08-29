@@ -64,6 +64,7 @@
 
   .header {
     grid-template-columns: 1fr;
+    padding-top: 0;
   }
 
   .groupHeader-texts {
@@ -189,13 +190,14 @@
 @media screen and (max-width: 545px) {
   /* Estilos do Header */
   .groupHeader-texts h1 {
-    font-size: 3em;
+    font-size: 3.5em;
     width: 100%;
   }
 
   .title-secundary-header {
-    font-size: 1.5em;
+    font-size: 2em;
   }
+
 
   /* Estilos do Sobre */
 
@@ -253,6 +255,7 @@
 
   .card-service {
     width: 100%;
+    height: 26em;
   }
 
   .groupService-secundary {
@@ -280,11 +283,11 @@
   /* Estilos Header */
 
   .groupHeader-texts h1 {
-    font-size: 2.5em;
+    font-size: 3em;
   }
 
   .title-secundary-header {
-    font-size: 1.25em;
+    font-size: 1.5em;
   }
 
   /* Estilo projetos */
@@ -298,6 +301,26 @@
   .groupSobre-primary p {
     font-size: 1em;
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 408px) {
+  .groupHeader-texts h1 {
+    font-size: 2.8em;
+  }
+
+  .title-secundary-header {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .groupHeader-texts h1 {
+    font-size: 2.5em;
+  }
+
+  .title-secundary-header {
+    font-size: 1.3em;
   }
 }
 
@@ -363,7 +386,7 @@
   }
 
   .card-service {
-    height: 25em;
+    height: 28em;
   }
 
   /* Estilos Contato */

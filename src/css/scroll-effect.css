@@ -36,7 +36,7 @@
 .hidden-scroll-bottom {
   transform: translateY(30%);
   filter: blur(10px);
-  transition: all 1s ease-in;
+  transition: all .5s ease-in;
 }
 
 .show-scroll-bottom {
@@ -118,4 +118,31 @@
 
 .hidden-scroll-bottom-image {
   left: 90px;
+}
+
+
+
+.hidden-scroll-s1 {
+  transform: translateX(60%);
+  filter: blur(5px);
+  transition: all .5s ease;
+}
+
+.hidden-scroll-s2 {
+  transform: translateX(80%);
+  filter: blur(5px);
+  transition: all 1s ease;
+}
+
+.hidden-scroll-s3 {
+  transform: translateX(100%);
+  filter: blur(5px);
+  transition: all 1.5s ease;
+}
+
+.show-scroll-s1,
+.show-scroll-s2,
+.show-scroll-s3 {
+  transform: translateX(0);
+  filter: blur(0);
 }

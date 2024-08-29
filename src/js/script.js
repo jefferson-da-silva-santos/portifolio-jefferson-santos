@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const arrayMenus = document.querySelectorAll('.itemsMenu-header');
   const userLanguage = localStorage.getItem('language') || navigator.language;
 
-  const observations = ['left', 'right', 'bottom', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6'];
+  const observations = ['left', 'right', 'bottom', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 's1', 's2', 's3'];
   observations.forEach(obs => {
     createObservation(`.hidden-scroll-${obs}`, `show-scroll-${obs}`);
   });
@@ -143,7 +143,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  closeOptionBox();
+
+  document.querySelector('.close-options').addEventListener('click', (event) => {
+    event.preventDefault();
+    closeOptionBox();
+  });
+
+  document.querySelector('.btn-options-git').addEventListener('click', (event) => {
+    closeOptionBox();
+  });
+
+  document.querySelector('.btn-options-deploy').addEventListener('click', (event) => {
+    closeOptionBox();
+  })
 
   btnTheme.addEventListener('click', (event) => {
     event.preventDefault();
@@ -269,6 +281,9 @@ function handleHoverCardsProject(isBtn, item, event, value) {
       });
     });
   }
+
+
+ 
 }
 
 function closedMenu(menu) {
@@ -488,16 +503,7 @@ function themeLight() {
     element.style.color = 'rgb(49, 49, 49)';
   });
   document.querySelectorAll('.linhas').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #ffffff 20%, #00ffff)';
-  });
-  document.querySelectorAll('.linha-secundary').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #f7f7f7 20%, #00ffff)';
-  });
-  document.querySelectorAll('.linha').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #ffffff 20%, #00ffff)';
-  });
-  document.querySelectorAll('.groupContact .linha-secundary').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #ffffff 20%, #00ffff)';
+    element.style.backgroundImage = 'linear-gradient(to top, transparent 20%, #00ffff)';
   });
   document.querySelectorAll('.listNav > li').forEach(element => {
     element.style.backgroundColor = 'transparent';
@@ -650,16 +656,7 @@ function themeDark() {
     element.style.color = 'white';
   });
   document.querySelectorAll('.linhas').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #0f0f0f 20%, #00ffff)';
-  });
-  document.querySelectorAll('.linha-secundary').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #0f0f0f 20%, #00ffff)';
-  });
-  document.querySelectorAll('.linha').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #0f0f0f 20%, #00ffff)';
-  });
-  document.querySelectorAll('.groupContact .linha-secundary').forEach(element => {
-    element.style.backgroundImage = 'linear-gradient(to top, #0f0f0f 20%, #00ffff)';
+    element.style.backgroundImage = 'linear-gradient(to top, transparent 20%, #00ffff)';
   });
   document.querySelectorAll('.listNav > li').forEach(element => {
     element.style.backgroundColor = 'transparent';
@@ -742,11 +739,8 @@ function createObservation(hiddenClass, visibleClass) {
 }
 
 function closeOptionBox() {
-  document.querySelector('.close-options').addEventListener('click', (event) => {
-    event.preventDefault();
-    document.body.style.overflow = 'auto';
-    document.querySelector('.group-project-options-box').style.display = 'none';
-  });
+  document.body.style.overflow = 'auto';
+  document.querySelector('.group-project-options-box').style.display = 'none';
 }
 
 function controlTextByLanguage(lenguageEnglis, element, textEn, textPt) {
