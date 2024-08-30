@@ -280,10 +280,7 @@ function handleHoverCardsProject(isBtn, item, event, value) {
         element.style.backgroundSize = value;
       });
     });
-  }
-
-
- 
+  } 
 }
 
 function closedMenu(menu) {
@@ -320,7 +317,7 @@ function dialogProject(title, description, technologies, urlGit, urlDeploy, text
 function portuguese() {
   document.querySelector('.btn-options-deploy').innerHTML = '<i class="bi bi-box-arrow-up-right"></i> Visitar';
   //icone idioma
-  document.querySelector('.icon-idioma').setAttribute('src', 'src/img/brasil.png')
+  document.querySelector('.icon-idioma').setAttribute('src', 'src/img/brasil.webp')
   // navegação
   const arrayMenusPortugues = ['inicio', 'sobre', 'habilidades', 'projetos', 'serviços', 'contato'];
   const arrayItensMenu = document.querySelectorAll('.itemsMenu-header');
@@ -369,7 +366,7 @@ function portuguese() {
 function english() {
   document.querySelector('.btn-options-deploy').innerHTML = '<i class="bi bi-box-arrow-up-right"></i> Visit';
   //icone idioma
-  document.querySelector('.icon-idioma').setAttribute('src', 'src/img/eua.png');
+  document.querySelector('.icon-idioma').setAttribute('src', 'src/img/eua.webp');
   // navegação
   const arrayMenusPortugues = ['home', 'about', 'skills', 'projects', 'services', 'contact'];
   const arrayItensMenu = document.querySelectorAll('.itemsMenu-header');
@@ -424,7 +421,7 @@ function themeLight() {
   document.querySelector('.name-project-option').style.color = '#000000';
   document.querySelector('.name-project-option').style.textShadow = '0px 0px 5px #0000009a';
   document.querySelector('.close-options').style.color = 'black';
-  document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-claro.png');
+  document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-claro.webp');
   document.querySelector('.listNav').style.backgroundColor = 'transparent';
   document.body.style.backgroundColor = '#f7f7f7';
   document.querySelector('.logoNav').style.color = 'rgb(49, 49, 49)';
@@ -577,7 +574,7 @@ function themeDark() {
   document.querySelector('.name-project-option').style.color = '#00ffff';
   document.querySelector('.name-project-option').style.textShadow = '0px 0px 5px #00ffff9a';
   document.querySelector('.close-options').style.color = 'white';
-  document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-escuro.png');
+  document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-escuro.webp');
   document.querySelector('.listNav').style.backgroundColor = 'transparent';
   document.body.style.backgroundColor = '#0f0f0f';
   document.querySelector('.logoNav').style.color = 'white';

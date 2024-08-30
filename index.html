@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="src/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="src/img/favicon.ico" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -14,86 +14,202 @@
     />
     <link rel="stylesheet" href="src/css/styles.css" />
     <link rel="stylesheet" href="src/css/media-styles.css" />
-    <link rel="stylesheet" href="src/css/scroll-effect.css">
+    <link rel="stylesheet" href="src/css/scroll-effect.css" />
     <title>Jefferson Santos</title>
   </head>
   <body>
-    <div class="group-project-options-box">
-      <div class="project-options-box">
-        <div class="group-texts-options-box">
+    <!-- Options Box dos Projetos -->
+    <aside
+      class="group-project-options-box"
+      role="dialog"
+      aria-label="Ver projeto"
+    >
+      <section class="project-options-box">
+        <article class="group-texts-options-box">
           <h1 class="name-project-option"></h1>
-          <a class="close-options" href=""><i class="bi bi-x-lg"></i></a>
-        </div>
+          <a
+            class="close-options"
+            href=""
+            role="button"
+            aria-label="Fechar"
+            aria-description="Fechar opções de visualização do projeto"
+            ><i class="bi bi-x-lg"></i
+          ></a>
+        </article>
         <p class="description-option-project"></p>
         <p class="text-tecnologias-options"></p>
-        <ul class="list-options-box-tec">
-        </ul>
+        <ul class="list-options-box-tec"></ul>
         <p class="text-see-in-options"></p>
-        <div class="groupBtn-options-box">
-          <a class="btn-options-git" href="" target="_blank"><i class="bi bi-github"></i> GitHub</a>
-          <a class="btn-options-deploy" href="" target="_blank"><i class="bi bi-box-arrow-up-right"></i> Visitar</a>
-        </div>
-      </div>
-    </div>
+        <article class="groupBtn-options-box">
+          <a
+            class="btn-options-git"
+            href=""
+            target="_blank"
+            role="button"
+            aria-label="Ver projeto no github"
+          >
+            <i class="bi bi-github"></i> GitHub
+          </a>
+          <a
+            class="btn-options-deploy"
+            href=""
+            target="_blank"
+            role="button"
+            aria-label="Ver o site"
+          >
+            <i class="bi bi-box-arrow-up-right"></i> Visitar
+          </a>
+        </article>
+      </section>
+    </aside>
+    <!-- Navegação (menu) -->
     <div class="groupHeader">
       <div class="groupNav">
         <nav class="nav">
           <a class="logoNav" href=""
             >&#8249; <span class="letraMonoton">J</span>eff &#8260; &#8250;</a
           >
-          <ul class="listNav" id="lista-menus">
-            <li><a class="itemsMenu-header" href="#home">home</a></li>
-            <li><a class="itemsMenu-header" href="#about">about</a></li>
-            <li><a class="itemsMenu-header" href="#skills">skills</a></li>
-            <li><a class="itemsMenu-header" href="#project">projects</a></li>
-            <li><a class="itemsMenu-header" href="#service">service</a></li>
-            <li><a class="itemsMenu-header" href="#contact">contact</a></li>
+          <ul class="listNav" id="lista-menus" role="tablist">
             <li>
-              <a href="#" id="btn-idioma">
-                <img loading="lazy" class="icon-idioma" src="src/img/eua.webp" alt="" />
+              <a
+                role="tab"
+                aria-controls="home"
+                class="itemsMenu-header"
+                href="#home"
+                >home</a
+              >
+            </li>
+            <li>
+              <a
+                role="tab"
+                aria-controls="about"
+                class="itemsMenu-header"
+                href="#about"
+                >about</a
+              >
+            </li>
+            <li>
+              <a
+                role="tab"
+                aria-controls="skills"
+                class="itemsMenu-header"
+                href="#skills"
+                >skills</a
+              >
+            </li>
+            <li>
+              <a
+                role="tab"
+                aria-controls="project"
+                class="itemsMenu-header"
+                href="#project"
+                >projects</a
+              >
+            </li>
+            <li>
+              <a
+                role="tab"
+                aria-controls="service"
+                class="itemsMenu-header"
+                href="#service"
+                >service</a
+              >
+            </li>
+            <li>
+              <a
+                role="tab"
+                aria-controls="contact"
+                class="itemsMenu-header"
+                href="#contact"
+                >contact</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                id="btn-idioma"
+                role="button"
+                aria-label="Mudar idioma"
+              >
+                <img
+                  loading="lazy"
+                  class="icon-idioma"
+                  src="src/img/eua.webp"
+                  alt="icone do idioma"
+                />
               </a>
             </li>
             <li>
-              <a href="#" class="icon-theme-1">
-                <img loading="lazy" id="btn-tema" class="icon-theme" src="src/img/modo-escuro.webp" alt="">
+              <a
+                href="#"
+                class="icon-theme-1"
+                role="button"
+                aria-label="Mudar tema"
+              >
+                <img
+                  loading="lazy"
+                  id="btn-tema"
+                  class="icon-theme"
+                  src="src/img/modo-escuro.webp"
+                  alt="icone do tema"
+                />
               </a>
             </li>
           </ul>
-          <div class="select-menu-humburguer" id="menu">
+          <div
+            class="select-menu-humburguer"
+            id="menu"
+            role="button"
+            aria-label="Abrir e fechar menu"
+          >
             <div class="linha-menu-humburguer"></div>
             <div class="linha-menu-humburguer"></div>
             <div class="linha-menu-humburguer"></div>
           </div>
         </nav>
       </div>
+      <!-- Cabeçalio do Portifólio -->
       <header class="header" id="home">
-        <div class="groupHeader-texts hidden-scroll-left">
+        <section class="groupHeader-texts hidden-scroll-left">
           <div class="textsHeader">
             <h1>Jefferson Santos</h1>
             <p class="title-secundary-header"></p>
           </div>
           <div class="groupHeader-socialMedia">
-            <a class="geoupHeader-socialMediaButton" href="#"
+            <a
+              role="button"
+              aria-label="Abrir github"
+              class="geoupHeader-socialMediaButton"
+              href="#"
               ><i class="bi bi-github"></i
             ></a>
-            <a class="geoupHeader-socialMediaButton" href="#"
+            <a
+              role="button"
+              aria-label="Abrir linkedin"
+              class="geoupHeader-socialMediaButton"
+              href="#"
               ><i class="bi bi-linkedin"></i
             ></a>
-            <a class="geoupHeader-socialMediaButton" href="#"
+            <a
+              role="button"
+              aria-label="Abrir whatsapp"
+              class="geoupHeader-socialMediaButton"
+              href="#"
               ><i class="bi bi-whatsapp"></i
             ></a>
           </div>
-        </div>
-        <div class="groupHeader-img hidden-scroll-left">
-          <img loading="lazy"
+        </section>
+        <section class="groupHeader-img hidden-scroll-left">
+          <img
+            loading="lazy"
             src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png"
-            alt="simbolo do react"
+            alt="simbolo do framework react"
           />
-        </div>
+        </section>
       </header>
     </div>
-
     <main>
+      <!-- 'Sobre mim' do portifólio -->
       <div class="groupSobre" id="about">
         <section class="sobre">
           <article class="groupSobre-primary hidden-scroll-right">
@@ -106,21 +222,37 @@
               </h2>
             </div>
             <p class="textSobre">
-              My name is <strong>Jefferson Santos</strong> and I am a technology enthusiast who decided to pursue a career in programming. Over the last <strong>four years</strong>, I have dedicated myself to understanding the main  technologies on the market and applying <strong>agile development methodologies</strong> (I&#8217;m a coffee lover).
+              My name is <strong>Jefferson Santos</strong> and I am a technology
+              enthusiast who decided to pursue a career in programming. Over the
+              last <strong>four years</strong>, I have dedicated myself to
+              understanding the main technologies on the market and applying
+              <strong>agile development methodologies</strong> (I&#8217;m a
+              coffee lover).
             </p>
             <p class="textSobre">
-              I completed a technical course in <strong>Systems Development (DS)</strong> with a focus on <strong>Full Stack development</strong>. Since then, I have worked on projects as a freelancer and contributed to open source projects, continually improving my skills and experience in the field.
+              I completed a technical course in
+              <strong>Systems Development (DS)</strong> with a focus on
+              <strong>Full Stack development</strong>. Since then, I have worked
+              on projects as a freelancer and contributed to open source
+              projects, continually improving my skills and experience in the
+              field.
             </p>
           </article>
           <article class="groupSobre-secundary hidden-scroll-right">
             <div class="circle"></div>
-            <img loading="lazy" class="minha-img" src="src/img/cafe_semfundo.webp" alt="" />
+            <img
+              loading="lazy"
+              class="minha-img"
+              src="src/img/cafe_semfundo.webp"
+              alt="xicara de café flutuante"
+            />
           </article>
         </section>
       </div>
+      <!-- Sessão Habilidades do portifólio -->
       <div class="groupSkills" id="skills">
         <section class="skills">
-          <div class="groupSkills-primary hidden-scroll-left">
+          <article class="groupSkills-primary hidden-scroll-left">
             <div class="dividir-titulo-linha">
               <div class="linhas"></div>
               <div class="linhas"></div>
@@ -129,50 +261,89 @@
                 &#8249; <span class="letraMonoton">S</span>kills &#8260; &#8250;
               </h2>
             </div>
-            <p class="textSkills" id="description-skills">
-            </p>
-
-          </div>
-          <div class="groupSkills-secundary hidden-scroll-left">
+            <p class="textSkills" id="description-skills"></p>
+          </article>
+          <article class="groupSkills-secundary hidden-scroll-left">
             <article class="skill-element html">
-              <img loading="lazy" src="src/img/html-5.webp" alt="" />
+              <img
+                loading="lazy"
+                src="src/img/html-5.webp"
+                alt="logo do HTML5"
+              />
             </article>
             <article class="skill-element css">
-              <img loading="lazy" src="src/img/css-3.webp" alt="" />
+              <img loading="lazy" src="src/img/css-3.webp" alt="logo do CSS3" />
             </article>
             <article class="skill-element javascript">
-              <img loading="lazy" src="src/img/logotipo-do-java-script.webp" alt="" />
+              <img
+                loading="lazy"
+                src="src/img/logotipo-do-java-script.webp"
+                alt="logo do JavaScript"
+              />
             </article>
             <article class="skill-element nodejs">
-              <img loading="lazy" src="src/img/nodejs.webp" alt="" />
+              <img
+                loading="lazy"
+                src="src/img/nodejs.webp"
+                alt="logo do NodeJs"
+              />
             </article>
             <article class="skill-element react">
-              <img loading="lazy" src="src/img/biblioteca.webp" alt="" />
+              <img
+                loading="lazy"
+                src="src/img/biblioteca.webp"
+                alt="logo do ReactJs"
+              />
             </article>
             <article class="skill-element bootstrap">
-              <img loading="lazy" src="src/img/bootstrap.webp" alt="" />
+              <img
+                loading="lazy"
+                src="src/img/bootstrap.webp"
+                alt="logo do Bootstrap"
+              />
             </article>
             <article class="skill-element taiwind">
-              <img loading="lazy" src="src/img/tailwind-css-svgrepo-com.svg" alt="" />
+              <img
+                loading="lazy"
+                src="src/img/tailwind-css-svgrepo-com.svg"
+                alt="logo do Taiwind"
+              />
             </article>
             <article class="skill-element sql">
-              <img loading="lazy" src="src/img/servidor-sql.webp" alt="" />
+              <img
+                loading="lazy"
+                src="src/img/servidor-sql.webp"
+                alt="logo da linguagem de consulta SQL"
+              />
             </article>
             <article class="skill-element mysql">
-              <img loading="lazy" src="src/img/mysql.webp" alt="" />
+              <img
+                loading="lazy"
+                src="src/img/mysql.webp"
+                alt="logo do MySQL"
+              />
             </article>
             <article class="skill-element postgre">
-              <img loading="lazy" src="src/img/postgre.webp" alt="" />
+              <img
+                loading="lazy"
+                src="src/img/postgre.webp"
+                alt="logo do PostgreSQL"
+              />
             </article>
             <article class="skill-element java">
-              <img loading="lazy" src="src/img/java.webp" alt="" />
+              <img loading="lazy" src="src/img/java.webp" alt="logo do Java" />
             </article>
             <article class="skill-element git">
-              <img loading="lazy" src="src/img/confirmar-git.webp" alt="" />
+              <img
+                loading="lazy"
+                src="src/img/confirmar-git.webp"
+                alt="logo do controlador de versões Git"
+              />
             </article>
-          </div>
+          </article>
         </section>
       </div>
+      <!-- Aréa de Projetos do portifólio -->
       <div class="groupProjetos" id="project">
         <section class="projetos">
           <article class="groupProjetos-primary hidden-scroll-bottom">
@@ -188,139 +359,176 @@
           <article class="groupProjetos-secundary">
             <div class="card-item hidden-scroll-p1">
               <div class="group-image-project"></div>
-              <h2 class="title-project">Jessica Spreadsheets</h2>
+              <h3 class="title-project">Jessica Spreadsheets</h3>
               <p class="description-project">
                 Stack: HTML5 | CSS | Bootstrap | JavaScript | SEO
               </p>
-              <a class="btn-project planilhas"
+              <a
+                role="button"
+                aria-label="Ver projeto"
+                class="btn-project planilhas"
                 >Ver projeto <i class="bi bi-box-arrow-up-right"></i
               ></a>
             </div>
 
             <div class="card-item hidden-scroll-p2">
               <div class="group-image-project"></div>
-              <h2 class="title-project">API - Movies</h2>
+              <h3 class="title-project">API - Movies</h3>
               <p class="description-project">
                 Stack: HTML5 | CSS | JavaScript | OMDb API
               </p>
-              <a class="btn-project movies"
+              <a
+                role="button"
+                aria-label="Ver projeto"
+                class="btn-project movies"
                 >Ver projeto <i class="bi bi-box-arrow-up-right"></i
               ></a>
             </div>
 
             <div class="card-item hidden-scroll-p3">
               <div class="group-image-project"></div>
-              <h2 class="title-project">Login Form</h2>
+              <h3 class="title-project">Login Form</h3>
               <p class="description-project">
                 Stack: HTML5 | CSS | Bootstrap | JavaScript | SEO
               </p>
-              <a class="btn-project login"
+              <a
+                role="button"
+                aria-label="Ver projeto"
+                class="btn-project login"
                 >Ver projeto <i class="bi bi-box-arrow-up-right"></i
               ></a>
             </div>
 
             <div class="card-item hidden-scroll-p4">
               <div class="group-image-project"></div>
-              <h2 class="title-project">Calculator - Light Dark</h2>
+              <h3 class="title-project">Calculator - Light Dark</h3>
               <p class="description-project">
                 Stack: HTML5 | CSS | JavaScript | SEO
               </p>
-              <a class="btn-project calculator"
+              <a
+                role="button"
+                aria-label="Ver projeto"
+                class="btn-project calculator"
                 >Ver projeto <i class="bi bi-box-arrow-up-right"></i
               ></a>
             </div>
 
             <div class="card-item hidden-scroll-p5">
               <div class="group-image-project"></div>
-              <h2 class="title-project">BMI Calculator</h2>
+              <h3 class="title-project">BMI Calculator</h3>
               <p class="description-project">
                 Stack: HTML5 | CSS | JavaScript | SEO
               </p>
-              <a class="btn-project calculatorIMC"
+              <a
+                role="button"
+                aria-label="Ver projeto"
+                class="btn-project calculatorIMC"
                 >Ver projeto <i class="bi bi-box-arrow-up-right"></i
               ></a>
             </div>
 
             <div class="card-item hidden-scroll-p6">
               <div class="group-image-project"></div>
-              <h2 class="title-project">API Weather Forecast</h2>
+              <h3 class="title-project">API Weather Forecast</h3>
               <p class="description-project previsaoTempo">
-                Stack: CSS | OpenWeather | JavaScript | HTML5 
+                Stack: CSS | OpenWeather | JavaScript | HTML5
               </p>
-              <a class="btn-project previsaoTempo"
+              <a
+                role="button"
+                aria-label="Ver projeto"
+                class="btn-project previsaoTempo"
                 >Ver projeto <i class="bi bi-box-arrow-up-right"></i
               ></a>
             </div>
           </article>
         </section>
       </div>
-
+      <!-- Aréa de Serviço do portifólio -->
       <div class="groupService" id="service">
         <section class="service">
-          <div class="groupService-primary hidden-scroll-bottom">
+          <article class="groupService-primary hidden-scroll-bottom">
             <div class="linhas"></div>
             <div class="linhas"></div>
             <div class="linhas"></div>
             <h2 class="titleService">
               &#8249; <span class="letraMonoton">S</span>ervices &#8260; &#8250;
             </h2>
-          </div>
-          <div class="groupService-secundary">
-            <div class="card-service hidden-scroll-s1">
+          </article>
+          <article class="groupService-secundary">
+            <article class="card-service hidden-scroll-s1">
               <div class="circle-externo-servico">
                 <div class="circle-interno-servico">
-                  <img loading="lazy" src="src/img/code-icom.svg" alt="" />
+                  <img
+                    loading="lazy"
+                    src="src/img/code-icom.svg"
+                    alt="simbolo da programação"
+                  />
                 </div>
               </div>
 
               <h3 class="title-card-service">Website Creation</h3>
               <p class="description-card-service">
-                Creation of personalized websites, whether personal or for various business sectors
+                Creation of personalized websites, whether personal or for
+                various business sectors
               </p>
-            </div>
+            </article>
 
-            <div class="card-service hidden-scroll-s2">
+            <article class="card-service hidden-scroll-s2">
               <div class="circle-externo-servico">
                 <div class="circle-interno-servico">
-                  <img loading="lazy" src="src/img/mobile-icon.svg" alt="" />
+                  <img
+                    loading="lazy"
+                    src="src/img/mobile-icon.svg"
+                    alt="imagem de um celular"
+                  />
                 </div>
               </div>
 
               <h3 class="title-card-service">Responsive Websites</h3>
               <p class="description-card-service">
-                All websites are responsive, to further improve the user experience on any device.
+                All websites are responsive, to further improve the user
+                experience on any device.
               </p>
-            </div>
+            </article>
 
-            <div class="card-service hidden-scroll-s3">
+            <article class="card-service hidden-scroll-s3">
               <div class="circle-externo-servico">
                 <div class="circle-interno-servico">
-                  <img loading="lazy" src="src/img/api-icon.svg" alt="" />
+                  <img
+                    loading="lazy"
+                    src="src/img/api-icon.svg"
+                    alt="Simbolo de uma API"
+                  />
                 </div>
               </div>
 
               <h3 class="title-card-service">Creating APIs</h3>
               <p class="description-card-service">
-                Creation of secure Rest APIs, and integration with external databases experience.
+                Creation of secure Rest APIs, and integration with external
+                databases experience.
               </p>
-            </div>
-          </div>
+            </article>
+          </article>
         </section>
       </div>
-
+      <!-- Aréa de contato do portifólio -->
       <div class="groupContact">
         <section class="contato" id="contact">
-          <div class="groupContact-primary hidden-scroll-bottom">
+          <article class="groupContact-primary hidden-scroll-bottom">
             <div class="linhas"></div>
             <div class="linhas"></div>
             <div class="linhas"></div>
             <h2 class="titleContact">
               &#8249; <span class="letraMonoton">C</span>ontact &#8260; &#8250;
             </h2>
-          </div>
-          <div class="groupContact-secundary hidden-scroll-bottom">
+          </article>
+          <article class="groupContact-secundary hidden-scroll-bottom">
             <form class="form" action="">
-              <input class="inputsFormContato"
+              <input
+                aria-required="true"
+                role="textbox"
+                aria-label="Nome completo"
+                class="inputsFormContato"
                 type="text"
                 name="nome"
                 id="nome"
@@ -329,32 +537,54 @@
                 min="3"
                 max="50"
               />
-              <input class="inputsFormContato"
+              <input
+                aria-required="true"
+                role="textbox"
+                aria-label="Email"
+                class="inputsFormContato"
                 type="email"
                 name="email"
                 id="email"
                 placeholder="Enter your email"
                 required
               />
-              <input class="inputsFormContato"
+              <input
+                aria-required="true"
+                role="textbox"
+                aria-label="Assunto do Email"
+                class="inputsFormContato"
                 type="text"
                 name="assunto"
                 id="assunto"
                 placeholder="Message subject"
                 required
               />
-              <textarea class="inputsFormContato"
+              <textarea
+                aria-required="true"
+                role="textbox"
+                aria-label="Mensagem do email"
+                class="inputsFormContato"
                 name="mensagem"
                 id="mensagem"
                 placeholder="Your message..."
                 required
               ></textarea>
-              <input type="submit" value="Send" id="enviar" />
+              <input
+                role="button"
+                aria-label="Enviar email"
+                type="submit"
+                value="Send"
+                id="enviar"
+              />
             </form>
-          </div>
+          </article>
           <div class="groupContact-terciary">
             <div class="circle-2"></div>
-            <img loading="lazy" src="src/img/jefferson2.webp" alt="" />
+            <img
+              loading="lazy"
+              src="src/img/jefferson2.webp"
+              alt="Foto do dono do portifólio "
+            />
           </div>
         </section>
       </div>
