@@ -20,11 +20,24 @@
   box-sizing: border-box;
 }
 
+
 body {
   font-family: var(--font-primary);
   background-color: var(--color-primary);
   transition: all .5s ease;
 }
+
+/* Barra de rolagem */
+
+::-webkit-scrollbar {
+  width: .6em;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, transparent, #00ffff65, #00ffff);
+  border-radius: 10px;
+}
+
 
 /* Estilo do options */
 
