@@ -15,6 +15,16 @@
     <link rel="stylesheet" href="src/css/styles.css" />
     <link rel="stylesheet" href="src/css/media-styles.css" />
     <link rel="stylesheet" href="src/css/scroll-effect.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "JB0HjHdbW1r9RGR6k",
+            });
+        })();
+    </script>
+
     <title>Jefferson Santos</title>
   </head>
   <body>
@@ -523,7 +533,9 @@
             </h2>
           </article>
           <article class="groupContact-secundary hidden-scroll-bottom">
-            <form class="form" action="">
+
+
+            <div class="form" id="form-contato" action="">
               <input
                 aria-required="true"
                 role="textbox"
@@ -570,13 +582,14 @@
                 required
               ></textarea>
               <input
+              onclick="SendMail()"
                 role="button"
                 aria-label="Enviar email"
                 type="submit"
                 value="Send"
                 id="enviar"
               />
-            </form>
+            </div>
           </article>
           <div class="groupContact-terciary">
             <div class="circle-2"></div>
@@ -593,5 +606,18 @@
       <p>@ 2024 | Jefferson Santos</p>
     </footer>
     <script src="src/js/script.js"></script>
+    <script>
+      function SendMail() {
+        const params = {
+          nome : document.getElementById('nome').value,
+          email : document.getElementById('email').value,
+          assunto : document.getElementById('assunto').value,
+          mensagem : document.getElementById('mensagem').value
+        }
+        emailjs.send("service_jpdwjb9", "template_avrzp3p", params).then(function (res) {
+          alert('Success! ' + res.status);
+        });
+      }
+    </script>
   </body>
 </html>

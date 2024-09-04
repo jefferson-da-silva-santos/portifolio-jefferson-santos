@@ -108,6 +108,7 @@ body {
 }
 
 .project-options-box h1 {
+  font-size: 2em;
   color: #00ffff;
   text-shadow: 0px 0px 5px #00ffff9a;
   font-weight: 500;
