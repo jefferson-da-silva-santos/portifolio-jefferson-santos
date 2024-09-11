@@ -205,7 +205,7 @@ body {
   position: relative;
 }
 
-.itemsMenu-header:hover {
+.itemsMenu-header--dark:hover {
   color: var(--color-terciary);
 }
 

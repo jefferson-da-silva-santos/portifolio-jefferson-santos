@@ -51,7 +51,7 @@ const descriptionSkills = {
 
 const descriptionsProjects = {
   planilhas: {
-    pt: 'Jessica-planilhas é uma aplicação web responsiva de vendas projetada para gerenciar e visualizar planilhas de forma eficiente e interativa. Este projeto utiliza tecnologias modernas para garantir uma experiência de usuário fluida e otimizada.',
+    pt: 'Jessica-planilhas é um projeto FrontEnd responsiva de vendas projetada para gerenciar e visualizar planilhas de forma eficiente e interativa. Este projeto utiliza tecnologias modernas para garantir uma experiência de usuário fluida e otimizada.',
     en: 'Jessica-spreadsheets is a responsive sales web application designed to manage and visualize spreadsheets efficiently and interactively. This project uses modern technologies to ensure a fluid and optimized user experience.',
     urlGit: 'https://github.com/jefferson-da-silva-santos/project-jessica-planilhas',
     urlDeploy: 'https://jessica-planilhas.netlify.app/'
@@ -445,6 +445,10 @@ function themeLight() {
 
   // Seletores querySelectorAll
   document.querySelectorAll('.itemsMenu-header').forEach(element => {
+    element.classList.remove('itemsMenu-header--dark');
+    element.classList.add('itemsMenu-header--ligth');
+  });
+  document.querySelectorAll('.itemsMenu-header').forEach(element => {
     element.style.color = 'rgb(49, 49, 49)';
   });
   document.querySelectorAll('.linha-menu-humburguer').forEach(element => {
@@ -597,6 +601,10 @@ function themeDark() {
   document.querySelector('textarea').style.color = 'white';
 
   // Seletores querySelectorAll
+  document.querySelectorAll('.itemsMenu-header').forEach(element => {
+    element.classList.remove('itemsMenu-header--ligth');
+    element.classList.add('itemsMenu-header--dark');
+  });
   document.querySelectorAll('.itemsMenu-header').forEach(element => {
     element.style.color = 'white';
   });
