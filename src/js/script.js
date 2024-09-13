@@ -57,32 +57,32 @@ const descriptionsProjects = {
     urlDeploy: 'https://jessica-planilhas.netlify.app/'
   },
   movies: {
-    pt: 'descrição do projeto em português para fins de teste da aplicação.',
-    en: 'descrição do projeto em inglês para fins de teste da aplicação',
+    pt: 'Projeto frontend FavFlix. Neste projeto, pude estar aprimorando minhas habilidades em HTML5, CSS e JavaScript, integrando a OMDb API para criar um sistema de busca de filmes por nome e ano. O layout do projeto foi inspirado na plataforma de streams Netflix, com um design moderno e responsivo, proporcionando uma experiência de navegação fluida e intuitiva para os usuários ao explorarem informações de filmes.',
+    en: "FavFlix frontend project. In this project, I was able to improve my skills in HTML5, CSS and JavaScript, integrating the OMDb API to create a system for searching movies by name and year. The project's layout was inspired by the Netflix streaming platform, with a modern and responsive design, providing a fluid and intuitive navigation experience for users when exploring movie information.",
     urlGit: '',
     urlDeploy: ''
   },
   login: {
-    pt: 'descrição do projeto em português para fins de teste da aplicação.',
-    en: 'descrição do projeto em inglês para fins de teste da aplicação',
+    pt: 'Projeto frontend de formulário de login e cadastro moderno e minimalista. Neste projeto, pude estar aprimorando minhas habilidades em HTML5, CSS e JavaScript, utilizando ícones do Bootstrap para melhorar a interface. A estrutura foi desenvolvida de forma responsiva e focada em uma experiência de usuário simplificada, com validações dinâmicas em JavaScript e otimização SEO para garantir melhor visibilidade nos motores de busca.',
+    en: 'Modern and minimalist frontend design of a login and registration form. In this project, I was able to improve my skills in HTML5, CSS and JavaScript, using Bootstrap icons to improve the interface. The structure was developed in a responsive way and focused on a simplified user experience, with dynamic validations in JavaScript and SEO optimization to ensure better visibility in search engines.',
     urlGit: '',
     urlDeploy: ''
   },
   calculator: {
-    pt: 'descrição do projeto em português para fins de teste da aplicação.',
-    en: 'descrição do projeto em inglês para fins de teste da aplicação',
+    pt: 'Projeto frontend de calculadora responsiva. Neste projeto, pude estar aprimorando minhas habilidades em JavaScript e trabalhando com funcionalidades como soma, subtração, divisão, e cálculos de porcentagem.',
+    en: 'Responsive calculator frontend design. In this project, I was able to hone my JavaScript skills and work with features such as addition, subtraction, division, and percentage calculations.',
     urlGit: 'https://github.com/jefferson-da-silva-santos/calculadora',
     urlDeploy: ''
   },
   calculatorIMC: {
-    pt: 'descrição do projeto em português para fins de teste da aplicação.',
-    en: 'descrição do projeto em inglês para fins de teste da aplicação',
+    pt: 'Projeto frontend de calculadora de IMC. Neste projeto, pude estar aprimorando minhas habilidades em HTML5, CSS e JavaScript para criar uma calculadora de Índice de Massa Corporal (IMC) responsiva e dinâmica. O sistema calcula o IMC e exibe mensagens personalizadas de acordo com o resultado, proporcionando uma experiência interativa ao usuário. ',
+    en: 'BMI calculator frontend project. In this project, I was able to improve my HTML5, CSS and JavaScript skills to create a responsive and dynamic Body Mass Index (BMI) calculator. The system calculates the BMI and displays personalized messages according to the result, providing an interactive experience to the user.',
     urlGit: 'https://github.com/jefferson-da-silva-santos/calculadora-de-imc',
     urlDeploy: ''
   },
   previsaoTempo: {
-    pt: 'descrição do projeto em português para fins de teste da aplicação.',
-    en: 'descrição do projeto em inglês para fins de teste da aplicação',
+    pt: 'Projeto frontend de previsão do tempo. Neste projeto, pude estar aprimorando minhas habilidades em JavaScript e trabalhando com a integração da API OpenWeather para exibir informações de previsão do tempo em tempo real. Além disso, utilizei HTML5 e CSS para estruturar e estilizar a interface de forma responsiva, garantindo uma boa experiência do usuário em diferentes dispositivos.',
+    en: 'Weather forecast frontend project. In this project, I was able to improve my JavaScript skills and work with the OpenWeather API integration to display real-time weather forecast information. In addition, I used HTML5 and CSS to structure and style the interface in a responsive way, ensuring a good user experience across different devices.',
     urlGit: '',
     urlDeploy: ''
   }

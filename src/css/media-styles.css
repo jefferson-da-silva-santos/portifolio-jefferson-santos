@@ -410,3 +410,24 @@
     font-size: 1.6em;
   }
 }
+
+@media (max-width: 320px) and (max-height: 620px) {
+  .project-options-box h1 {
+    font-size: 1.5em;
+  }
+  .description-option-project {
+    font-size: .8em;
+  }
+
+  .text-tecnologias-options,
+  .text-see-in-options {
+    font-size: .8em;
+  }
+  .groupBtn-options-box a {
+    font-size: .8em;
+  }
+  .list-options-box-tec li {
+    padding: 3px 7px;
+    font-size: .8em;
+}
+}
