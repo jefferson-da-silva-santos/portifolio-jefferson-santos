@@ -308,14 +308,22 @@
   /* Estilo projetos */
   .card-item {
     margin: auto;
-    width: 100%;
-  }
+    height: auto;
+    width: 22em;
+    row-gap: 7px;
+}
 
   /* Estilo do Sobre */
 
   .groupSobre-primary p {
     font-size: 1em;
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 434px) {
+  .card-item {
+    width: 20em;
   }
 }
 
@@ -327,6 +335,14 @@
   .title-secundary-header {
     font-size: 1.5em;
   }
+}
+
+@media screen and (max-width: 386px) {
+  .card-item {
+    width: 17em;
+    height: 23em;
+  }
+
 }
 
 @media screen and (max-width: 376px) {
@@ -402,6 +418,11 @@
 
   .card-service {
     height: 28em;
+  }
+
+  .card-item {
+    width: 17em;
+    height: 23em;
   }
 
   /* Estilos Contato */

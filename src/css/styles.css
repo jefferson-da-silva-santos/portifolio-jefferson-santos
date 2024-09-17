@@ -89,6 +89,7 @@ body {
   background-color: #2e2e2e;
   color: white;
   text-decoration: none;
+  transition: all .5s ease;
 }
 
 .groupBtn-options-box a:hover {
