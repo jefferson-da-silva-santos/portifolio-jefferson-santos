@@ -94,6 +94,9 @@ let isThemaDark = true;
 
 function toggleMenu() {
   isMenuVisible = !isMenuVisible;
+  document.querySelectorAll('.linha-menu-humburguer').forEach(element => {
+    element.style.backgroundColor = isMenuVisible ? '#00ffff' : 'white';
+  });
 }
 
 function toggleLanguage() {
@@ -178,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
     element.addEventListener('click', () => {
       if (window.innerWidth <= 986) {
         closedMenu(listaMenus);
-        toggleMenu()
+        toggleMenu();
       }
     });
   });
@@ -242,8 +245,8 @@ document.addEventListener('DOMContentLoaded', () => {
       listaMenus.style.visibility = 'visible';
       listaMenus.style.backgroundColor = 'transparent'
     } else {
-      isMenuVisible = false;
       closedMenu(listaMenus);
+      toggleMenu();
     }
   });
 });
@@ -280,7 +283,7 @@ function handleHoverCardsProject(isBtn, item, event, value) {
         element.style.backgroundSize = value;
       });
     });
-  } 
+  }
 }
 
 function closedMenu(menu) {
