@@ -1,0 +1,25 @@
+{
+  "name": "portifolio-jefferson-santos",
+  "version": "1.0.0",
+  "description": "Portifolio Pessoal de Jefferson Santos",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build:css": "postcss src/css/scroll-effect.css -o src/dist/scroll-effect.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jefferson-da-silva-santos/portifolio-jefferson-santos.git"
+  },
+  "author": "Jefferson Santos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jefferson-da-silva-santos/portifolio-jefferson-santos/issues"
+  },
+  "homepage": "https://github.com/jefferson-da-silva-santos/portifolio-jefferson-santos#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0"
+  }
+}
