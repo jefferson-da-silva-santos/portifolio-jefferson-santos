@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build:css": "postcss src/css/scroll-effect.css -o src/dist/scroll-effect.css"
+    "build:css": "postcss src/css/styles.css -o src/dist/styles.css"
   },
   "repository": {
     "type": "git",

@@ -94,7 +94,7 @@ let isThemaDark = true;
 
 function toggleMenu() {
   isMenuVisible = !isMenuVisible;
-  document.querySelectorAll('.linha-menu-humburguer').forEach(element => {
+  getElement('.linha-menu-humburguer', true).forEach(element => {
     element.style.backgroundColor = isMenuVisible ? '#00ffff' : 'white';
   });
 }
@@ -111,13 +111,13 @@ function toggleThema() {
 document.addEventListener('DOMContentLoaded', () => {
   const menu = document.getElementById('menu');
   const listaMenus = document.getElementById('lista-menus');
-  const btnCardProjetcts = document.querySelectorAll('.btn-project');
-  const imageCardsProjects = document.querySelectorAll('.group-image-project');
-  const arraySkills = document.querySelectorAll('.skill-element');
-  const textSkills = document.querySelector('.textSkills');
+  const btnCardProjetcts = getElement('.btn-project', true);
+  const imageCardsProjects = getElement('.group-image-project', true);
+  const arraySkills = getElement('.skill-element', true);
+  const textSkills = getElement('.textSkills');
   const btnLanguage = document.getElementById('btn-idioma');
   const btnTheme = document.getElementById('btn-tema');
-  const arrayMenus = document.querySelectorAll('.itemsMenu-header');
+  const arrayMenus = getElement('.itemsMenu-header', true);
   const userLanguage = localStorage.getItem('language') || navigator.language;
 
   const observations = ['left', 'right', 'bottom', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 's1', 's2', 's3'];
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createObservation(`.hidden-scroll-${obs}`, `show-scroll-${obs}`);
   });
 
-  document.querySelectorAll('.btn-project').forEach(element => {
+  getElement('.btn-project', true).forEach(element => {
     element.addEventListener('click', () => {
       const title = element.parentNode.querySelector('.title-project').textContent;
       const tecnologies = element.parentNode.querySelector('.description-project').textContent.replace('Stack:', '').split('|').map(tec => tec.trim());
@@ -147,16 +147,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-  document.querySelector('.close-options').addEventListener('click', (event) => {
+  getElement('.close-options').addEventListener('click', (event) => {
     event.preventDefault();
     closeOptionBox();
   });
 
-  document.querySelector('.btn-options-git').addEventListener('click', (event) => {
+  getElement('.btn-options-git').addEventListener('click', (event) => {
     closeOptionBox();
   });
 
-  document.querySelector('.btn-options-deploy').addEventListener('click', (event) => {
+  getElement('.btn-options-deploy').addEventListener('click', (event) => {
     closeOptionBox();
   })
 
@@ -300,66 +300,66 @@ function openMenu(menu, themeDark) {
 
 function dialogProject(title, description, technologies, urlGit, urlDeploy, texts) {
   document.body.style.overflow = 'hidden';
-  document.querySelector('.description-option-project').textContent = description;
-  document.querySelector('.group-project-options-box').style.display = 'flex';
-  document.querySelector('.name-project-option').textContent = title;
-  document.querySelector('.btn-options-git').setAttribute('href', urlGit)
-  document.querySelector('.btn-options-deploy').setAttribute('href', urlDeploy)
-  document.querySelector('.description-option-project').textContent = description;
-  const listTec = document.querySelector('.list-options-box-tec');
+  getElement('.description-option-project').textContent = description;
+  getElement('.group-project-options-box').style.display = 'flex';
+  getElement('.name-project-option').textContent = title;
+  getElement('.btn-options-git').setAttribute('href', urlGit)
+  getElement('.btn-options-deploy').setAttribute('href', urlDeploy)
+  getElement('.description-option-project').textContent = description;
+  const listTec = getElement('.list-options-box-tec');
   listTec.innerHTML = '';
   technologies.forEach(element => {
     const newLi = document.createElement('li');
     newLi.textContent = element;
     listTec.appendChild(newLi);
   });
-  document.querySelector('.text-tecnologias-options').textContent = texts[0];
-  document.querySelector('.text-see-in-options').textContent = texts[1];
+  getElement('.text-tecnologias-options').textContent = texts[0];
+  getElement('.text-see-in-options').textContent = texts[1];
 }
 
 function portuguese() {
-  document.querySelector('.btn-options-deploy').innerHTML = '<i class="bi bi-box-arrow-up-right"></i> Visitar';
+  getElement('.btn-options-deploy').innerHTML = '<i class="bi bi-box-arrow-up-right"></i> Visitar';
   //icone idioma
-  document.querySelector('.icon-idioma').setAttribute('src', 'src/img/brasil.webp')
+  getElement('.icon-idioma').setAttribute('src', 'src/img/brasil.webp')
   // navegação
   const arrayMenusPortugues = ['inicio', 'sobre', 'habilidades', 'projetos', 'serviços', 'contato'];
-  const arrayItensMenu = document.querySelectorAll('.itemsMenu-header');
+  const arrayItensMenu = getElement('.itemsMenu-header', true);
   arrayItensMenu.forEach((element, index) => {
     element.textContent = arrayMenusPortugues[index];
   });
   // sobre
-  document.querySelector('.titleSobre').innerHTML = '&#8249; <span class="letraMonoton">S</span>obre &#8260; &#8250';
+  getElement('.titleSobre').innerHTML = '&#8249; <span class="letraMonoton">S</span>obre &#8260; &#8250';
   const textsSobreArray = ['Meu nome é <strong>Jefferson Santos</strong>, e sou um entusiasta de tecnologia que decidiu seguir a carreira de programação. Nos últimos <strong>quatro anos</strong>, tenho me dedicado a compreender as principais tecnologias do mercado e a aplicar <strong>metodologias ágeis de desenvolvimento</strong>.', 'Concluí um curso técnico em <strong>Desenvolvimento de Sistemas (DS)</strong> com foco em <strong>desenvolvimento Full Stack</strong>. Desde então, trabalhei em projetos como freelancer e contribuí para projetos de código aberto, aprimorando continuamente minhas habilidades e experiência na área. (Eu amo café)'];
-  const arrayTextSobre = document.querySelectorAll('.textSobre');
+  const arrayTextSobre = getElement('.textSobre', true);
   arrayTextSobre.forEach((element, index) => {
     element.innerHTML = textsSobreArray[index];
   })
   // skills
-  document.querySelector('.titleSkills').innerHTML = '&#8249; <span class="letraMonoton">H</span>abilidades &#8260; &#8250;'
-  document.querySelector('.textSkills').innerHTML = '*Passe o mouse sobre as habilidades para verificar suas descrições*';
+  getElement('.titleSkills').innerHTML = '&#8249; <span class="letraMonoton">H</span>abilidades &#8260; &#8250;'
+  getElement('.textSkills').innerHTML = '*Passe o mouse sobre as habilidades para verificar suas descrições*';
   // projetos
-  document.querySelector('.titleProjetos').innerHTML = '&#8249; <span class="letraMonoton">P</span>rojetos &#8260; &#8250;';
-  const arrayCards = document.querySelectorAll('.card-item');
+  getElement('.titleProjetos').innerHTML = '&#8249; <span class="letraMonoton">P</span>rojetos &#8260; &#8250;';
+  const arrayCards = getElement('.card-item', true);
   const titlesProjetctsArray = ['Jéssica Planilhas', 'API - Filmes', 'Formuláio de Login', 'Calculadora - Light Dark', 'Calculadora de IMC', 'API - Previsão do Tempo'];
   arrayCards.forEach((element, index) => {
     element.querySelector('.title-project').innerHTML = titlesProjetctsArray[index];
   });
-  document.querySelectorAll('.btn-project').forEach(element => {
+  getElement('.btn-project', true).forEach(element => {
     element.textContent = 'Ver projeto';
   })
   // serviço
-  document.querySelector('.titleService').innerHTML = '&#8249; <span class="letraMonoton">S</span>erviços &#8260; &#8250;';
+  getElement('.titleService').innerHTML = '&#8249; <span class="letraMonoton">S</span>erviços &#8260; &#8250;';
   const titlesCards = ['Criação de Sites', 'Sites Responsivos', 'Criação de APIs'];
   const descriptionsCards = ['Criação de sites personalizados, sejam pessoais ou para diversos setores de negócio', ' Todos os sites são responsivos, para melhorar ainda mais a experiência do usuário em qualquer dispositivo.', 'Criação de APIs Rest seguras e experiência de integração com bancos de dados externos.'];
-  const cardsService = document.querySelectorAll('.card-service');
+  const cardsService = getElement('.card-service', true);
   cardsService.forEach((element, index) => {
     element.querySelector('.title-card-service').innerHTML = titlesCards[index];
     element.querySelector('.description-card-service').innerHTML = descriptionsCards[index];
   });
   // contato
-  document.querySelector('.titleContact').innerHTML = '&#8249; <span class="letraMonoton">C</span>ontato &#8260; &#8250;';
+  getElement('.titleContact').innerHTML = '&#8249; <span class="letraMonoton">C</span>ontato &#8260; &#8250;';
   const inputsPlaceholdsArray = ['Insira seu nome e sobrenome', 'Insira seu email', 'Assunto da mensagem', 'Sua mensagem...'];
-  const inputsArray = document.querySelectorAll('.inputsFormContato');
+  const inputsArray = getElement('.inputsFormContato', true);
   inputsArray.forEach((element, index) => {
     element.setAttribute('placeholder', inputsPlaceholdsArray[index]);
   });
@@ -367,48 +367,48 @@ function portuguese() {
 }
 
 function english() {
-  document.querySelector('.btn-options-deploy').innerHTML = '<i class="bi bi-box-arrow-up-right"></i> Visit';
+  getElement('.btn-options-deploy').innerHTML = '<i class="bi bi-box-arrow-up-right"></i> Visit';
   //icone idioma
-  document.querySelector('.icon-idioma').setAttribute('src', 'src/img/eua.webp');
+  getElement('.icon-idioma').setAttribute('src', 'src/img/eua.webp');
   // navegação
   const arrayMenusPortugues = ['home', 'about', 'skills', 'projects', 'services', 'contact'];
-  const arrayItensMenu = document.querySelectorAll('.itemsMenu-header');
+  const arrayItensMenu = getElement('.itemsMenu-header', true);
   arrayItensMenu.forEach((element, index) => {
     element.textContent = arrayMenusPortugues[index];
   });
   // sobre
-  document.querySelector('.titleSobre').innerHTML = '&#8249; <span class="letraMonoton">A</span>bout &#8260; &#8250';
+  getElement('.titleSobre').innerHTML = '&#8249; <span class="letraMonoton">A</span>bout &#8260; &#8250';
   const textsSobreArray = ['My name is <strong>Jefferson Santos</strong> and I am a technology enthusiast who decided to pursue a career in programming. Over the last <strong>four years</strong>, I have dedicated myself to understanding the main  technologies on the market and applying <strong>agile development methodologies</strong> (I&#8217;m a coffee lover).', 'I completed a technical course in <strong>Systems Development (DS)</strong> with a focus on <strong>Full Stack development</strong>. Since then, I have worked on projects as a freelancer and contributed to open source projects, continually improving my skills and experience in the field.'];
-  const arrayTextSobre = document.querySelectorAll('.textSobre');
+  const arrayTextSobre = getElement('.textSobre', true);
   arrayTextSobre.forEach((element, index) => {
     element.innerHTML = textsSobreArray[index];
   });
   // skills
-  document.querySelector('.titleSkills').innerHTML = '&#8249; <span class="letraMonoton">S</span>kills &#8260; &#8250;';
-  document.querySelector('.textSkills').innerHTML = '*Hover your mouse over the skills to check their descriptions*';
+  getElement('.titleSkills').innerHTML = '&#8249; <span class="letraMonoton">S</span>kills &#8260; &#8250;';
+  getElement('.textSkills').innerHTML = '*Hover your mouse over the skills to check their descriptions*';
   // projetos
-  document.querySelector('.titleProjetos').innerHTML = '&#8249; <span class="letraMonoton">P</span>rojects &#8260; &#8250;';
-  const arrayCards = document.querySelectorAll('.card-item');
+  getElement('.titleProjetos').innerHTML = '&#8249; <span class="letraMonoton">P</span>rojects &#8260; &#8250;';
+  const arrayCards = getElement('.card-item', true);
   const titlesProjetctsArray = ['Jessica Spreadsheets', 'API - Movies', 'Login Form', 'Calculator - Light Dark', 'BMI Calculator', 'API - Weather Forecast'];
   arrayCards.forEach((element, index) => {
     element.querySelector('.title-project').innerHTML = titlesProjetctsArray[index];
   });
-  document.querySelectorAll('.btn-project').forEach(element => {
+  getElement('.btn-project', true).forEach(element => {
     element.textContent = 'View project';
   });
   // serviço
-  document.querySelector('.titleService').innerHTML = '&#8249; <span class="letraMonoton">S</span>ervices &#8260; &#8250;';
+  getElement('.titleService').innerHTML = '&#8249; <span class="letraMonoton">S</span>ervices &#8260; &#8250;';
   const titlesCards = ['Website Creation', 'Responsive Websites', 'Creating APIs'];
   const descriptionsCards = ['Creation of personalized websites, whether personal or for various business sectors', 'All websites are responsive, to further improve the user experience on any device.', 'Creation of secure Rest APIs, and integration with external databases experience.'];
-  const cardsService = document.querySelectorAll('.card-service');
+  const cardsService = getElement('.card-service', true);
   cardsService.forEach((element, index) => {
     element.querySelector('.title-card-service').innerHTML = titlesCards[index];
     element.querySelector('.description-card-service').innerHTML = descriptionsCards[index];
   });
   // contato
-  document.querySelector('.titleContact').innerHTML = '&#8249; <span class="letraMonoton">C</span>ontact &#8260; &#8250;';
+  getElement('.titleContact').innerHTML = '&#8249; <span class="letraMonoton">C</span>ontact &#8260; &#8250;';
   const inputsPlaceholdsArray = ['Enter your first and last name', 'Enter your email', 'Message subject', 'Your message...'];
-  const inputsArray = document.querySelectorAll('.inputsFormContato');
+  const inputsArray = getElement('.inputsFormContato', true);
   inputsArray.forEach((element, index) => {
     element.setAttribute('placeholder', inputsPlaceholdsArray[index]);
   });
@@ -417,104 +417,104 @@ function english() {
 
 function themeLight() {
   //Caixa options
-  document.querySelector('.group-project-options-box').style.backgroundColor = 'rgb(255 255 255 / 55%)';
-  document.querySelector('.project-options-box').style.backgroundColor = '#ffffff';
-  document.querySelector('.project-options-box').style.boxShadow = '0px 0px 10px gray';
-  document.querySelector('.project-options-box').style.color = 'black';
-  document.querySelector('.name-project-option').style.color = '#000000';
-  document.querySelector('.name-project-option').style.textShadow = '0px 0px 5px #0000009a';
-  document.querySelector('.close-options').style.color = 'black';
+ getElement('.group-project-options-box').style.backgroundColor = 'rgb(255 255 255 / 55%)';
+ getElement('.project-options-box').style.backgroundColor = '#ffffff';
+ getElement('.project-options-box').style.boxShadow = '0px 0px 10px gray';
+ getElement('.project-options-box').style.color = 'black';
+ getElement('.name-project-option').style.color = '#000000';
+ getElement('.name-project-option').style.textShadow = '0px 0px 5px #0000009a';
+ getElement('.close-options').style.color = 'black';
   document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-claro.webp');
-  document.querySelector('.listNav').style.backgroundColor = 'transparent';
+ getElement('.listNav').style.backgroundColor = 'transparent';
   document.body.style.backgroundColor = '#f7f7f7';
-  document.querySelector('.logoNav').style.color = 'rgb(49, 49, 49)';
-  document.querySelector('.groupNav').style.backgroundColor = '#ffffffed';
-  document.querySelector('.groupNav').style.boxShadow = '0px 0px 8px rgba(49, 49, 49, 0.438)';
-  document.querySelector('.groupHeader-texts h1').style.color = 'rgb(49, 49, 49)';
-  document.querySelector('.titleSobre').style.color = 'rgb(49, 49, 49)';
-  document.querySelector('.groupSobre').style.backgroundColor = '#ffffff';
-  document.querySelector('.groupSobre-primary').style.color = '#1d1d1d';
-  document.querySelector('.titleSkills').style.color = 'rgb(49, 49, 49)';
-  document.querySelector('.textSkills').style.color = '#1d1d1d';
-  document.querySelector('.groupProjetos').style.backgroundColor = 'white';
-  document.querySelector('.titleProjetos').style.color = 'rgb(49, 49, 49)';
-  document.querySelector('.groupService').style.backgroundColor = '#f7f7f7';
-  document.querySelector('.titleService').style.color = 'rgb(49, 49, 49)';
-  document.querySelector('.groupContact').style.backgroundColor = 'white';
-  document.querySelector('.titleContact').style.color = 'rgb(49, 49, 49)';
-  document.querySelector('textarea').style.border = '1px solid rgb(219, 219, 219)';
-  document.querySelector('textarea').style.backgroundColor = '#eeeeee';
-  document.querySelector('textarea').style.color = 'rgb(49, 49, 49)';
+ getElement('.logoNav').style.color = 'rgb(49, 49, 49)';
+ getElement('.groupNav').style.backgroundColor = '#ffffffed';
+ getElement('.groupNav').style.boxShadow = '0px 0px 8px rgba(49, 49, 49, 0.438)';
+ getElement('.groupHeader-texts h1').style.color = 'rgb(49, 49, 49)';
+ getElement('.titleSobre').style.color = 'rgb(49, 49, 49)';
+ getElement('.groupSobre').style.backgroundColor = '#ffffff';
+ getElement('.groupSobre-primary').style.color = '#1d1d1d';
+ getElement('.titleSkills').style.color = 'rgb(49, 49, 49)';
+ getElement('.textSkills').style.color = '#1d1d1d';
+ getElement('.groupProjetos').style.backgroundColor = 'white';
+ getElement('.titleProjetos').style.color = 'rgb(49, 49, 49)';
+ getElement('.groupService').style.backgroundColor = '#f7f7f7';
+ getElement('.titleService').style.color = 'rgb(49, 49, 49)';
+ getElement('.groupContact').style.backgroundColor = 'white';
+ getElement('.titleContact').style.color = 'rgb(49, 49, 49)';
+ getElement('textarea').style.border = '1px solid rgb(219, 219, 219)';
+ getElement('textarea').style.backgroundColor = '#eeeeee';
+ getElement('textarea').style.color = 'rgb(49, 49, 49)';
 
   // Seletores querySelectorAll
-  document.querySelectorAll('.itemsMenu-header').forEach(element => {
+  getElement('.itemsMenu-header', true).forEach(element => {
     element.classList.remove('itemsMenu-header--dark');
     element.classList.add('itemsMenu-header--ligth');
   });
-  document.querySelectorAll('.itemsMenu-header').forEach(element => {
+  getElement('.itemsMenu-header', true).forEach(element => {
     element.style.color = 'rgb(49, 49, 49)';
   });
-  document.querySelectorAll('.linha-menu-humburguer').forEach(element => {
+  getElement('.linha-menu-humburguer', true).forEach(element => {
     element.style.backgroundColor = 'rgb(49, 49, 49)';
   });
-  document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
+  getElement('.geoupHeader-socialMediaButton', true).forEach(element => {
     element.style.backgroundColor = 'white';
     element.style.boxShadow = '0px 0px 10px rgba(128, 128, 128, 0.575)';
     element.style.color = 'rgb(49, 49, 49)';
   });
-  document.querySelectorAll('.textSobre').forEach(element => {
+  getElement('.textSobre', true).forEach(element => {
     element.style.color = '#1d1d1d';
   });
-  document.querySelectorAll('.skill-element').forEach(element => {
+  getElement('.skill-element', true).forEach(element => {
     element.style.backgroundColor = 'white';
     element.style.border = '1px solid #e4e4e4';
   });
-  document.querySelectorAll('strong').forEach(element => {
+  getElement('strong', true).forEach(element => {
     element.style.color = 'rgb(59, 59, 59)';
   });
-  document.querySelectorAll('.card-item').forEach(element => {
+  getElement('.card-item', true).forEach(element => {
     element.style.backgroundColor = '#f3f3f3';
     element.style.border = '1px solid #e2e2e2';
   });
-  document.querySelectorAll('.title-project').forEach(element => {
+  getElement('.title-project', true).forEach(element => {
     element.style.color = 'rgb(49, 49, 49)';
   });
-  document.querySelectorAll('.description-project').forEach(element => {
+  getElement('.description-project', true).forEach(element => {
     element.style.color = '#5b5b5b';
   });
-  document.querySelectorAll('.btn-project').forEach(element => {
+  getElement('.btn-project', true).forEach(element => {
     element.style.backgroundColor = 'white';
     element.style.border = '2px solid #e9e9e9';
     element.style.color = 'rgb(49, 49, 49)';
   });
-  document.querySelectorAll('.card-service').forEach(element => {
+  getElement('.card-service', true).forEach(element => {
     element.style.backgroundColor = 'white';
     element.style.border = '1px solid #e2e2e2';
     element.style.transition = 'border 1s ease';
   });
-  document.querySelectorAll('.circle-interno-servico').forEach(element => {
+  getElement('.circle-interno-servico', true).forEach(element => {
     element.style.backgroundColor = 'white';
   });
-  document.querySelectorAll('.title-card-service').forEach(element => {
+  getElement('.title-card-service', true).forEach(element => {
     element.style.color = 'rgb(49, 49, 49)';
   });
-  document.querySelectorAll('.description-card-service').forEach(element => {
+  getElement('.description-card-service', true).forEach(element => {
     element.style.color = '#1d1d1d';
   });
-  document.querySelectorAll('input').forEach(element => {
+  getElement('input', true).forEach(element => {
     element.style.border = '1px solid rgb(219, 219, 219)';
     element.style.backgroundColor = '#eeeeee';
     element.style.color = 'rgb(49, 49, 49)';
   });
-  document.querySelectorAll('.linhas').forEach(element => {
+  getElement('.linhas', true).forEach(element => {
     element.style.backgroundImage = 'linear-gradient(to top, transparent 20%, #00ffff)';
   });
-  document.querySelectorAll('.listNav > li').forEach(element => {
+  getElement('.listNav > li', true).forEach(element => {
     element.style.backgroundColor = 'transparent';
   });
 
   // Elementos com eventos
-  document.querySelectorAll('.itemsMenu-header').forEach(element => {
+  getElement('.itemsMenu-header', true).forEach(element => {
     element.addEventListener('mouseover', () => {
       element.style.color = 'black';
     });
@@ -522,7 +522,7 @@ function themeLight() {
       element.style.color = 'rgb(49, 49, 49)';
     });
   });
-  document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
+  getElement('.geoupHeader-socialMediaButton', true).forEach(element => {
     element.addEventListener('mouseover', () => {
       element.style.color = '#00ffff';
       element.style.boxShadow = '0px 0px 10px #00ffff';
@@ -532,7 +532,7 @@ function themeLight() {
       element.style.boxShadow = '0px 0px 10px rgba(128, 128, 128, 0.575)';
     });
   });
-  document.querySelectorAll('.skill-element').forEach(element => {
+  getElement('.skill-element', true).forEach(element => {
     element.addEventListener('mouseover', () => {
       element.style.border = '1px solid #00ffff';
     });
@@ -540,7 +540,7 @@ function themeLight() {
       element.style.border = '1px solid #e4e4e4';
     });
   });
-  document.querySelectorAll('.btn-project').forEach(element => {
+  getElement('.btn-project', true).forEach(element => {
     element.addEventListener('mouseover', () => {
       element.style.backgroundColor = 'gray';
       element.style.color = 'white';
@@ -550,7 +550,7 @@ function themeLight() {
       element.style.color = 'rgb(49, 49, 49)';
     });
   });
-  document.querySelectorAll('.card-service').forEach(element => {
+  getElement('.card-service', true).forEach(element => {
     element.addEventListener('mouseover', () => {
       element.style.border = '1px solid #00ffff';
     });
@@ -558,10 +558,10 @@ function themeLight() {
       element.style.border = '1px solid #e2e2e2';
     });
   });
-  document.querySelector('textarea').addEventListener('focus', () => {
-    document.querySelector('textarea').style.boxShadow = '0px 0px 8px #00ffff';
+  getElement('textarea').addEventListener('focus', () => {
+    getElement('textarea').style.boxShadow = '0px 0px 8px #00ffff';
   });
-  document.querySelectorAll('.listNav > li').forEach(element => {
+  getElement('.listNav > li', true).forEach(element => {
     if (window.innerWidth < 896) {
       element.addEventListener('mouseover', () => {
         element.style.backgroundColor = 'rgb(229, 229, 229)';
@@ -574,104 +574,104 @@ function themeLight() {
 }
 
 function themeDark() {
-  document.querySelector('.group-project-options-box').style.backgroundColor = 'rgba(0, 0, 0, 0.86)';
-  document.querySelector('.project-options-box').style.backgroundColor = '#0b0b0b';
-  document.querySelector('.project-options-box').style.boxShadow = 'none';
-  document.querySelector('.project-options-box').style.color = 'white';
-  document.querySelector('.name-project-option').style.color = '#00ffff';
-  document.querySelector('.name-project-option').style.textShadow = '0px 0px 5px #00ffff9a';
-  document.querySelector('.close-options').style.color = 'white';
+  getElement('.group-project-options-box').style.backgroundColor = 'rgba(0, 0, 0, 0.86)';
+  getElement('.project-options-box').style.backgroundColor = '#0b0b0b';
+  getElement('.project-options-box').style.boxShadow = 'none';
+  getElement('.project-options-box').style.color = 'white';
+  getElement('.name-project-option').style.color = '#00ffff';
+  getElement('.name-project-option').style.textShadow = '0px 0px 5px #00ffff9a';
+  getElement('.close-options').style.color = 'white';
   document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-escuro.webp');
-  document.querySelector('.listNav').style.backgroundColor = 'transparent';
+  getElement('.listNav').style.backgroundColor = 'transparent';
   document.body.style.backgroundColor = '#0f0f0f';
-  document.querySelector('.logoNav').style.color = 'white';
-  document.querySelector('.groupNav').style.backgroundColor = '#080808ed';
-  document.querySelector('.groupNav').style.boxShadow = '0px 0px 8px rgb(49, 49, 49)';
-  document.querySelector('.groupHeader-texts h1').style.color = 'white';
-  document.querySelector('.titleSobre').style.color = 'white';
-  document.querySelector('.groupSobre').style.backgroundColor = '#0b0b0b';
-  document.querySelector('.groupSobre-primary').style.color = '#f7f7f7';
-  document.querySelector('.titleSkills').style.color = 'white';
-  document.querySelector('.textSkills').style.color = '#9ca3af';
-  document.querySelector('.groupProjetos').style.backgroundColor = '#0b0b0b';
-  document.querySelector('.titleProjetos').style.color = 'white';
-  document.querySelector('.groupService').style.backgroundColor = '#0f0f0f';
-  document.querySelector('.titleService').style.color = 'white';
-  document.querySelector('.groupContact').style.backgroundColor = '#0b0b0b';
-  document.querySelector('.titleContact').style.color = 'white';
-  document.querySelector('textarea').style.border = '1px solid #00ffff';
-  document.querySelector('textarea').style.backgroundColor = '#161616';
-  document.querySelector('textarea').style.color = 'white';
+  getElement('.logoNav').style.color = 'white';
+  getElement('.groupNav').style.backgroundColor = '#080808ed';
+  getElement('.groupNav').style.boxShadow = '0px 0px 8px rgb(49, 49, 49)';
+  getElement('.groupHeader-texts h1').style.color = 'white';
+  getElement('.titleSobre').style.color = 'white';
+  getElement('.groupSobre').style.backgroundColor = '#0b0b0b';
+  getElement('.groupSobre-primary').style.color = '#f7f7f7';
+  getElement('.titleSkills').style.color = 'white';
+  getElement('.textSkills').style.color = '#9ca3af';
+  getElement('.groupProjetos').style.backgroundColor = '#0b0b0b';
+  getElement('.titleProjetos').style.color = 'white';
+  getElement('.groupService').style.backgroundColor = '#0f0f0f';
+  getElement('.titleService').style.color = 'white';
+  getElement('.groupContact').style.backgroundColor = '#0b0b0b';
+  getElement('.titleContact').style.color = 'white';
+  getElement('textarea').style.border = '1px solid #00ffff';
+  getElement('textarea').style.backgroundColor = '#161616';
+  getElement('textarea').style.color = 'white';
 
   // Seletores querySelectorAll
-  document.querySelectorAll('.itemsMenu-header').forEach(element => {
+  getElement('.itemsMenu-header', true).forEach(element => {
     element.classList.remove('itemsMenu-header--ligth');
     element.classList.add('itemsMenu-header--dark');
   });
-  document.querySelectorAll('.itemsMenu-header').forEach(element => {
+  getElement('.itemsMenu-header', true).forEach(element => {
     element.style.color = 'white';
   });
-  document.querySelectorAll('.linha-menu-humburguer').forEach(element => {
+  getElement('.linha-menu-humburguer', true).forEach(element => {
     element.style.backgroundColor = 'white';
   });
-  document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
+  getElement('.geoupHeader-socialMediaButton', true).forEach(element => {
     element.style.backgroundColor = '#1d1d1d';
     element.style.boxShadow = 'none';
     element.style.color = 'white';
   });
-  document.querySelectorAll('.textSobre').forEach(element => {
+  getElement('.textSobre', true).forEach(element => {
     element.style.color = '#9ca3af';
   });
-  document.querySelectorAll('.skill-element').forEach(element => {
+  getElement('.skill-element', true).forEach(element => {
     element.style.backgroundColor = '#141414';
     element.style.border = '1px solid #242323';
   });
-  document.querySelectorAll('strong').forEach(element => {
+  getElement('strong', true).forEach(element => {
     element.style.color = 'rgb(212, 212, 212)';
   });
-  document.querySelectorAll('.card-item').forEach(element => {
+  getElement('.card-item', true).forEach(element => {
     element.style.backgroundColor = '#1d1d1d';
     element.style.border = '1px solid #1a1a1a';
   });
-  document.querySelectorAll('.title-project').forEach(element => {
+  getElement('.title-project', true).forEach(element => {
     element.style.color = 'white';
   });
-  document.querySelectorAll('.description-project').forEach(element => {
+  getElement('.description-project', true).forEach(element => {
     element.style.color = '#5b5b5b';
   });
-  document.querySelectorAll('.btn-project').forEach(element => {
+  getElement('.btn-project', true).forEach(element => {
     element.style.backgroundColor = '#1d1d1d';
     element.style.border = '2px solid #2c2c2c';
     element.style.color = 'white';
   });
-  document.querySelectorAll('.card-service').forEach(element => {
+  getElement('.card-service', true).forEach(element => {
     element.style.backgroundColor = '#141414';
     element.style.border = '1px solid #1e1d1d';
     element.style.transition = 'border 1s ease';
   });
-  document.querySelectorAll('.circle-interno-servico').forEach(element => {
+  getElement('.circle-interno-servico', true).forEach(element => {
     element.style.backgroundColor = '#0f0f0f';
   });
-  document.querySelectorAll('.title-card-service').forEach(element => {
+  getElement('.title-card-service', true).forEach(element => {
     element.style.color = 'white';
   });
-  document.querySelectorAll('.description-card-service').forEach(element => {
+  getElement('.description-card-service', true).forEach(element => {
     element.style.color = '#9ca3af';
   });
-  document.querySelectorAll('input').forEach(element => {
+  getElement('input', true).forEach(element => {
     element.style.border = '1px solid #00ffff';
     element.style.backgroundColor = '#161616';
     element.style.color = 'white';
   });
-  document.querySelectorAll('.linhas').forEach(element => {
+  getElement('.linhas', true).forEach(element => {
     element.style.backgroundImage = 'linear-gradient(to top, transparent 20%, #00ffff)';
   });
-  document.querySelectorAll('.listNav > li').forEach(element => {
+  getElement('.listNav > li', true).forEach(element => {
     element.style.backgroundColor = 'transparent';
   });
 
   // Elementos com eventos
-  document.querySelectorAll('.itemsMenu-header').forEach(element => {
+  getElement('.itemsMenu-header',true).forEach(element => {
     element.addEventListener('mouseover', () => {
       element.style.color = '#00ffff';
     });
@@ -679,7 +679,7 @@ function themeDark() {
       element.style.color = 'white';
     });
   });
-  document.querySelectorAll('.geoupHeader-socialMediaButton').forEach(element => {
+  getElement('.geoupHeader-socialMediaButton', true).forEach(element => {
     element.addEventListener('mouseover', () => {
       element.style.color = '#00ffff';
       element.style.boxShadow = '0px 0px 10px #00ffff';
@@ -690,7 +690,7 @@ function themeDark() {
       element.backgroundColor = '#1d1d1d';
     });
   });
-  document.querySelectorAll('.skill-element').forEach(element => {
+  getElement('.skill-element', true).forEach(element => {
     element.addEventListener('mouseover', () => {
       element.style.border = '1px solid #00ffff';
     });
@@ -698,7 +698,7 @@ function themeDark() {
       element.style.border = '1px solid #131313';
     });
   });
-  document.querySelectorAll('.btn-project').forEach(element => {
+  getElement('.btn-project', true).forEach(element => {
     element.addEventListener('mouseover', () => {
       element.style.backgroundColor = '#2e2e2e';
       element.style.color = 'white';
@@ -708,7 +708,7 @@ function themeDark() {
       element.style.color = 'white';
     });
   });
-  document.querySelectorAll('.card-service').forEach(element => {
+  getElement('.card-service', true).forEach(element => {
     element.addEventListener('mouseover', () => {
       element.style.border = '1px solid #00ffff';
     });
@@ -716,10 +716,10 @@ function themeDark() {
       element.style.border = '1px solid #1a1a1a';
     });
   });
-  document.querySelector('textarea').addEventListener('focus', () => {
-    document.querySelector('textarea').style.boxShadow = '0px 0px 8px #00ffff';
+  getElement('textarea').addEventListener('focus', () => {
+    getElement('textarea').style.boxShadow = '0px 0px 8px #00ffff';
   });
-  document.querySelectorAll('.listNav > li').forEach(element => {
+  getElement('.listNav > li', true).forEach(element => {
     if (window.innerWidth < 896) {
       element.addEventListener('mouseover', () => {
         element.style.backgroundColor = 'rgb(45, 45, 45)';
@@ -742,17 +742,17 @@ function createObservation(hiddenClass, visibleClass) {
     });
   });
 
-  const elementosOcultos = document.querySelectorAll(hiddenClass);
+  const elementosOcultos = getElement(hiddenClass, true);
   elementosOcultos.forEach((element) => observation.observe(element));
 }
 
 function closeOptionBox() {
   document.body.style.overflow = 'auto';
-  document.querySelector('.group-project-options-box').style.display = 'none';
+  getElement('.group-project-options-box').style.display = 'none';
 }
 
 function controlTextByLanguage(lenguageEnglis, element, textEn, textPt) {
-  document.querySelector(element).innerHTML = (lenguageEnglis) ? textEn : textPt;
+  getElement(element).innerHTML = (lenguageEnglis) ? textEn : textPt;
 }
 
 function toogleThemeLenguage(
@@ -774,4 +774,8 @@ function toogleThemeLenguage(
       toogleFunction2();
     }
   }
+}
+
+function getElement(element, multiple = false) {
+  return multiple ? document.querySelectorAll(element) : document.querySelector(element);
 }
