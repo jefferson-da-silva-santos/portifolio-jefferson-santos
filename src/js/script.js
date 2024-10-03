@@ -89,27 +89,15 @@ const descriptionsProjects = {
 };
 
 let isMenuVisible = false;
-let isLanguageEnglish = true;
-let isThemaDark = true;
+let isLanguageEnglish = false;
+let isThemaLigth = false;
 
-function toggleMenu() {
-  isMenuVisible = !isMenuVisible;
-  getElement('.linha-menu-humburguer', true).forEach(element => {
-    element.style.backgroundColor = isMenuVisible ? '#00ffff' : 'white';
-  });
+
+function toogleVariable(variable) {
+  return !variable;
 }
-
-function toggleLanguage() {
-  isLanguageEnglish = !isLanguageEnglish;
-}
-
-function toggleThema() {
-  isThemaDark = !isThemaDark;
-}
-
 
 document.addEventListener('DOMContentLoaded', () => {
-  const menu = document.getElementById('menu');
   const listaMenus = document.getElementById('lista-menus');
   const btnCardProjetcts = getElement('.btn-project', true);
   const imageCardsProjects = getElement('.group-image-project', true);
@@ -117,8 +105,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const textSkills = getElement('.textSkills');
   const btnLanguage = document.getElementById('btn-idioma');
   const btnTheme = document.getElementById('btn-tema');
-  const arrayMenus = getElement('.itemsMenu-header', true);
+  const itemsMenu = getElement('.itemsMenu-header', true);
   const userLanguage = localStorage.getItem('language') || navigator.language;
+  const btnMenu = getElement('.select-menu-humburguer');
 
   const observations = ['left', 'right', 'bottom', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 's1', 's2', 's3'];
   observations.forEach(obs => {
@@ -160,31 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
     closeOptionBox();
   })
 
-  btnTheme.addEventListener('click', (event) => {
-    event.preventDefault();
-    toogleThemeLenguage(
-      isThemaDark, themeLight,
-      toggleThema, toggleMenu,
-      themeDark, listaMenus
-    );
-  })
 
   if (userLanguage.startsWith('pt')) {
     portuguese();
-    toggleLanguage();
+    isLanguageEnglish = toogleVariable(isLanguageEnglish);
   } else {
     english();
-    toggleLanguage();
+    isLanguageEnglish = toogleVariable(isLanguageEnglish);
   }
-
-  arrayMenus.forEach((element) => {
-    element.addEventListener('click', () => {
-      if (window.innerWidth <= 986) {
-        closedMenu(listaMenus);
-        toggleMenu();
-      }
-    });
-  });
 
   controlTextByLanguage(
     isLanguageEnglish,
@@ -193,16 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
     '*Passe o mouse sobre as habilidades para verificar suas descrições*'
   );
 
-  btnLanguage.addEventListener('click', (event) => {
-    event.preventDefault();
-    toogleThemeLenguage(
-      isLanguageEnglish, portuguese,
-      toggleLanguage, toggleMenu,
-      english, listaMenus
-    );
-  });
 
-
+  //Código para fazer com que o menu se ajuste de mobile para desktop de acordo com o tamanho da tela
   if (window.innerWidth > 896) {
     arraySkills.forEach((element) => {
       element.addEventListener('mouseover', () => {
@@ -233,23 +197,144 @@ document.addEventListener('DOMContentLoaded', () => {
   handleHoverCardsProject(true, btnCardProjetcts, 'mouseover', '130%');
   handleHoverCardsProject(true, btnCardProjetcts, 'mouseout', '115%');
 
-  menu.addEventListener('click', () => {
-    isMenuVisible ? closedMenu(listaMenus) : openMenu(listaMenus, isThemaDark);
-    toggleMenu();
+  /* Abrindo o menu humburguer quando o botão for clicado */
+  btnMenu.addEventListener('click', () => {
+    listaMenus.style.display = isMenuVisible ? 'none' : 'flex';
+    document.body.style.overflow = isMenuVisible ? 'auto' : 'hidden';
+    getElement('.linha-menu-humburguer', true).forEach(line => {
+      line.style.backgroundColor = !isMenuVisible ? 'aqua' : isThemaLigth ? 'black' : 'white';
+    });
+    isMenuVisible = toogleVariable(isMenuVisible);
   });
 
 
+  /* Fechando o menu sempre que o tamanho da janela aumentar ou diminuir */
   window.addEventListener('resize', () => {
     if (window.innerWidth > 896) {
+      isMenuVisible = false;
       document.body.style.overflow = 'auto';
-      listaMenus.style.visibility = 'visible';
-      listaMenus.style.backgroundColor = 'transparent'
+      listaMenus.style.display = 'flex';
+      getElement('.linha-menu-humburguer', true).forEach(line => {
+        line.style.backgroundColor = isThemaLigth ? 'black' : 'white';
+      });
     } else {
-      closedMenu(listaMenus);
-      toggleMenu();
+      isMenuVisible = false;
+      document.body.style.overflow = 'auto';
+      listaMenus.style.display = 'none';
+      getElement('.linha-menu-humburguer', true).forEach(line => {
+        line.style.backgroundColor = isThemaLigth ? 'black' : 'white';
+      });
     }
   });
+
+  btnTheme.addEventListener('click', event => {
+    event.preventDefault();
+    if (isMenuVisible) {
+      listaMenus.style.display = 'none';
+      document.body.style.overflow = 'auto';
+      getElement('.linha-menu-humburguer', true).forEach(line => {
+        line.style.backgroundColor = isThemaLigth ? 'black' : 'white';
+      });
+      isMenuVisible = toogleVariable(isMenuVisible);
+    }
+
+    if (isThemaLigth) {
+      themeDark();
+      isThemaLigth = toogleVariable(isThemaLigth);
+    } else {
+      themeLight();
+      isThemaLigth = toogleVariable(isThemaLigth);
+    }
+
+  });
+
+  // itemsMenu.forEach(itemMenu => {
+  //   itemMenu.addEventListener('click', () => {
+  //     if (isMenuVisible) {
+  //       getElement('.linha-menu-humburguer', true).forEach(line => {
+  //         line.style.backgroundColor = isThemaDark ? 'white' : 'black';
+  //       });
+  //       openCloseMenu(listaMenus, false);
+  //     }
+  //   });
+  // });
+
+
+  // btnMenu.addEventListener('click', () => {
+  //   if (!isMenuVisible) {
+  //     openCloseMenu(listaMenus);
+  //   } else {
+  //     openCloseMenu(listaMenus, false);
+  //   }
+  // });
+
+  // btnTheme.addEventListener('click', event => {
+  //   event.preventDefault();
+
+  //   if (isThemaDark) {
+  //     isThemaDark = toogleVariable(isThemaDark);
+  //     if (isMenuVisible) {
+  //       openCloseMenu(listaMenus, false);
+  //     }
+  //     themeLight();
+  //   } else {
+  //     isThemaDark = toogleVariable(isThemaDark);
+  //     if (isMenuVisible) {
+  //       openCloseMenu(listaMenus, false);
+  //     }
+  //     themeDark();
+  //   }
+  // });
+
+  // btnLanguage.addEventListener('click', event => {
+  //   event.preventDefault();
+
+  //   if (isLanguageEnglish) {
+  //     portuguese();
+  //     isLanguageEnglish = toogleVariable(isLanguageEnglish);
+  //     if (isMenuVisible) {
+  //       openCloseMenu(listaMenus, false);
+  //       ajustColorMenu();
+  //     }
+  //   } else {
+  //     english();
+  //     isLanguageEnglish = toogleVariable(isLanguageEnglish);
+  //     if (isMenuVisible) {
+  //       openCloseMenu(listaMenus, false);
+  //       ajustColorMenu();
+  //     }
+  //   }
+  // });
+
+  // window.addEventListener('resize', () => {
+  //   if (window.innerWidth > 896) {
+  //     listaMenus.style.visibility = 'visible';
+  //     document.body.style.overflow = 'auto';
+  //     listaMenus.style.backgroundColor = isThemaDark ? 'black' : 'white';
+  //     isMenuVisible = false;
+  //   } else {
+  //     listaMenus.style.visibility = 'hidden';
+  //     ajustColorMenu();
+  //   }
+  // });
+
 });
+
+// function ajustColorMenu() {
+//   getElement('.linha-menu-humburguer', true).forEach(line => {
+//     line.style.backgroundColor = isThemaDark ? 'white' : 'black';
+//   });
+// }
+
+// function openCloseMenu(lista, open = true) {
+//   isMenuVisible = toogleVariable(isMenuVisible);
+//   document.body.style.overflow = open ? 'hidden' : 'auto';
+//   lista.style.visibility = open ? 'visible' : 'hidden';
+//   lista.style.backgroundColor = isThemaDark ? 'black' : 'white';
+//   getElement('.linha-menu-humburguer', true).forEach(line => {
+//     line.style.backgroundColor = open ? 'aqua' : isThemaDark ? 'white' : 'black';
+//   });
+// }
 
 
 function handleTextSillsHover(isTheme, element, array, lenguage, color1, color2) {
@@ -284,18 +369,6 @@ function handleHoverCardsProject(isBtn, item, event, value) {
       });
     });
   }
-}
-
-function closedMenu(menu) {
-  menu.style.visibility = 'hidden';
-  document.body.style.overflow = 'auto';
-  menu.style.backgroundColor = 'transparent';
-}
-
-function openMenu(menu, themeDark) {
-  menu.style.visibility = 'visible';
-  document.body.style.overflow = 'hidden';
-  menu.style.backgroundColor = (themeDark) ? 'black' : 'white';
 }
 
 function dialogProject(title, description, technologies, urlGit, urlDeploy, texts) {
@@ -417,34 +490,36 @@ function english() {
 
 function themeLight() {
   //Caixa options
- getElement('.group-project-options-box').style.backgroundColor = 'rgb(255 255 255 / 55%)';
- getElement('.project-options-box').style.backgroundColor = '#ffffff';
- getElement('.project-options-box').style.boxShadow = '0px 0px 10px gray';
- getElement('.project-options-box').style.color = 'black';
- getElement('.name-project-option').style.color = '#000000';
- getElement('.name-project-option').style.textShadow = '0px 0px 5px #0000009a';
- getElement('.close-options').style.color = 'black';
+  getElement('.group-project-options-box').style.backgroundColor = 'rgb(255 255 255 / 55%)';
+  getElement('.project-options-box').style.backgroundColor = '#ffffff';
+  getElement('.project-options-box').style.boxShadow = '0px 0px 10px gray';
+  getElement('.project-options-box').style.color = 'black';
+  getElement('.name-project-option').style.color = '#000000';
+  getElement('.name-project-option').style.textShadow = '0px 0px 5px #0000009a';
+  getElement('.close-options').style.color = 'black';
   document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-claro.webp');
- getElement('.listNav').style.backgroundColor = 'transparent';
   document.body.style.backgroundColor = '#f7f7f7';
- getElement('.logoNav').style.color = 'rgb(49, 49, 49)';
- getElement('.groupNav').style.backgroundColor = '#ffffffed';
- getElement('.groupNav').style.boxShadow = '0px 0px 8px rgba(49, 49, 49, 0.438)';
- getElement('.groupHeader-texts h1').style.color = 'rgb(49, 49, 49)';
- getElement('.titleSobre').style.color = 'rgb(49, 49, 49)';
- getElement('.groupSobre').style.backgroundColor = '#ffffff';
- getElement('.groupSobre-primary').style.color = '#1d1d1d';
- getElement('.titleSkills').style.color = 'rgb(49, 49, 49)';
- getElement('.textSkills').style.color = '#1d1d1d';
- getElement('.groupProjetos').style.backgroundColor = 'white';
- getElement('.titleProjetos').style.color = 'rgb(49, 49, 49)';
- getElement('.groupService').style.backgroundColor = '#f7f7f7';
- getElement('.titleService').style.color = 'rgb(49, 49, 49)';
- getElement('.groupContact').style.backgroundColor = 'white';
- getElement('.titleContact').style.color = 'rgb(49, 49, 49)';
- getElement('textarea').style.border = '1px solid rgb(219, 219, 219)';
- getElement('textarea').style.backgroundColor = '#eeeeee';
- getElement('textarea').style.color = 'rgb(49, 49, 49)';
+  getElement('.logoNav').style.color = 'rgb(49, 49, 49)';
+  getElement('.groupNav').style.backgroundColor = '#ffffffed';
+  getElement('.groupNav').style.boxShadow = '0px 0px 8px rgba(49, 49, 49, 0.438)';
+  getElement('.groupHeader-texts h1').style.color = 'rgb(49, 49, 49)';
+  getElement('.titleSobre').style.color = 'rgb(49, 49, 49)';
+  getElement('.groupSobre').style.backgroundColor = '#ffffff';
+  getElement('.groupSobre-primary').style.color = '#1d1d1d';
+  getElement('.titleSkills').style.color = 'rgb(49, 49, 49)';
+  getElement('.textSkills').style.color = '#1d1d1d';
+  getElement('.groupProjetos').style.backgroundColor = 'white';
+  getElement('.titleProjetos').style.color = 'rgb(49, 49, 49)';
+  getElement('.groupService').style.backgroundColor = '#f7f7f7';
+  getElement('.titleService').style.color = 'rgb(49, 49, 49)';
+  getElement('.groupContact').style.backgroundColor = 'white';
+  getElement('.titleContact').style.color = 'rgb(49, 49, 49)';
+  getElement('textarea').style.border = '1px solid rgb(219, 219, 219)';
+  getElement('textarea').style.backgroundColor = '#eeeeee';
+  getElement('textarea').style.color = 'rgb(49, 49, 49)';
+
+  document.getElementById('lista-menus').style.backgroundColor = 'white';
+  
 
   // Seletores querySelectorAll
   getElement('.itemsMenu-header', true).forEach(element => {
@@ -454,6 +529,9 @@ function themeLight() {
   getElement('.itemsMenu-header', true).forEach(element => {
     element.style.color = 'rgb(49, 49, 49)';
   });
+  document.querySelectorAll('.linha-menu-humburguer').forEach(line => {
+    line.style.backgroundColor = 'white';
+  })
   getElement('.linha-menu-humburguer', true).forEach(element => {
     element.style.backgroundColor = 'rgb(49, 49, 49)';
   });
@@ -574,6 +652,8 @@ function themeLight() {
 }
 
 function themeDark() {
+  document.getElementById('lista-menus').style.backgroundColor = 'white';
+
   getElement('.group-project-options-box').style.backgroundColor = 'rgba(0, 0, 0, 0.86)';
   getElement('.project-options-box').style.backgroundColor = '#0b0b0b';
   getElement('.project-options-box').style.boxShadow = 'none';
@@ -582,7 +662,6 @@ function themeDark() {
   getElement('.name-project-option').style.textShadow = '0px 0px 5px #00ffff9a';
   getElement('.close-options').style.color = 'white';
   document.getElementById('btn-tema').setAttribute('src', 'src/img/modo-escuro.webp');
-  getElement('.listNav').style.backgroundColor = 'transparent';
   document.body.style.backgroundColor = '#0f0f0f';
   getElement('.logoNav').style.color = 'white';
   getElement('.groupNav').style.backgroundColor = '#080808ed';
@@ -611,9 +690,7 @@ function themeDark() {
   getElement('.itemsMenu-header', true).forEach(element => {
     element.style.color = 'white';
   });
-  getElement('.linha-menu-humburguer', true).forEach(element => {
-    element.style.backgroundColor = 'white';
-  });
+
   getElement('.geoupHeader-socialMediaButton', true).forEach(element => {
     element.style.backgroundColor = '#1d1d1d';
     element.style.boxShadow = 'none';
@@ -671,7 +748,7 @@ function themeDark() {
   });
 
   // Elementos com eventos
-  getElement('.itemsMenu-header',true).forEach(element => {
+  getElement('.itemsMenu-header', true).forEach(element => {
     element.addEventListener('mouseover', () => {
       element.style.color = '#00ffff';
     });
@@ -753,27 +830,6 @@ function closeOptionBox() {
 
 function controlTextByLanguage(lenguageEnglis, element, textEn, textPt) {
   getElement(element).innerHTML = (lenguageEnglis) ? textEn : textPt;
-}
-
-function toogleThemeLenguage(
-  condition, function1,
-  toogleFunction1, toogleFunction2,
-  function2, list) {
-  if (condition) {
-    function1();
-    toogleFunction1();
-    if (window.innerWidth <= 896) {
-      closedMenu(list);
-      toogleFunction2();
-    }
-  } else {
-    function2();
-    toogleFunction1();
-    if (window.innerWidth <= 896) {
-      closedMenu(list);
-      toogleFunction2();
-    }
-  }
 }
 
 function getElement(element, multiple = false) {

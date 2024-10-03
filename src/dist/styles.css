@@ -172,7 +172,7 @@ body {
   margin: auto;
 }
 
-.listNav {
+#lista-menus {
   display: flex;
   list-style: none;
   -moz-column-gap: 1.5rem;
@@ -1038,12 +1038,11 @@ textarea:focus {
 
 @media screen and (max-width: 896px) {
   /* Estilos do Nav */
-  .listNav {
-    visibility: hidden;
+  #lista-menus {
+    display: none;
     cursor: pointer;
     position: absolute;
     flex-direction: column;
-    background-color: var(--color-secundary);
     left: 0;
     top: 0;
     width: 100vw;
@@ -1060,10 +1059,6 @@ textarea:focus {
     padding: 0.6em;
     width: 100%;
     text-align: center;
-  }
-
-  .listNav > li:hover {
-    background-color: var(--color-primary);
   }
 
   .listNav > li > a {
