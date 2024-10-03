@@ -95,7 +95,7 @@ let isThemaDark = true;
 function toggleMenu() {
   isMenuVisible = !isMenuVisible;
   document.querySelectorAll('.linha-menu-humburguer').forEach(element => {
-    element.style.backgroundColor = isMenuVisible ? '#00ffff' : 'white';
+    element.style.backgroundColor = isMenuVisible ? 'aqua' : isThemaDark ? 'white' : 'black';
   });
 }
 
@@ -167,6 +167,11 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleThema, toggleMenu,
       themeDark, listaMenus
     );
+    document.querySelectorAll('.linha-menu-humburguer').forEach(linha => {
+      linha.style.backgroundColor = isThemaDark ? 'white' : 'black';
+      console.log('A cor do botão de menu mudou');
+      
+    });
   })
 
   if (userLanguage.startsWith('pt')) {
@@ -246,7 +251,10 @@ document.addEventListener('DOMContentLoaded', () => {
       listaMenus.style.backgroundColor = 'transparent'
     } else {
       closedMenu(listaMenus);
-      toggleMenu();
+      isMenuVisible = false;
+      document.querySelectorAll('.linha-menu-humburguer').forEach(element => {
+        element.style.backgroundColor = isThemaDark ? 'white' : 'black';
+      });
     }
   });
 });
@@ -561,16 +569,16 @@ function themeLight() {
   document.querySelector('textarea').addEventListener('focus', () => {
     document.querySelector('textarea').style.boxShadow = '0px 0px 8px #00ffff';
   });
-  document.querySelectorAll('.listNav > li').forEach(element => {
-    if (window.innerWidth < 896) {
-      element.addEventListener('mouseover', () => {
-        element.style.backgroundColor = 'rgb(229, 229, 229)';
-      });
-      element.addEventListener('mouseout', () => {
-        element.style.backgroundColor = 'transparent';
-      });
-    }
-  });
+  // document.querySelectorAll('.listNav > li').forEach(element => {
+  //   if (window.innerWidth < 896) {
+  //     element.addEventListener('mouseover', () => {
+  //       element.style.backgroundColor = 'rgb(229, 229, 229)';
+  //     });
+  //     element.addEventListener('mouseout', () => {
+  //       element.style.backgroundColor = 'transparent';
+  //     });
+  //   }
+  // });
 }
 
 function themeDark() {
@@ -719,16 +727,16 @@ function themeDark() {
   document.querySelector('textarea').addEventListener('focus', () => {
     document.querySelector('textarea').style.boxShadow = '0px 0px 8px #00ffff';
   });
-  document.querySelectorAll('.listNav > li').forEach(element => {
-    if (window.innerWidth < 896) {
-      element.addEventListener('mouseover', () => {
-        element.style.backgroundColor = 'rgb(45, 45, 45)';
-      });
-      element.addEventListener('mouseout', () => {
-        element.style.backgroundColor = 'transparent';
-      });
-    }
-  });
+  // document.querySelectorAll('.listNav > li').forEach(element => {
+  //   if (window.innerWidth < 896) {
+  //     element.addEventListener('mouseover', () => {
+  //       element.style.backgroundColor = 'rgb(45, 45, 45)';
+  //     });
+  //     element.addEventListener('mouseout', () => {
+  //       element.style.backgroundColor = 'transparent';
+  //     });
+  //   }
+  // });
 }
 
 function createObservation(hiddenClass, visibleClass) {
