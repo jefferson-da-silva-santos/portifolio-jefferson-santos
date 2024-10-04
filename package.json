@@ -1,0 +1,31 @@
+{
+  "name": "portifolio-jefferson-santos",
+  "version": "1.0.0",
+  "description": "Portifólio pessoal de Jefferson Santos",
+  "main": "index.js",
+  "type": "module",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "postcss-cli": "^11.0.0"
+  },
+  "scripts": {
+    "build:css": "postcss src/css/*.css --use autoprefixer -d src/dist/css/"
+  },
+  "browserslist": [
+    "> 1%",              
+    "last 2 versions",    
+    "not dead",           
+    "not IE 11",          
+    "Firefox ESR",        
+    "last 2 Chrome versions",   
+    "last 2 Firefox versions",  
+    "last 2 Safari versions",   
+    "last 2 Edge versions",     
+    "last 2 Opera versions",    
+    "last 2 iOS versions",      
+    "last 2 Android versions"   
+  ],
+  "author": "Jefferson Santos",
+  "license": "MIT"
+}
