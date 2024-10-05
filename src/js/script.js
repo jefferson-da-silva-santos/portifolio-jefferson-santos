@@ -57,35 +57,35 @@ const descriptionsProjects = {
     urlDeploy: 'https://jessica-planilhas.netlify.app/'
   },
   movies: {
-    pt: 'Projeto frontend FavFlix. Neste projeto, pude estar aprimorando minhas habilidades em HTML5, CSS e JavaScript, integrando a OMDb API para criar um sistema de busca de filmes por nome e ano. O layout do projeto foi inspirado na plataforma de streams Netflix, com um design moderno e responsivo, proporcionando uma experiência de navegação fluida e intuitiva para os usuários ao explorarem informações de filmes.',
-    en: "FavFlix frontend project. In this project, I was able to improve my skills in HTML5, CSS and JavaScript, integrating the OMDb API to create a system for searching movies by name and year. The project's layout was inspired by the Netflix streaming platform, with a modern and responsive design, providing a fluid and intuitive navigation experience for users when exploring movie information.",
+    pt: 'FavFlix: projeto frontend com HTML5, CSS, JS e OMDb API para busca de filmes por nome e ano. Layout inspirado na Netflix, com design moderno e responsivo.',
+    en: "FavFlix: frontend project using HTML5, CSS, JS, and OMDb API for movie search by name and year. Netflix-inspired layout with a modern, responsive design.",
     urlGit: '',
     urlDeploy: ''
   },
   login: {
-    pt: 'Projeto frontend de formulário de login e cadastro moderno e minimalista. Neste projeto, pude estar aprimorando minhas habilidades em HTML5, CSS e JavaScript, utilizando ícones do Bootstrap para melhorar a interface. A estrutura foi desenvolvida de forma responsiva e focada em uma experiência de usuário simplificada, com validações dinâmicas em JavaScript e otimização SEO para garantir melhor visibilidade nos motores de busca.',
-    en: 'Modern and minimalist frontend design of a login and registration form. In this project, I was able to improve my skills in HTML5, CSS and JavaScript, using Bootstrap icons to improve the interface. The structure was developed in a responsive way and focused on a simplified user experience, with dynamic validations in JavaScript and SEO optimization to ensure better visibility in search engines.',
+    pt: 'Formulário de login e cadastro moderno com HTML5, CSS, JS e ícones do Bootstrap. Estrutura responsiva com validações dinâmicas e otimização SEO.',
+    en: 'Modern login and registration form with HTML5, CSS, JS, and Bootstrap icons. Responsive structure with dynamic validations and SEO optimization.',
     urlGit: '',
     urlDeploy: ''
   },
   calculator: {
-    pt: 'Projeto frontend de calculadora responsiva. Neste projeto, pude estar aprimorando minhas habilidades em JavaScript e trabalhando com funcionalidades como soma, subtração, divisão, e cálculos de porcentagem.',
-    en: 'Responsive calculator frontend design. In this project, I was able to hone my JavaScript skills and work with features such as addition, subtraction, division, and percentage calculations.',
+    pt: 'Calculadora responsiva com funcionalidades de soma, subtração, divisão e porcentagem, desenvolvida em JavaScript.',
+    en: 'Responsive calculator with addition, subtraction, division, and percentage features, built using JavaScript.',
     urlGit: 'https://github.com/jefferson-da-silva-santos/calculadora',
     urlDeploy: ''
   },
   calculatorIMC: {
-    pt: 'Projeto frontend de calculadora de IMC. Neste projeto, pude estar aprimorando minhas habilidades em HTML5, CSS e JavaScript para criar uma calculadora de Índice de Massa Corporal (IMC) responsiva e dinâmica. O sistema calcula o IMC e exibe mensagens personalizadas de acordo com o resultado, proporcionando uma experiência interativa ao usuário. ',
-    en: 'BMI calculator frontend project. In this project, I was able to improve my HTML5, CSS and JavaScript skills to create a responsive and dynamic Body Mass Index (BMI) calculator. The system calculates the BMI and displays personalized messages according to the result, providing an interactive experience to the user.',
+    pt: 'Calculadora de IMC responsiva e dinâmica com HTML5, CSS e JS, exibindo mensagens personalizadas com base no resultado.',
+    en: 'Responsive and dynamic BMI calculator with HTML5, CSS, and JS, displaying personalized messages based on the result.',
     urlGit: 'https://github.com/jefferson-da-silva-santos/calculadora-de-imc',
     urlDeploy: ''
   },
   previsaoTempo: {
-    pt: 'Projeto frontend de previsão do tempo. Neste projeto, pude estar aprimorando minhas habilidades em JavaScript e trabalhando com a integração da API OpenWeather para exibir informações de previsão do tempo em tempo real. Além disso, utilizei HTML5 e CSS para estruturar e estilizar a interface de forma responsiva, garantindo uma boa experiência do usuário em diferentes dispositivos.',
-    en: 'Weather forecast frontend project. In this project, I was able to improve my JavaScript skills and work with the OpenWeather API integration to display real-time weather forecast information. In addition, I used HTML5 and CSS to structure and style the interface in a responsive way, ensuring a good user experience across different devices.',
+    pt: 'Previsão do tempo com integração da API OpenWeather, desenvolvida em JS, HTML5 e CSS, com interface responsiva.',
+    en: 'Weather forecast with OpenWeather API integration, built using JS, HTML5, and CSS, with a responsive interface.',
     urlGit: '',
     urlDeploy: ''
-  }
+  }  
 };
 
 let isMenuVisible = false;
