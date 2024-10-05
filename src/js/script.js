@@ -78,7 +78,7 @@ const descriptionsProjects = {
     pt: 'Calculadora de IMC responsiva e dinâmica com HTML5, CSS e JS, exibindo mensagens personalizadas com base no resultado.',
     en: 'Responsive and dynamic BMI calculator with HTML5, CSS, and JS, displaying personalized messages based on the result.',
     urlGit: 'https://github.com/jefferson-da-silva-santos/calculadora-de-imc',
-    urlDeploy: ''
+    urlDeploy: 'https://calculadora-imc-jefferson.netlify.app'
   },
   previsaoTempo: {
     pt: 'Previsão do tempo com integração da API OpenWeather, desenvolvida em JS, HTML5 e CSS, com interface responsiva.',
