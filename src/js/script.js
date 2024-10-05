@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.linha-menu-humburguer').forEach(linha => {
       linha.style.backgroundColor = isThemaDark ? 'white' : 'black';
       console.log('A cor do botão de menu mudou');
-      
+
     });
   })
 
@@ -205,6 +205,12 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleLanguage, toggleMenu,
       english, listaMenus
     );
+    
+    document.querySelectorAll('.textSobre').forEach(text => {
+      text.querySelectorAll('strong').forEach(strong => {
+        strong.style.color = isThemaDark ? 'rgb(212, 212, 212)' : 'rgb(59, 59, 59)';
+      });
+    })
   });
 
 
