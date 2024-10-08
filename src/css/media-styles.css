@@ -296,6 +296,10 @@
   }
 
   /* Estilos Header */
+  
+  .groupHeader-texts {
+    row-gap: 0;
+  }
 
   .groupHeader-texts h1 {
     font-size: 3em;
