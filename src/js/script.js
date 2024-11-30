@@ -50,41 +50,41 @@ const descriptionSkills = {
 }
 
 const descriptionsProjects = {
-  planilhas: {
-    pt: 'Jessica-planilhas é um projeto FrontEnd responsiva de vendas projetada para gerenciar e visualizar planilhas de forma eficiente e interativa. Este projeto utiliza tecnologias modernas para garantir uma experiência de usuário fluida e otimizada.',
-    en: 'Jessica-spreadsheets is a responsive sales web application designed to manage and visualize spreadsheets efficiently and interactively. This project uses modern technologies to ensure a fluid and optimized user experience.',
+  cardapio: {
+    pt: 'Teste Cardapio Pt-br',
+    en: 'Teste Cardapio en',
     urlGit: 'https://github.com/jefferson-da-silva-santos/project-jessica-planilhas',
-    urlDeploy: 'https://jessica-planilhas.netlify.app/'
+    urlDeploy: 'https://cardapioonlinee.netlify.app/'
   },
-  movies: {
-    pt: 'FavFlix: projeto frontend com HTML5, CSS, JS e OMDb API para busca de filmes por nome e ano. Layout inspirado na Netflix, com design moderno e responsivo.',
-    en: "FavFlix: frontend project using HTML5, CSS, JS, and OMDb API for movie search by name and year. Netflix-inspired layout with a modern, responsive design.",
+  planilhas: {
+    pt: 'Teste Jessica Pt-br',
+    en: "Teste Jessica en",
     urlGit: '',
     urlDeploy: ''
   },
-  login: {
-    pt: 'Formulário de login e cadastro moderno com HTML5, CSS, JS e ícones do Bootstrap. Estrutura responsiva com validações dinâmicas e otimização SEO.',
-    en: 'Modern login and registration form with HTML5, CSS, JS, and Bootstrap icons. Responsive structure with dynamic validations and SEO optimization.',
+  sushi: {
+    pt: 'Teste Sushi pt-br',
+    en: 'Teste Sushi en',
+    urlGit: 'https://github.com/jefferson-da-silva-santos/sushi-ecommerce',
+    urlDeploy: 'https://sushi-ecommerce.netlify.app/'
+  },
+  infoccell: {
+    pt: 'Lan House Infoccell pt-br',
+    en: 'Lan House Infoccell en',
     urlGit: '',
-    urlDeploy: ''
+    urlDeploy: 'https://infoccell.netlify.app/'
   },
-  calculator: {
-    pt: 'Calculadora responsiva com funcionalidades de soma, subtração, divisão e porcentagem, desenvolvida em JavaScript.',
-    en: 'Responsive calculator with addition, subtraction, division, and percentage features, built using JavaScript.',
-    urlGit: 'https://github.com/jefferson-da-silva-santos/calculadora',
-    urlDeploy: ''
+  leoLita: {
+    pt: 'Léo de Lita pt-br',
+    en: 'Léo de Lita en',
+    urlGit: '',
+    urlDeploy: 'https://leodelita.netlify.app/'
   },
-  calculatorIMC: {
-    pt: 'Calculadora de IMC responsiva e dinâmica com HTML5, CSS e JS, exibindo mensagens personalizadas com base no resultado.',
-    en: 'Responsive and dynamic BMI calculator with HTML5, CSS, and JS, displaying personalized messages based on the result.',
+  calculadoraIMC: {
+    pt: 'Teste pt-br',
+    en: 'Teste en',
     urlGit: 'https://github.com/jefferson-da-silva-santos/calculadora-de-imc',
-    urlDeploy: 'https://calculadora-imc-jefferson.netlify.app'
-  },
-  previsaoTempo: {
-    pt: 'Previsão do tempo com integração da API OpenWeather, desenvolvida em JS, HTML5 e CSS, com interface responsiva.',
-    en: 'Weather forecast with OpenWeather API integration, built using JS, HTML5, and CSS, with a responsive interface.',
-    urlGit: '',
-    urlDeploy: ''
+    urlDeploy: 'https://calculadora-imc-jefferson.netlify.app/'
   }  
 };
 
@@ -354,7 +354,7 @@ function portuguese() {
   // projetos
   document.querySelector('.titleProjetos').innerHTML = '&#8249; <span class="letraMonoton">P</span>rojetos &#8260; &#8250;';
   const arrayCards = document.querySelectorAll('.card-item');
-  const titlesProjetctsArray = ['Jéssica Planilhas', 'API - Filmes', 'Formuláio de Login', 'Calculadora - Light Dark', 'Calculadora de IMC', 'API - Previsão do Tempo'];
+  const titlesProjetctsArray = ['Cardápio Online', 'Jéssica Planilhas', 'Loja de Sushi', 'Lan House Infoccell', 'Bolachas Léo de Lita', 'Calculadora de IMC'];
   arrayCards.forEach((element, index) => {
     element.querySelector('.title-project').innerHTML = titlesProjetctsArray[index];
   });
@@ -403,7 +403,7 @@ function english() {
   // projetos
   document.querySelector('.titleProjetos').innerHTML = '&#8249; <span class="letraMonoton">P</span>rojects &#8260; &#8250;';
   const arrayCards = document.querySelectorAll('.card-item');
-  const titlesProjetctsArray = ['Jessica Spreadsheets', 'API - Movies', 'Login Form', 'Calculator - Light Dark', 'BMI Calculator', 'API - Weather Forecast'];
+  const titlesProjetctsArray = ['Jessica Spreadsheets', 'API - Movies', 'Login Form', 'Infoccell', 'Bolachas Léo de Lita', 'API - Weather Forecast'];
   arrayCards.forEach((element, index) => {
     element.querySelector('.title-project').innerHTML = titlesProjetctsArray[index];
   });

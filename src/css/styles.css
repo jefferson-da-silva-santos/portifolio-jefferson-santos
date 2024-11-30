@@ -752,27 +752,27 @@ strong {
 
 
 .groupProjetos-secundary :nth-child(1) .group-image-project  {
-  background-image: url('../img/projeto-jessica-planilhas.webp');
+  background-image: url('../img/cardapio.png');
 }
 
 .groupProjetos-secundary :nth-child(2) .group-image-project  {
-  background-image: url('../img/projeto-api-filmes.webp');
+  background-image: url('../img/projeto-jessica-planilhas.webp');
 }
 
 .groupProjetos-secundary :nth-child(3) .group-image-project  {
-  background-image: url('../img/projeto-login-form.webp');
+  background-image: url('../img/sushi.png');
 }
 
 .groupProjetos-secundary :nth-child(4) .group-image-project  {
-  background-image: url('../img/projeto-calculadora.webp');
+  background-image: url('../img/infoccell.png');
 }
 
 .groupProjetos-secundary :nth-child(5) .group-image-project  {
-  background-image: url('../img/projeto-calculadora-de-imc.webp');
+  background-image: url('../img/leoLita.png');
 }
 
 .groupProjetos-secundary :nth-child(6) .group-image-project  {
-  background-image: url('../img/projeto-previsao-do-tempo.webp');
+  background-image: url('../img/projeto-calculadora-de-imc.webp');
 }
 
 
