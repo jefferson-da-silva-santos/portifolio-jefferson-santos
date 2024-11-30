@@ -59,8 +59,8 @@ const descriptionsProjects = {
   planilhas: {
     pt: 'Teste Jessica Pt-br',
     en: "Teste Jessica en",
-    urlGit: '',
-    urlDeploy: ''
+    urlGit: 'https://github.com/jefferson-da-silva-santos/project-jessica-planilhas',
+    urlDeploy: 'https://jessica-planilhas.netlify.app/'
   },
   sushi: {
     pt: 'Teste Sushi pt-br',
