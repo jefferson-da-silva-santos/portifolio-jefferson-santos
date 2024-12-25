@@ -3,7 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portifólio de Jefferson Santos, desenvolvedor FullStack, com projetos incríveis e soluções criativas."
+    />
+    <!-- Open Graph pra compartilhar bonito nas redes sociais -->
+    <meta property="og:title" content="Jefferson Santos | Desenvolvedor Frontend" />
+    <meta
+      property="og:description"
+      content="Confira meu portfólio de desenvolvimento fullstack com projetos criativos e bem estruturados."
+    />
+    <meta property="og:image" content="../portifolio-jefferson-santos/src/img/jefferson-1.jpg" />
+    <meta property="og:url" content="https://jeffersondev.netlify.app/" />
+    <meta property="og:type" content="website" />
     <link rel="shortcut icon" href="src/img/favicon.ico" type="image/x-icon" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="./portifolio-jefferson-santos/src/img/jefferson-1.jpg">
+    <meta name="twitter:title" content="Jefferson Santos | Desenvolvedor FullStack">
+    <meta name="twitter:description" content="Confira meu portfólio de desenvolvimento fullstack com projetos criativos e bem estruturados.">
+    <meta name="twitter:image" content="URL_DA_SUA_IMAGEM_DESTAQUE">
+    
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -15,17 +34,31 @@
     <link rel="stylesheet" href="src/css/styles.css" />
     <link rel="stylesheet" href="src/css/media-styles.css" />
     <link rel="stylesheet" href="src/css/scroll-effect.css" />
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
     <script type="text/javascript">
-        (function() {
-            // https://dashboard.emailjs.com/admin/account
-            emailjs.init({
-              publicKey: "JB0HjHdbW1r9RGR6k",
-            });
-        })();
+      (function () {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init({
+          publicKey: "JB0HjHdbW1r9RGR6k",
+        });
+      })();
     </script>
-
-    <title>Jefferson Santos</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jefferson Santos",
+        "url": "https://jeffersondev.netlify.app/",
+        "sameAs": [
+          "https://www.linkedin.com/in/jefferson-santos-a87b74277/",
+          "https://github.com/jefferson-da-silva-santos"
+        ]
+      }
+      </script>  
+    <title>Jefferson Santos | Desenvolvedor FullStack</title>
   </head>
   <body>
     <!-- Options Box dos Projetos -->
@@ -374,7 +407,7 @@
               <div class="group-image-project"></div>
               <h3 class="title-project">Cardápio Online</h3>
               <p class="description-project">
-                Stack: Vite | HTML | SASS | CSS | JavaScript | API ViaCep 
+                Stack: Vite | HTML | SASS | CSS | JavaScript | API ViaCep
               </p>
               <a
                 role="button"
@@ -402,7 +435,7 @@
               <div class="group-image-project"></div>
               <h3 class="title-project">Loja de Sushi</h3>
               <p class="description-project">
-                Stack: Vite | HTML | CSS | SASS | JavaScript | autoprefixer 
+                Stack: Vite | HTML | CSS | SASS | JavaScript | autoprefixer
               </p>
               <a
                 role="button"
@@ -416,7 +449,7 @@
               <div class="group-image-project"></div>
               <h3 class="title-project">Lan House Infoccell</h3>
               <p class="description-project">
-                Stack: Vite | HTML | CSS | SASS | JavaScript 
+                Stack: Vite | HTML | CSS | SASS | JavaScript
               </p>
               <a
                 role="button"
@@ -583,7 +616,7 @@
                 required
               ></textarea>
               <input
-              onclick="SendMail()"
+                onclick="SendMail()"
                 role="button"
                 aria-label="Enviar email"
                 type="submit"
@@ -610,15 +643,17 @@
     <script>
       function SendMail() {
         const params = {
-          nome : document.getElementById('nome').value,
-          email : document.getElementById('email').value,
-          assunto : document.getElementById('assunto').value,
-          mensagem : document.getElementById('mensagem').value
-        }
-        emailjs.send("service_jpdwjb9", "template_avrzp3p", params).then(function (res) {
-          alert('Success! ' + res.status);
-        });
+          nome: document.getElementById("nome").value,
+          email: document.getElementById("email").value,
+          assunto: document.getElementById("assunto").value,
+          mensagem: document.getElementById("mensagem").value,
+        };
+        emailjs
+          .send("service_jpdwjb9", "template_avrzp3p", params)
+          .then(function (res) {
+            alert("Success! " + res.status);
+          });
       }
-    </script>
+    </script>    
   </body>
 </html>
