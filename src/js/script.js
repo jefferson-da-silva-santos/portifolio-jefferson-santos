@@ -51,38 +51,38 @@ const descriptionSkills = {
 
 const descriptionsProjects = {
   cardapio: {
-    pt: 'Teste Cardapio Pt-br',
-    en: 'Teste Cardapio en',
+    pt: 'O projeto Cardápio Online foi desenvolvido para oferecer uma interface moderna e inovadora, facilitando a venda de alimentos de forma prática e eficiente, proporcionando uma melhor experiência para clientes e estabelecimentos.',
+    en: 'The Online Menu project was developed to offer a modern and innovative interface, facilitating the sale of food in a practical and efficient way, providing a better experience for customers and establishments.',
     urlGit: 'https://github.com/jefferson-da-silva-santos/project-jessica-planilhas',
     urlDeploy: 'https://cardapioonlinee.netlify.app/'
   },
   planilhas: {
-    pt: 'Teste Jessica Pt-br',
-    en: "Teste Jessica en",
+    pt: 'O projeto Jessica Planilhas foi criado com o objetivo de disponibilizar planilhas personalizadas e funcionais para Excel e Google Sheets, atendendo às diversas necessidades de organização, gestão e otimização de dados.',
+    en: "The Jessica Planilhas project was created with the aim of providing personalized and functional spreadsheets for Excel and Google Sheets, meeting the various needs of organization, management and data optimization.",
     urlGit: 'https://github.com/jefferson-da-silva-santos/project-jessica-planilhas',
     urlDeploy: 'https://jessica-planilhas.netlify.app/'
   },
   sushi: {
-    pt: 'Teste Sushi pt-br',
-    en: 'Teste Sushi en',
+    pt: 'O projeto Loja de Sushi foi desenvolvido para oferecer uma interface moderna e intuitiva, facilitando a venda de sushi e proporcionando uma experiência agradável para os usuários.',
+    en: 'The Sushi Shop project was developed to offer a modern and intuitive interface, facilitating the sale of sushi and providing a pleasant experience for users.',
     urlGit: 'https://github.com/jefferson-da-silva-santos/sushi-ecommerce',
     urlDeploy: 'https://sushi-ecommerce.netlify.app/'
   },
   infoccell: {
-    pt: 'Lan House Infoccell pt-br',
-    en: 'Lan House Infoccell en',
-    urlGit: '',
+    pt: 'O projeto Infoccell foi desenvolvido para promover a divulgação de uma lan house, destacando seus produtos, serviços e outros recursos de forma atrativa e eficiente, fortalecendo sua presença no mercado.',
+    en: 'The Infoccell project was developed to promote the promotion of an internet café, highlighting its products, services and other resources in an attractive and efficient way, strengthening its presence in the market.',
+    urlGit: 'The Infoccell project was developed to promote the promotion of an internet café, highlighting its products, services and other resources in an attractive and efficient way, strengthening its presence in the market.',
     urlDeploy: 'https://infoccell.netlify.app/'
   },
   leoLita: {
-    pt: 'Léo de Lita pt-br',
-    en: 'Léo de Lita en',
+    pt: 'O projeto Léo de Lita foi criado para promover a divulgação da loja de bolachas Léo de Lita, destacando seus produtos e ampliando sua visibilidade no mercado.',
+    en: 'The Léo de Lita project was created to promote the Léo de Lita biscuit store, highlighting its products and increasing its visibility in the market.',
     urlGit: '',
     urlDeploy: 'https://leodelita.netlify.app/'
   },
   calculadoraIMC: {
-    pt: 'Teste pt-br',
-    en: 'Teste en',
+    pt: 'O projeto Calculadora de IMC foi criado para calcular o Índice de Massa Corporal (IMC) e fornecer mensagens personalizadas, ajudando na conscientização sobre saúde e bem-estar.',
+    en: 'The BMI Calculator project was created to calculate the Body Mass Index (BMI) and provide personalized messages, helping to raise awareness about health and well-being.',
     urlGit: 'https://github.com/jefferson-da-silva-santos/calculadora-de-imc',
     urlDeploy: 'https://calculadora-imc-jefferson.netlify.app/'
   }  
@@ -403,7 +403,7 @@ function english() {
   // projetos
   document.querySelector('.titleProjetos').innerHTML = '&#8249; <span class="letraMonoton">P</span>rojects &#8260; &#8250;';
   const arrayCards = document.querySelectorAll('.card-item');
-  const titlesProjetctsArray = ['Jessica Spreadsheets', 'API - Movies', 'Login Form', 'Infoccell', 'Bolachas Léo de Lita', 'API - Weather Forecast'];
+  const titlesProjetctsArray = ['Online Menu', 'Jessica Spreadsheets', 'Sushi Shop', 'Infoccell', "Leo's Cookies by Lita", 'BMI Calculator'];
   arrayCards.forEach((element, index) => {
     element.querySelector('.title-project').innerHTML = titlesProjetctsArray[index];
   });
