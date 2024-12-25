@@ -55,6 +55,14 @@
     z-index: -1;
   }
 
+  .groupHeader-img img {
+    max-width: 25em;
+  }
+
+  .minha-img {
+    max-width: 20em;
+  }
+
   .select-menu-humburguer {
     display: flex;
   }
@@ -85,7 +93,7 @@
     text-align: center;
     align-items: center;
     justify-content: end;
-    padding: 1rem 1rem 2rem 1rem;
+    padding: 1rem 1rem 4rem 1rem;
   }
 
   /* Estilos do Sobre */
@@ -228,6 +236,13 @@
     width: 26em;
     height: 26em;
   }
+}
+
+@media screen and (max-width: 528px) {
+  .groupHeader-texts {
+    padding: 1rem 1rem 1rem 1rem;
+}
+
 }
 
 @media screen and (max-width: 545px) {
