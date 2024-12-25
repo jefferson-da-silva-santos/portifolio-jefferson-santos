@@ -77,23 +77,22 @@
 
   .header {
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
     padding-top: 0;
   }
 
   .groupHeader-texts {
     text-align: center;
     align-items: center;
-  }
-
-  .groupHeader-img {
-    display: none;
-  }
-
-  .groupHeader-img img {
-    display: none;
+    justify-content: end;
+    padding: 1rem 1rem 2rem 1rem;
   }
 
   /* Estilos do Sobre */
+
+  .groupSobre {
+    padding: 3em 0 0em 0;
+  }
 
   .sobre {
     grid-template-columns: 1fr;
@@ -108,7 +107,7 @@
     justify-content: center;
   }
   .groupSobre-secundary {
-    display: none;
+    padding: 4em 0 5em 0;
   }
 
   .groupSobre-primary p {
@@ -224,11 +223,11 @@
   }
   .groupContact-terciary img {
     width: 23em;
-}
-.circle-2 {
-  width: 26em;
-  height: 26em;
-}
+  }
+  .circle-2 {
+    width: 26em;
+    height: 26em;
+  }
 }
 
 @media screen and (max-width: 545px) {
