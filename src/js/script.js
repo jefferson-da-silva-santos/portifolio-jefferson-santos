@@ -645,7 +645,7 @@ function themeDark() {
   });
   document.querySelectorAll('.card-item').forEach(element => {
     element.style.backgroundColor = '#1d1d1d';
-    element.style.border = '1px solid #1a1a1a';
+    element.style.border = '1px solid #2e2e2e';
   });
   document.querySelectorAll('.title-project').forEach(element => {
     element.style.color = 'white';
