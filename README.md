@@ -30,8 +30,8 @@ Sou um programador fullstack que adora aprender, quebrar código e arrumar depoi
 ## 👀 Bora trocar ideia?
 
 Se você quiser bater um papo sobre código, tecnologia, ou só reclamar dos bugs da vida, me chama aí:
-- 👨‍🎓 **LinkedIn:** [Seu Perfil](https://www.linkedin.com/in/jefferson-santos-a87b74277/)
-- 🌐 **Portfólio:** [seusite.dev](https://jeffersondev.netlify.app/)
+- 👨‍🎓 **LinkedIn:** [Jefferson Dev](https://www.linkedin.com/in/jefferson-santos-a87b74277/)
+- 🌐 **Portfólio:** [jeffersondev](https://jeffersondev.netlify.app/)
 - 💬 **Twitter/X:** [@seutwitter](https://twitter.com/seutwitter)
 
 ---
