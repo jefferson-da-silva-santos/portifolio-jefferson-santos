@@ -85,7 +85,25 @@ const descriptionsProjects = {
     en: 'The BMI Calculator project was created to calculate the Body Mass Index (BMI) and provide personalized messages, helping to raise awareness about health and well-being.',
     urlGit: 'https://github.com/jefferson-da-silva-santos/calculadora-de-imc',
     urlDeploy: 'https://calculadora-imc-jefferson.netlify.app/'
-  }  
+  },
+  paginaVendasJessica: {
+    pt: 'O projeto Página de Vendas de Planilhas foi criado para promover a divulgação de planilhas de controle de vendas, destacando seus benefícios e vantagens, de forma clara e objetiva, ajudando a aumentar as vendas e a satisfa o do cliente.',
+    en: 'The Spreadsheet Sales Page project was created to promote the dissemination of sales control spreadsheets, highlighting their benefits and advantages, in a clear and objective way, helping to increase sales and customer satisfaction.',
+    urlGit: 'https://github.com/jefferson-da-silva-santos/',
+    urlDeploy: 'https://planilhas-financeiras.netlify.app/'
+  },
+  promocao3D: {
+    pt: 'O projeto visa apresentar a Promoção 3D, uma política pública que promove a conscientização e incentivo à doação de sangue, órgãos/tecidos e leite materno, destacando mitos, tabus e esclarecimentos essenciais. ',
+    en: 'The project aims to present 3D Promotion, a public policy that promotes awareness and encourages the donation of blood, organs/tissues and breast milk, highlighting myths, taboos and essential clarifications.',
+    urlGit: 'https://github.com/jefferson-da-silva-santos/',
+    urlDeploy: 'https://www.promocao3d.com.br/'
+  },
+  paginaPlanner: {
+    pt: 'O projeto Página de Vendas do Planner foi criado para promover a divulgação de um planner, destacando seus benefícios e vantagens, de forma clara e objetiva, ajudando a aumentar as vendas e a satisfa o do cliente.',
+    en: 'The Planner Sales Page project was created to promote the promotion of a planner, highlighting its benefits and advantages in a clear and objective way, helping to increase sales and customer satisfaction.',
+    urlGit: 'https://github.com/jefferson-da-silva-santos/',
+    urlDeploy: 'https://pagina-planner.netlify.app'
+  },
 };
 
 let isMenuVisible = false;
@@ -354,7 +372,7 @@ function portuguese() {
   // projetos
   document.querySelector('.titleProjetos').innerHTML = '&#8249; <span class="letraMonoton">P</span>rojetos &#8260; &#8250;';
   const arrayCards = document.querySelectorAll('.card-item');
-  const titlesProjetctsArray = ['Cardápio Online', 'Jéssica Planilhas', 'Loja de Sushi', 'Lan House Infoccell', 'Bolachas Léo de Lita', 'Calculadora de IMC'];
+  const titlesProjetctsArray = ['Cardápio Online', 'Jéssica Planilhas', 'Loja de Sushi', 'Lan House Infoccell', 'Bolachas Léo de Lita', 'Calculadora de IMC', 'Página de Planilhas', 'Promoção 3D', 'Página Planner'];
   arrayCards.forEach((element, index) => {
     element.querySelector('.title-project').innerHTML = titlesProjetctsArray[index];
   });
@@ -403,7 +421,7 @@ function english() {
   // projetos
   document.querySelector('.titleProjetos').innerHTML = '&#8249; <span class="letraMonoton">P</span>rojects &#8260; &#8250;';
   const arrayCards = document.querySelectorAll('.card-item');
-  const titlesProjetctsArray = ['Online Menu', 'Jessica Spreadsheets', 'Sushi Shop', 'Infoccell', "Leo's Cookies by Lita", 'BMI Calculator'];
+  const titlesProjetctsArray = ['Online Menu', 'Jessica Spreadsheets', 'Sushi Shop', 'Infoccell', "Leo's Cookies by Lita", 'BMI Calculator', 'Spreadsheets Page', '3D Promotion', 'Planner Page'];
   arrayCards.forEach((element, index) => {
     element.querySelector('.title-project').innerHTML = titlesProjetctsArray[index];
   });

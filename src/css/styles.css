@@ -775,6 +775,17 @@ strong {
   background-image: url('../img/projeto-calculadora-de-imc.webp');
 }
 
+.groupProjetos-secundary :nth-child(7) .group-image-project  {
+  background-image: url('../img/pagina-de-vendas.png');
+}
+
+.groupProjetos-secundary :nth-child(8) .group-image-project  {
+  background-image: url('../img/promocao3d.png');
+}
+
+.groupProjetos-secundary :nth-child(9) .group-image-project  {
+  background-image: url('../img/planner.png');
+}
 
 /* Estilos do Serviço */
 
