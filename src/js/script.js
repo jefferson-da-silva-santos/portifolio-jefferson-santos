@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const arrayMenus = document.querySelectorAll('.itemsMenu-header');
   const userLanguage = localStorage.getItem('language') || navigator.language;
 
-  const observations = ['left', 'right', 'bottom', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 's1', 's2', 's3'];
+  const observations = ['left', 'right', 'bottom', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 's1', 's2', 's3'];
   observations.forEach(obs => {
     createObservation(`.hidden-scroll-${obs}`, `show-scroll-${obs}`);
   });

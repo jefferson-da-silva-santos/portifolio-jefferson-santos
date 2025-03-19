@@ -81,13 +81,28 @@
   transform: translateY(80%);
   filter: blur(5px);
 }
+.hidden-scroll-p7 {
+  transform: translateY(80%);
+  filter: blur(5px);
+}
+.hidden-scroll-p8 {
+  transform: translateY(80%);
+  filter: blur(5px);
+}
+.hidden-scroll-p9 {
+  transform: translateY(80%);
+  filter: blur(5px);
+}
 
 .show-scroll-p1,
 .show-scroll-p2,
 .show-scroll-p3,
 .show-scroll-p4,
 .show-scroll-p5,
-.show-scroll-p6 {
+.show-scroll-p6,
+.show-scroll-p7,
+.show-scroll-p8,
+.show-scroll-p9 {
   transform: translateY(0);
   filter: blur(0);
 }
@@ -113,6 +128,16 @@
 }
 
 .hidden-scroll-p6 {
+  transition: all 1.5s ease;
+}
+
+.hidden-scroll-p7 {
+  transition: all .5s ease;
+}
+.hidden-scroll-p8 {
+  transition: all 1s ease;
+}
+.hidden-scroll-p9 {
   transition: all 1.5s ease;
 }
 
